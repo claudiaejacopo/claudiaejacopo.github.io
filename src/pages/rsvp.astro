@@ -8,100 +8,83 @@ import Layout from '../layouts/Layout.astro';
 			<h2>RSVP</h2>
 			<p>Conferma la tua presenza e i dettagli del gruppo.</p>
 
-			<div class="search-card">
-				<h3>Cerca il tuo nome e cognome</h3>
-				<form id="guest-search-form">
-					<label>
-						Nome e cognome
-						<input id="guest-search-input" type="text" placeholder="Es. Claudia Rossi" autocomplete="off" />
-					</label>
-					<button type="submit">Cerca</button>
-				</form>
-				<p id="search-status" class="status-message"></p>
+			<div data-fs-success class="success-message">
+				<p>✓ Grazie! La tua risposta è stata registrata.</p>
+				<div class="success-actions">
+					<a href="/" class="btn btn-primary">Torna alla homepage</a>
+					<button type="button" class="btn btn-secondary" id="fill-another-btn">Compila il form per qualcun'altro</button>
+				</div>
 			</div>
+			<div data-fs-error class="error-message"></div>
 
-			<div id="rsvp-form-wrapper" class="hidden">
-				<form id="rsvp-form" action="https://api.web3forms.com/submit" method="POST">
-					<input type="hidden" name="access_key" value="83a19377-c81f-4e87-bce2-25b083d2c10d" />
-					<input type="hidden" name="email" value="no-reply@claudiaejacopo.github.io" />
-					<input type="hidden" name="subject" value="RSVP Claudia & Jacopo" />
-					<input type="hidden" name="from_name" value="RSVP Claudia & Jacopo" />
-					<input type="hidden" name="Fullname" id="guest-fullname" value="" />
+			<form id="rsvp-form">
+				<label>
+					Nome e cognome
+					<input type="text" name="fullname" placeholder="Il tuo nome e cognome" required data-fs-field />
+					<span data-fs-error="fullname"></span>
+				</label>
 
-					<div class="field-group">
-						<label>Compilazione RSVP</label>
-						<div class="radio-row">
-							<label><input type="radio" name="partecipazione" value="Partecipo" required /> Partecipo</label>
-							<label><input type="radio" name="partecipazione" value="Non partecipo" required /> Non partecipo</label>
-						</div>
+				<div class="field-group">
+					<label>Partecipazione</label>
+					<div class="radio-row">
+						<label><input type="radio" name="partecipazione" value="Partecipo" required data-fs-field /> Partecipo</label>
+						<label><input type="radio" name="partecipazione" value="Non partecipo" required data-fs-field /> Non partecipo</label>
 					</div>
+					<span data-fs-error="partecipazione"></span>
+				</div>
 
-					<label>
-						Preferenza alimentare
-						<select name="preferenza">
-							<option value="Nessuna preferenza">Nessuna preferenza</option>
-							<option value="Vegano">Vegano</option>
-							<option value="Vegetariano">Vegetariano</option>
-							<option value="Allergie/intolleranze">Allergie/intolleranze</option>
-						</select>
-					</label>
+				<label>
+					Preferenza alimentare
+					<select name="preferenza" required data-fs-field>
+						<option value="">Seleziona una preferenza</option>
+						<option value="Nessuna preferenza">Nessuna preferenza</option>
+						<option value="Vegano">Vegano</option>
+						<option value="Vegetariano">Vegetariano</option>
+						<option value="Allergie/intolleranze">Allergie/intolleranze</option>
+					</select>
+					<span data-fs-error="preferenza"></span>
+				</label>
 
-					<label>
-						Note (allergie / intolleranze)
-						<textarea name="note" placeholder="Specifica eventuali allergie o intolleranze"></textarea>
-					</label>
+				<label>
+					Note (allergie / intolleranze)
+					<textarea name="note" placeholder="Specifica eventuali allergie o intolleranze (facoltativo)" data-fs-field></textarea>
+					<span data-fs-error="note"></span>
+				</label>
 
-					<button type="submit">Invia RSVP</button>
-				</form>
-			</div>
+				<button type="submit" data-fs-submit-btn>Invia RSVP</button>
+			</form>
 		</div>
 	</section>
 
-	<script type="module">
-		const searchForm = document.querySelector('#guest-search-form');
-		const searchStatus = document.querySelector('#search-status');
-		const rsvpWrapper = document.querySelector('#rsvp-form-wrapper');
-		const guestFullnameField = document.querySelector('#guest-fullname');
-		const guestSearchInput = document.querySelector('#guest-search-input');
+	<script>
+		// @ts-ignore
+		window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+		// @ts-ignore
+		formspree('initForm', { formElement: '#rsvp-form', formId: 'xlgyelpd' });
 
-		searchForm.addEventListener('submit', async (event) => {
-			event.preventDefault();
-			const query = guestSearchInput.value.trim();
-			if (!query) {
-				searchStatus.textContent = 'Inserisci nome e cognome per la ricerca.';
-				rsvpWrapper.classList.add('hidden');
-				return;
-			}
+		// Handle success - scroll to top
+		const form = document.querySelector('#rsvp-form');
+		const successMessage = document.querySelector('[data-fs-success]');
+		const fillAnotherBtn = document.querySelector('#fill-another-btn');
 
-			searchStatus.textContent = 'Ricerca in corso...';
+		// Listen for form submission success
+		form.addEventListener('submit', () => {
+			// Scroll to top after a short delay to let Formspree process
+			setTimeout(() => {
+				window.scrollTo(0, 0);
+			}, 500);
+		});
 
-			try {
-				const response = await fetch('/rsvp-list.json', { cache: 'no-store' });
-				const attendees = await response.json();
-				const guest = attendees.find((item) => item.Fullname.toLowerCase() === query.toLowerCase());
-
-				if (!guest) {
-					searchStatus.textContent = 'Nome non trovato. Controlla la scrittura e riprova.';
-					rsvpWrapper.classList.add('hidden');
-					return;
-				}
-
-				if (guest.submitted) {
-					searchStatus.textContent = `Il form per "${guest.Fullname}" è già stato compilato.`;
-					rsvpWrapper.classList.add('hidden');
-					return;
-				}
-
-				searchStatus.textContent = `Trovato: ${guest.Fullname}. Compila il form qui sotto.`;
-				guestFullnameField.value = guest.Fullname;
-				rsvpWrapper.classList.remove('hidden');
-				guestSearchInput.blur();
-			} catch (error) {
-				searchStatus.textContent = 'Errore durante il caricamento della lista RSVP. Riprova più tardi.';
-				console.error(error);
-			}
+		// Reset form when clicking "fill another"
+		fillAnotherBtn?.addEventListener('click', () => {
+			form.reset();
+			successMessage?.classList.remove('visible');
+			form.style.display = 'grid';
+			// Scroll to form
+			form.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		});
 	</script>
+	<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 <style>
 	.rsvp-section {
@@ -115,21 +98,18 @@ import Layout from '../layouts/Layout.astro';
 		margin: 0 auto;
 	}
 
-	.search-card,
-	#rsvp-form-wrapper {
+	form {
 		background: #f9f9f9;
 		padding: 1.5rem;
 		border-radius: 20px;
 		box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
-	}
-
-	.hidden {
-		display: none;
-	}
-
-	form {
 		display: grid;
-		gap: 1rem;
+		gap: 1.5rem;
+	}
+
+	.field-group {
+		display: grid;
+		gap: 0.75rem;
 	}
 
 	label {
@@ -143,13 +123,22 @@ import Layout from '../layouts/Layout.astro';
 	textarea {
 		width: 100%;
 		padding: 1rem;
-		border-radius: 14px;
-		border: 1px solid #ccc;
+		border-radius: 12px;
+		border: 1px solid #ddd;
 		font: inherit;
+		font-size: 1rem;
+	}
+
+	input[type="text"]:focus,
+	select:focus,
+	textarea:focus {
+		outline: none;
+		border-color: #000;
+		box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 	}
 
 	textarea {
-		min-height: 120px;
+		min-height: 100px;
 		resize: vertical;
 	}
 
@@ -161,6 +150,17 @@ import Layout from '../layouts/Layout.astro';
 		color: #fff;
 		font-weight: 700;
 		cursor: pointer;
+		font-size: 1rem;
+		transition: background 0.3s;
+	}
+
+	button:hover:not(:disabled) {
+		background: #333;
+	}
+
+	button:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
 	}
 
 	.radio-row {
@@ -168,9 +168,113 @@ import Layout from '../layouts/Layout.astro';
 		gap: 0.75rem;
 	}
 
-	.status-message {
-		margin: 0;
-		color: #333;
-		font-size: 0.95rem;
+	.radio-row label {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 400;
+	}
+
+	.radio-row input[type="radio"] {
+		width: auto;
+	}
+
+	.success-message {
+		display: none;
+		background: #e8f5e9;
+		border: 1px solid #4caf50;
+		color: #2e7d32;
+		padding: 1.5rem;
+		border-radius: 12px;
+		text-align: center;
+	}
+
+	.success-message.visible {
+		display: block;
+	}
+
+	.success-message p {
+		margin: 0 0 1rem 0;
+		font-weight: 600;
+		font-size: 1.1rem;
+	}
+
+	.success-actions {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.btn {
+		padding: 1rem 1.2rem;
+		border: none;
+		border-radius: 999px;
+		font-weight: 700;
+		cursor: pointer;
+		font-size: 1rem;
+		text-decoration: none;
+		display: inline-block;
+		text-align: center;
+		transition: all 0.3s;
+	}
+
+	.btn-primary {
+		background: #4caf50;
+		color: #fff;
+	}
+
+	.btn-primary:hover {
+		background: #388e3c;
+	}
+
+	.btn-secondary {
+		background: #fff;
+		color: #2e7d32;
+		border: 2px solid #2e7d32;
+	}
+
+	.btn-secondary:hover {
+		background: #f5f5f5;
+	}
+
+	.error-message {
+		display: none;
+		background: #ffebee;
+		border: 1px solid #f44336;
+		color: #c62828;
+		padding: 1rem;
+		border-radius: 12px;
+		text-align: center;
+	}
+
+	.error-message.visible {
+		display: block;
+	}
+
+	[data-fs-error] {
+		display: none;
+		color: #f44336;
+		font-size: 0.85rem;
+		margin-top: 0.25rem;
+	}
+
+	[data-fs-error]:not(:empty) {
+		display: block;
+	}
+
+	h2 {
+		margin: 0 0 0.5rem 0;
+		font-size: 2rem;
+	}
+
+	p {
+		margin: 0 0 1rem 0;
+		color: #666;
+	}
+
+	@media (max-width: 640px) {
+		.success-actions {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>
