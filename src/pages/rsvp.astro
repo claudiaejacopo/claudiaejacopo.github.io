@@ -4,40 +4,173 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
 	<section id="rsvp" class="section rsvp-section">
-	<div class="section-content">
-		<h2>RSVP</h2>
-		<p>Conferma la tua presenza e i dettagli del gruppo.</p>
-		<form>
-			<label>
-				Nome
-				<input type="text" name="name" placeholder="Il tuo nome" />
-			</label>
-			<label>
-				Quante persone
-				<input type="number" name="guests" min="1" />
-			</label>
-			<button type="submit">Invia</button>
-		</form>
-	</div>
-</section>
+		<div class="section-content">
+			<h2>RSVP</h2>
+			<p>Conferma la tua presenza e i dettagli del gruppo.</p>
+
+			<div class="search-card">
+				<h3>Cerca il tuo nome e cognome</h3>
+				<form id="guest-search-form">
+					<label>
+						Nome e cognome
+						<input id="guest-search-input" type="text" placeholder="Es. Claudia Rossi" autocomplete="off" />
+					</label>
+					<button type="submit">Cerca</button>
+				</form>
+				<p id="search-status" class="status-message"></p>
+			</div>
+
+			<div id="rsvp-form-wrapper" class="hidden">
+				<form id="rsvp-form" action="https://api.web3forms.com/submit" method="POST">
+					<input type="hidden" name="access_key" value="83a19377-c81f-4e87-bce2-25b083d2c10d" />
+					<input type="hidden" name="email" value="no-reply@claudiaejacopo.github.io" />
+					<input type="hidden" name="subject" value="RSVP Claudia & Jacopo" />
+					<input type="hidden" name="from_name" value="RSVP Claudia & Jacopo" />
+					<input type="hidden" name="Fullname" id="guest-fullname" value="" />
+
+					<div class="field-group">
+						<label>Compilazione RSVP</label>
+						<div class="radio-row">
+							<label><input type="radio" name="partecipazione" value="Partecipo" required /> Partecipo</label>
+							<label><input type="radio" name="partecipazione" value="Non partecipo" required /> Non partecipo</label>
+						</div>
+					</div>
+
+					<label>
+						Preferenza alimentare
+						<select name="preferenza">
+							<option value="Nessuna preferenza">Nessuna preferenza</option>
+							<option value="Vegano">Vegano</option>
+							<option value="Vegetariano">Vegetariano</option>
+							<option value="Allergie/intolleranze">Allergie/intolleranze</option>
+						</select>
+					</label>
+
+					<label>
+						Note (allergie / intolleranze)
+						<textarea name="note" placeholder="Specifica eventuali allergie o intolleranze"></textarea>
+					</label>
+
+					<button type="submit">Invia RSVP</button>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<script type="module">
+		const searchForm = document.querySelector('#guest-search-form');
+		const searchStatus = document.querySelector('#search-status');
+		const rsvpWrapper = document.querySelector('#rsvp-form-wrapper');
+		const guestFullnameField = document.querySelector('#guest-fullname');
+		const guestSearchInput = document.querySelector('#guest-search-input');
+
+		searchForm.addEventListener('submit', async (event) => {
+			event.preventDefault();
+			const query = guestSearchInput.value.trim();
+			if (!query) {
+				searchStatus.textContent = 'Inserisci nome e cognome per la ricerca.';
+				rsvpWrapper.classList.add('hidden');
+				return;
+			}
+
+			searchStatus.textContent = 'Ricerca in corso...';
+
+			try {
+				const response = await fetch('/rsvp-list.json', { cache: 'no-store' });
+				const attendees = await response.json();
+				const guest = attendees.find((item) => item.Fullname.toLowerCase() === query.toLowerCase());
+
+				if (!guest) {
+					searchStatus.textContent = 'Nome non trovato. Controlla la scrittura e riprova.';
+					rsvpWrapper.classList.add('hidden');
+					return;
+				}
+
+				if (guest.submitted) {
+					searchStatus.textContent = `Il form per "${guest.Fullname}" è già stato compilato.`;
+					rsvpWrapper.classList.add('hidden');
+					return;
+				}
+
+				searchStatus.textContent = `Trovato: ${guest.Fullname}. Compila il form qui sotto.`;
+				guestFullnameField.value = guest.Fullname;
+				rsvpWrapper.classList.remove('hidden');
+				guestSearchInput.blur();
+			} catch (error) {
+				searchStatus.textContent = 'Errore durante il caricamento della lista RSVP. Riprova più tardi.';
+				console.error(error);
+			}
+		});
+	</script>
 
 <style>
-	.rsvp-section form {
+	.rsvp-section {
+		padding: 2rem 1rem;
+	}
+
+	.section-content {
 		display: grid;
-		gap: 12px;
+		gap: 1.5rem;
+		max-width: 640px;
+		margin: 0 auto;
 	}
 
-	.rsvp-section input {
+	.search-card,
+	#rsvp-form-wrapper {
+		background: #f9f9f9;
+		padding: 1.5rem;
+		border-radius: 20px;
+		box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	form {
+		display: grid;
+		gap: 1rem;
+	}
+
+	label {
+		display: grid;
+		gap: 0.5rem;
+		font-weight: 500;
+	}
+
+	input[type="text"],
+	select,
+	textarea {
 		width: 100%;
-		padding: 0.85rem;
-		border: 1px solid;
-		border-radius: 12px;
+		padding: 1rem;
+		border-radius: 14px;
+		border: 1px solid #ccc;
+		font: inherit;
 	}
 
-	.rsvp-section button {
-		padding: 0.95rem 1.25rem;
+	textarea {
+		min-height: 120px;
+		resize: vertical;
+	}
+
+	button {
+		padding: 1rem 1.2rem;
 		border: none;
 		border-radius: 999px;
+		background: #000;
+		color: #fff;
+		font-weight: 700;
 		cursor: pointer;
+	}
+
+	.radio-row {
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.status-message {
+		margin: 0;
+		color: #333;
+		font-size: 0.95rem;
 	}
 </style>
