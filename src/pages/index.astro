@@ -1,14 +1,113 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import CoverSection from '../components/CoverSection.astro';
+import HeaderMobile from '../components/HeaderMobile.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ProgrammaSection from '../components/ProgrammaSection.astro';
+import ComeArrivareSection from '../components/ComeArrivareSection.astro';
+import RSVPSection from '../components/RSVPSection.astro';
+import FooterContacts from '../components/FooterContacts.astro';
 ---
 
 <Layout>
-	<div>
-		<h1>Homepage del matrimonio cherico</h1>
-		<a href="/pagina-1">Vai alla pagina 1</a>
+	<CoverSection />
+
+	<div id="home-content" class="home-content">
+		<HeaderMobile />
+
+		<main id="main-home" class="main-home">
+			<HeroSection />
+			<ProgrammaSection />
+			<ComeArrivareSection />
+			<RSVPSection />
+			<FooterContacts />
+		</main>
 	</div>
+
+	<audio id="background-audio" preload="none" src="/audio/intro-music.mp3" loop aria-hidden="true"></audio>
+
+	<script type="module">
+		const coverEnterButton = document.getElementById('cover-enter');
+		const coverSection = document.getElementById('cover-section');
+		const homeContent = document.getElementById('home-content');
+		const menuButton = document.getElementById('menu-button');
+		const anchorNav = document.getElementById('anchor-nav');
+		const audio = document.getElementById('background-audio');
+		const musicToggle = document.getElementById('music-toggle');
+
+		let hasEntered = false;
+		let isMenuOpen = false;
+		let isMusicPlaying = false;
+
+		function showHome() {
+			hasEntered = true;
+			coverSection?.classList.add('cover-hidden');
+			homeContent?.classList.add('home-visible');
+			setMusic(true);
+		}
+
+		function setMenu(open) {
+			isMenuOpen = open;
+			if (anchorNav) {
+				anchorNav.hidden = !open;
+			}
+			if (menuButton) {
+				menuButton.setAttribute('aria-expanded', String(open));
+			}
+		}
+
+		async function setMusic(play) {
+			if (!audio) return;
+			isMusicPlaying = play;
+			if (play) {
+				try {
+					await audio.play();
+				} catch (error) {
+					console.warn('Audio non riprodotto automaticamente', error);
+				}
+			} else {
+				audio.pause();
+			}
+			if (musicToggle) {
+				musicToggle.setAttribute('aria-pressed', String(play));
+				musicToggle.textContent = play ? 'Musica On' : 'Musica Off';
+			}
+		}
+
+		coverEnterButton?.addEventListener('click', () => {
+			if (!hasEntered) {
+				showHome();
+			}
+		});
+
+		menuButton?.addEventListener('click', () => setMenu(!isMenuOpen));
+		musicToggle?.addEventListener('click', () => setMusic(!isMusicPlaying));
+	</script>
+
+	<style>
+		.home-content {
+			display: none;
+		}
+
+		.home-visible {
+			display: block;
+		}
+
+		.cover-hidden {
+			display: none;
+		}
+
+		.main-home {
+			display: flex;
+			flex-direction: column;
+			gap: 32px;
+			padding: 16px;
+		}
+
+		@media (min-width: 640px) {
+			.main-home {
+				padding: 24px;
+			}
+		}
+	</style>
 </Layout>

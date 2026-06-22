@@ -1,0 +1,65 @@
+---
+import MusicToggle from './MusicToggle.astro';
+---
+
+<header class="header-mobile">
+	<div class="header-bar">
+		<div class="brand">Claudia & Jacopo</div>
+		<button id="menu-button" type="button" aria-expanded="false" aria-controls="anchor-nav" class="menu-button">
+			<span>Menu</span>
+		</button>
+	</div>
+
+	<nav id="anchor-nav" class="anchor-nav" hidden>
+		<ul>
+			<li><a href="#hero">Hero</a></li>
+			<li><a href="#programma">Programma</a></li>
+			<li><a href="#come-arrivare">Come arrivare</a></li>
+			<li><a href="#rsvp">RSVP</a></li>
+			<li><a href="/regalo">Regalo / Lista nozze</a></li>
+		</ul>
+	</nav>
+
+	<MusicToggle />
+</header>
+
+<style>
+	.header-mobile {
+		padding: 16px;
+		background: transparent;
+	}
+
+	.header-bar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.brand {
+		font-weight: 700;
+	}
+
+	.menu-button {
+		border: 1px solid;
+		background: none;
+		padding: 0.75rem 1rem;
+		border-radius: 999px;
+		cursor: pointer;
+	}
+
+	.anchor-nav {
+		margin-top: 1rem;
+	}
+
+	.anchor-nav ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.anchor-nav a {
+		text-decoration: none;
+	}
+</style>
