@@ -2,59 +2,138 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
-	<section id="rsvp" class="section rsvp-section">
-		<div class="section-content">
-			<h2>RSVP</h2>
-			<p>Conferma la tua presenza e i dettagli del gruppo.</p>
+<Layout title="RSVP - Edoardo & Alice | 25 Giugno 2025">
+	<section id="rsvp" class="min-h-screen py-section-gap-mobile md:py-section-gap-desktop px-margin-mobile md:px-margin-desktop flex flex-col justify-center">
+		<div class="max-w-2xl w-full mx-auto">
+			<div class="text-center mb-stack-lg">
+				<div class="flex items-center justify-center gap-stack-md mb-stack-md">
+					<span class="material-symbols-outlined text-primary text-5xl">favorite</span>
+					<h1 class="font-headline-md text-headline-md text-primary">Claudia & Alice</h1>
+				</div>
+				<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-sm">Conferma la Presenza</h2>
+				<p class="font-headline-sm text-headline-sm text-on-surface-variant italic">Sarai dei nostri?</p>
+			</div>
 
-			<div data-fs-success class="success-message">
-				<p>✓ Grazie! La tua risposta è stata registrata.</p>
-				<div class="success-actions">
-					<a href="/" class="btn btn-primary">Torna alla homepage</a>
-					<button type="button" class="btn btn-secondary" id="fill-another-btn">Compila il form per qualcun'altro</button>
+			<div data-fs-success class="hidden bg-surface-container-low border border-outline-variant/20 rounded-lg p-stack-lg mb-stack-lg text-center">
+				<p class="font-headline-sm text-headline-sm text-primary mb-stack-md">✓ Grazie! La tua risposta è stata registrata.</p>
+				<div class="flex flex-col sm:flex-row gap-stack-md justify-center">
+					<a href="/" class="btn-primary">Torna alla homepage</a>
+					<button type="button" class="btn-secondary" id="fill-another-btn">Compila per qualcun'altro</button>
 				</div>
 			</div>
-			<div data-fs-error class="error-message"></div>
+			<div data-fs-error class="hidden bg-error-container border border-error rounded-lg p-stack-md mb-stack-lg text-on-error-container"></div>
 
-			<form id="rsvp-form">
-				<label>
-					Nome e cognome
-					<input type="text" name="fullname" placeholder="Il tuo nome e cognome" required data-fs-field />
-					<span data-fs-error="fullname"></span>
-				</label>
-
-				<div class="field-group">
-					<label>Partecipazione</label>
-					<div class="radio-row">
-						<label><input type="radio" name="partecipazione" value="Partecipo" required data-fs-field /> Partecipo</label>
-						<label><input type="radio" name="partecipazione" value="Non partecipo" required data-fs-field /> Non partecipo</label>
-					</div>
-					<span data-fs-error="partecipazione"></span>
+			<form id="rsvp-form" class="grid gap-stack-md">
+				<div>
+					<label for="fullname" class="block font-label-caps text-label-caps text-on-surface mb-stack-sm">Nome e Cognome</label>
+					<input 
+						type="text" 
+						id="fullname"
+						name="fullname" 
+						placeholder="Es. Mario Rossi" 
+						required 
+						data-fs-field 
+						class="input-field w-full"
+					/>
+					<span data-fs-error="fullname" class="text-error text-sm mt-stack-sm block"></span>
 				</div>
 
-				<label>
-					Preferenza alimentare
-					<select name="preferenza" required data-fs-field>
+				<div>
+					<label class="block font-label-caps text-label-caps text-on-surface mb-stack-md">La tua risposta</label>
+					<div class="flex flex-col sm:flex-row gap-stack-md">
+						<label class="flex items-center cursor-pointer">
+							<input 
+								type="radio" 
+								name="partecipazione" 
+								value="Partecipo" 
+								required 
+								data-fs-field 
+								class="w-5 h-5 text-primary cursor-pointer"
+							/>
+							<span class="ml-stack-md font-body-md text-body-md text-on-surface">Ci sarò</span>
+						</label>
+						<label class="flex items-center cursor-pointer">
+							<input 
+								type="radio" 
+								name="partecipazione" 
+								value="Non partecipo" 
+								required 
+								data-fs-field 
+								class="w-5 h-5 text-primary cursor-pointer"
+							/>
+							<span class="ml-stack-md font-body-md text-body-md text-on-surface">Purtroppo no</span>
+						</label>
+					</div>
+					<span data-fs-error="partecipazione" class="text-error text-sm mt-stack-sm block"></span>
+				</div>
+
+				<div>
+					<label for="preferenza" class="block font-label-caps text-label-caps text-on-surface mb-stack-sm">Preferenza Alimentare</label>
+					<select 
+						id="preferenza"
+						name="preferenza" 
+						required 
+						data-fs-field
+						class="input-field w-full"
+					>
 						<option value="">Seleziona una preferenza</option>
 						<option value="Nessuna preferenza">Nessuna preferenza</option>
 						<option value="Vegano">Vegano</option>
 						<option value="Vegetariano">Vegetariano</option>
 						<option value="Allergie/intolleranze">Allergie/intolleranze</option>
 					</select>
-					<span data-fs-error="preferenza"></span>
-				</label>
+					<span data-fs-error="preferenza" class="text-error text-sm mt-stack-sm block"></span>
+				</div>
 
-				<label>
-					Note (allergie / intolleranze)
-					<textarea name="note" placeholder="Specifica eventuali allergie o intolleranze (facoltativo)" data-fs-field></textarea>
-					<span data-fs-error="note"></span>
-				</label>
+				<div>
+					<label for="note" class="block font-label-caps text-label-caps text-on-surface mb-stack-sm">Intolleranze Alimentari o Note Speciali</label>
+					<textarea 
+						id="note"
+						name="note" 
+						placeholder="Raccontaci se hai esigenze particolari o canzoni che vorresti sentire..."
+						rows="4"
+						data-fs-field
+						class="input-field w-full resize-none"
+					></textarea>
+					<span data-fs-error="note" class="text-error text-sm mt-stack-sm block"></span>
+				</div>
 
-				<button type="submit" data-fs-submit-btn>Invia RSVP</button>
+				<button 
+					type="submit" 
+					data-fs-submit-btn
+					class="btn-primary w-full sm:w-auto mx-auto sm:mx-0 mt-stack-md"
+				>
+					Invia RSVP
+				</button>
 			</form>
 		</div>
 	</section>
+
+	<script>
+		// @ts-ignore
+		window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+		// @ts-ignore
+		formspree('initForm', { formElement: '#rsvp-form', formId: 'xlgyelpd' });
+
+		const form = document.querySelector('#rsvp-form');
+		const successMessage = document.querySelector('[data-fs-success]');
+		const fillAnotherBtn = document.querySelector('#fill-another-btn');
+
+		form.addEventListener('submit', () => {
+			setTimeout(() => {
+				window.scrollTo(0, 0);
+			}, 500);
+		});
+
+		fillAnotherBtn?.addEventListener('click', () => {
+			form.reset();
+			successMessage?.classList.add('hidden');
+			form.style.display = 'grid';
+			form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		});
+	</script>
+	<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</Layout>
 
 	<script>
 		// @ts-ignore

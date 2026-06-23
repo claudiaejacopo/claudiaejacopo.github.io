@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	@apply bg-surface text-on-surface;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.material-symbols-outlined {
+	font-family: 'Material Symbols Outlined';
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 1.5rem;
+	line-height: 1;
+}
+
+.fade-in {
+	animation: fadeIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.form-card {
+	@apply bg-surface-container-low shadow-sm border border-outline-variant/20 rounded-lg;
+}
+
+.btn-primary {
+	@apply inline-block bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded-lg hover:bg-primary-container active:bg-primary-container transition-colors duration-200 cursor-pointer;
+}
+
+.btn-secondary {
+	@apply inline-block bg-surface-container-high text-on-surface font-label-caps text-label-caps px-6 py-3 rounded-lg border border-outline hover:bg-surface-container active:bg-surface-container transition-colors duration-200 cursor-pointer;
+}
+
+.input-field {
+	@apply border border-outline-variant bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant rounded-lg px-4 py-2 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors;
+}
+
+::selection {
+	@apply bg-primary-container text-on-primary-container;
+}
+
+/* Form styling */
+input[type="checkbox"],
+input[type="radio"] {
+	@apply w-5 h-5 cursor-pointer accent-primary;
+}
+
+label input[type="checkbox"],
+label input[type="radio"] {
+	@apply mr-stack-sm;
+}

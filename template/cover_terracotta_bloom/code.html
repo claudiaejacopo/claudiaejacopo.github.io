@@ -1,0 +1,244 @@
+<!DOCTYPE html><html class="light" lang="it"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Libre+Caslon+Text:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@300;400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#c05a3e", // Terracotta
+                    "on-primary": "#ffffff",
+                    "primary-container": "#ffdbd0",
+                    "on-primary-container": "#3b0900",
+                    "secondary": "#775a00", // Antique Gold
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#ffdf96",
+                    "on-secondary-container": "#251a00",
+                    "tertiary": "#6b5d2e",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fcf9f2", // Warm Sand
+                    "on-surface": "#1f1b16",
+                    "surface-variant": "#f4e0d9",
+                    "on-surface-variant": "#53433f",
+                    "outline": "#85736e",
+                    "outline-variant": "#d8c2bb",
+                    "surface-container": "#f6f3ec",
+                    "surface-container-low": "#f6f3ec",
+                    "surface-container-high": "#ebe8e1",
+                    "surface-container-highest": "#e5e2db",
+                    "background": "#fcf9f2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "stack-sm": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "stack-lg": "32px",
+                    "section-gap-mobile": "64px",
+                    "stack-md": "16px",
+                    "section-gap-desktop": "120px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Plus Jakarta Sans"],
+                    "body-lg": ["Libre Caslon Text"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-md": ["Libre Caslon Text"],
+                    "display-lg-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .paper-texture {
+            background-color: #fcf9f2;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+
+        .double-border {
+            position: relative;
+            padding: 20px;
+        }
+        .double-border::before {
+            content: "";
+            position: absolute;
+            inset: 12px;
+            border: 1px solid #775a00; /* Antique Gold */
+            pointer-events: none;
+        }
+        .double-border::after {
+            content: "";
+            position: absolute;
+            inset: 16px;
+            border: 0.5px solid #775a00; /* Antique Gold */
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .reveal-text {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        @keyframes reveal {
+            0% { width: 0; opacity: 0; }
+            100% { width: 100%; opacity: 1; }
+        }
+
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Full Screen Cover -->
+<main class="relative h-screen w-full flex items-center justify-center overflow-hidden paper-texture">
+<!-- Decorative Corners -->
+<div class="absolute top-8 left-8 md:top-12 md:left-12 opacity-40">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'wght' 100;">filter_vintage</span>
+</div>
+<div class="absolute top-8 right-8 md:top-12 md:right-12 opacity-40 rotate-90">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'wght' 100;">filter_vintage</span>
+</div>
+<div class="absolute bottom-8 left-8 md:bottom-12 md:left-12 opacity-40 -rotate-90">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'wght' 100;">filter_vintage</span>
+</div>
+<div class="absolute bottom-8 right-8 md:bottom-12 md:right-12 opacity-40 rotate-180">
+<span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'wght' 100;">filter_vintage</span>
+</div>
+<!-- Main Content Container with Double Frame -->
+<div class="relative z-10 w-full max-w-4xl px-margin-mobile h-[751px] md:h-[707px] flex items-center justify-center">
+<div class="w-full h-full double-border flex flex-col items-center justify-center text-center space-y-stack-lg">
+<!-- Monogram / Icon Section -->
+<div class="mb-stack-md flex flex-col items-center gap-stack-sm">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-full border border-secondary/30 flex items-center justify-center mb-stack-sm relative">
+<div class="absolute inset-0 border border-secondary/10 rounded-full scale-110"></div>
+<span class="font-display-lg text-primary text-5xl md:text-6xl tracking-tighter italic">E<span class="text-secondary text-3xl md:text-4xl mx-1">&amp;</span>A</span>
+</div>
+<div class="w-px h-12 bg-gradient-to-b from-primary/50 to-transparent"></div>
+</div>
+<!-- Names & Date -->
+<div class="space-y-stack-sm">
+<p class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.3em] mb-stack-sm">The Wedding of</p>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary reveal-text">
+                        Edoardo &amp; Alice
+                    </h1>
+<div class="flex items-center justify-center gap-gutter pt-stack-sm">
+<div class="h-px w-8 md:w-16 bg-secondary/40"></div>
+<p class="font-body-lg text-body-lg text-on-surface italic">25 Giugno 2025</p>
+<div class="h-px w-8 md:w-16 bg-secondary/40"></div>
+</div>
+</div>
+<!-- Location -->
+<div class="space-y-stack-sm pt-stack-md">
+<div class="flex items-center justify-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<p class="font-label-caps text-label-caps uppercase tracking-widest">Venezia, Italia</p>
+</div>
+</div>
+<!-- Call to Action -->
+<div class="pt-stack-lg">
+<button class="group relative px-12 py-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-[0.2em] transition-all duration-500 hover:brightness-110 active:scale-95 overflow-hidden" id="open-invite">
+<span class="relative z-10">Apri l'invito</span>
+<div class="absolute inset-0 bg-secondary/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+</button>
+<p class="mt-stack-md font-body-md text-on-surface-variant opacity-60 text-xs italic">La vostra presenza è il nostro regalo più bello</p>
+</div>
+</div>
+</div>
+<!-- Decorative Floral Element -->
+<div class="absolute bottom-0 w-full flex justify-center opacity-20 pointer-events-none">
+<div class="w-full max-w-2xl h-48 bg-contain bg-no-repeat bg-bottom" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBT9Ly4Jwxil759dOsujza77nUwl8M9GjO0I-3i5vvNcK_zsk5lghUaCsOZ9ng4W-TdZM30LKS9t7Iy9lhRy3wqwsAn6fB8uvSz7Ir9JHSx1GfnNxYi7JvYmG_IL6WYEel6pUP0BcbTgRcxKSIBghmRGVdcuPgXvQWVjm3fUQCUOIe3DCIdp_uRu4iF12iGSATdUO-o0uSHmUaQFlDWMZEMxw29TAnQ-1E1nzrYpG-PorJuNsugo_HiHoyQAwcOANEQGqey1yg0CU02'); mix-blend-mode: multiply;"></div>
+</div>
+</main>
+<!-- Content Overlay -->
+<div class="fixed inset-0 z-[100] bg-surface paper-texture opacity-0 pointer-events-none transition-opacity duration-1000 overflow-y-auto" id="invite-content">
+<header class="flex justify-between items-center px-margin-mobile h-16 w-full border-b border-outline-variant/30">
+<span class="font-display-lg-mobile text-[24px] text-primary tracking-widest uppercase">E&amp;A</span>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors" id="close-invite">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<section class="max-w-3xl mx-auto px-margin-mobile py-section-gap-mobile text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-stack-md">favorite</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-lg">La Gioia di Celebrare</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg leading-relaxed">
+                Siamo felici di invitarvi a celebrare il nostro matrimonio nella magica cornice di Venezia. Un weekend dedicato all'amore, alla famiglia e alla bellezza della laguna.
+            </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg text-left pt-stack-lg">
+<div class="p-stack-lg border border-outline-variant bg-white/40">
+<p class="font-label-caps text-label-caps text-secondary mb-stack-sm">CERIMONIA</p>
+<p class="font-headline-sm text-headline-sm text-primary">Basilica di San Marco</p>
+<p class="font-body-md text-on-surface-variant mt-2">Ore 11:30</p>
+</div>
+<div class="p-stack-lg border border-outline-variant bg-white/40">
+<p class="font-label-caps text-label-caps text-secondary mb-stack-sm">RICEVIMENTO</p>
+<p class="font-headline-sm text-headline-sm text-primary">Palazzo Ducale</p>
+<p class="font-body-md text-on-surface-variant mt-2">Ore 13:30</p>
+</div>
+</div>
+<div class="mt-section-gap-mobile py-stack-lg border-y border-outline-variant/50">
+<p class="font-label-caps text-label-caps text-secondary mb-stack-sm">RSVP</p>
+<p class="font-body-md text-on-surface-variant mb-stack-md">Si prega di confermare la partecipazione entro il 15 Maggio 2025</p>
+<button class="px-8 py-3 border border-primary text-primary font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">
+                    Conferma RSVP
+                </button>
+</div>
+</section>
+<footer class="flex flex-col items-center justify-center gap-stack-md w-full px-margin-mobile py-stack-lg bg-surface-container-low border-t border-outline-variant/30">
+<p class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Edoardo &amp; Alice</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant/60">© 2024 WITH LOVE</p>
+</footer>
+</div>
+<script>
+        document.getElementById('open-invite').addEventListener('click', () => {
+            const overlay = document.getElementById('invite-content');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.classList.add('opacity-100');
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.getElementById('close-invite').addEventListener('click', () => {
+            const overlay = document.getElementById('invite-content');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Small parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const amount = 5;
+            const x = (e.clientX / window.innerWidth - 0.5) * amount;
+            const y = (e.clientY / window.innerHeight - 0.5) * amount;
+            const elements = document.querySelectorAll('.double-border');
+            elements.forEach(el => {
+                el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+            });
+        });
+    </script>
+</body></html>

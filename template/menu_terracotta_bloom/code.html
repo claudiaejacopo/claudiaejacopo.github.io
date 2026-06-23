@@ -1,0 +1,235 @@
+<!DOCTYPE html><html class="light" lang="it"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e5e2dc",
+                        "on-surface": "#1f1b15",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#cbc6b9",
+                        "surface": "#fcf9f2",
+                        "tertiary": "#5f5e5a",
+                        "surface-container-high": "#f0e7dd",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "surface-container-highest": "#eae1d7",
+                        "inverse-surface": "#343029",
+                        "tertiary-fixed-dim": "#c9c6c1",
+                        "on-tertiary-container": "#40403c",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fcf9f2",
+                        "outline": "#7a776c",
+                        "on-secondary-fixed-variant": "#4e471c",
+                        "on-surface-variant": "#49473d",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#d2c790",
+                        "primary-container": "#e8b0a0",
+                        "tertiary-container": "#adaba6",
+                        "secondary-container": "#efe3aa",
+                        "on-primary-container": "#441a10",
+                        "surface-variant": "#eae1d7",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fff8f3",
+                        "on-primary-fixed-variant": "#4b472b",
+                        "secondary": "#a67c52",
+                        "inverse-on-surface": "#f8efe5",
+                        "on-tertiary-fixed": "#1c1c18",
+                        "primary-fixed-dim": "#cec7a2",
+                        "inverse-primary": "#cec7a2",
+                        "surface-tint": "#c05a3e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f6f3ec",
+                        "primary": "#c05a3e",
+                        "secondary-fixed": "#efe3aa",
+                        "on-background": "#1f1b15",
+                        "surface-container": "#f1eee6",
+                        "on-primary-fixed": "#1f1c04",
+                        "on-secondary-container": "#6d6537",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dcdad3",
+                        "primary-fixed": "#eae3bc",
+                        "on-secondary-fixed": "#201c00",
+                        "terracotta": "#c05a3e",
+                        "ivory-sand": "#fcf9f2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-margin": "64px",
+                        "container-padding": "24px",
+                        "stack-gap-sm": "12px",
+                        "stack-gap-md": "24px",
+                        "stack-gap-lg": "40px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Playfair Display"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        
+        .luxury-text-shadow {
+            text-shadow: 0 2px 4px rgba(192, 90, 62, 0.1);
+        }
+
+        .menu-item-hover::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background-color: currentColor;
+            transition: all 0.4s ease-out;
+            transform: translateX(-50%);
+        }
+
+        .menu-item-hover:hover::after {
+            width: 40px;
+        }
+
+        .grain-overlay {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            opacity: 0.3;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen overflow-x-hidden">
+<!-- Hero Content (Blurred in background) -->
+<main class="relative w-full h-screen flex flex-col items-center justify-center text-center px-container-padding">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A premium, soft-focus cinematic photograph of a luxury outdoor wedding venue in Tuscany at sunset. Warm golden hour lighting hits sage green olive trees and ivory stone architecture. The aesthetic is editorial, minimalist, and serene, using a color palette of sage, cream, and soft gold." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5eTMMEhQ_UmsM4fPL_1jirv0Qo4eY_LcqdWm-AV6K35xqf946nqgP_jVy9GlKNCGzLG_myvG_-Ob2Rqlbs8kgE_YMLtPHd29hrdZjT1ZdILwO0nno3qCOsilnRyJhb1rxARdgnH-mtjB3ci1Xw2DYCOwRbodm9O2DekZkQ9vdL-s6NxdOKqcw-JBoHBvUoFJwfWRU1Y6Py8T-sRmFNtrvjjq463otFl8mpfjPZm8kCVxccY0zLJ19xX_we0-bh5Sk-W1ACjTIrJsa">
+<div class="absolute inset-0 bg-ivory-sand/40 backdrop-blur-sm"></div>
+</div>
+<div class="relative z-10 flex flex-col gap-stack-gap-md items-center">
+<span class="font-label-sm text-label-sm text-terracotta tracking-[0.3em] uppercase">Benvenuti al matrimonio di</span>
+<h1 class="font-display-lg text-display-lg text-terracotta luxury-text-shadow italic">Edoardo &amp; Alice</h1>
+<div class="h-px w-24 bg-terracotta/30"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">Un'unione celebrata tra le colline toscane e l'amore eterno.</p>
+</div>
+</main>
+<!-- Navigation Overlay Trigger -->
+<div class="fixed top-8 right-8 z-40">
+<button class="p-4 bg-ivory-sand/80 backdrop-blur-md rounded-full text-terracotta hover:opacity-70 transition-opacity" onclick="toggleMenu()">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<!-- Full Screen Navigation Drawer -->
+<nav class="fixed inset-0 z-[60] flex flex-col bg-ivory-sand/98 backdrop-blur-xl transition-all duration-700 ease-in-out opacity-0 pointer-events-none translate-y-4" id="nav-drawer">
+<!-- Texture Layer -->
+<div class="absolute inset-0 grain-overlay"></div>
+<!-- Top Bar inside Drawer -->
+<header class="relative z-10 flex items-center justify-between px-container-padding h-24">
+<button class="p-2 text-on-surface-variant hover:text-terracotta transition-colors flex items-center justify-center" onclick="toggleMenu()">
+<span class="material-symbols-outlined text-[32px]">close</span>
+</button>
+<!-- Brand Monogram -->
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm tracking-[0.4em] text-secondary">E &amp; A</span>
+</div>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Vertical Menu Items -->
+<div class="relative z-10 flex-1 flex flex-col items-center justify-center gap-stack-gap-lg">
+<div class="flex flex-col items-center gap-12">
+<a class="group relative flex flex-col items-center" href="#">
+<span class="font-headline-md text-headline-md text-terracotta tracking-[0.25em] menu-item-hover transition-transform duration-500 group-hover:scale-105">INIZIO</span>
+<span class="font-label-sm text-[10px] text-terracotta/40 tracking-[0.5em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">HOME</span>
+</a>
+<a class="group relative flex flex-col items-center" href="#">
+<span class="font-headline-md text-headline-md text-terracotta tracking-[0.25em] menu-item-hover transition-transform duration-500 group-hover:scale-105">PROGRAMMA</span>
+<span class="font-label-sm text-[10px] text-terracotta/40 tracking-[0.5em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">SCHEDULE</span>
+</a>
+<a class="group relative flex flex-col items-center" href="#">
+<span class="font-headline-md text-headline-md text-terracotta tracking-[0.25em] menu-item-hover transition-transform duration-500 group-hover:scale-105">INFORMAZIONI</span>
+<span class="font-label-sm text-[10px] text-terracotta/40 tracking-[0.5em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">DETAILS</span>
+</a>
+<a class="group relative flex flex-col items-center" href="#">
+<span class="font-headline-md text-headline-md text-terracotta tracking-[0.25em] menu-item-hover transition-transform duration-500 group-hover:scale-105">LISTA NOZZE</span>
+<span class="font-label-sm text-[10px] text-terracotta/40 tracking-[0.5em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">REGISTRY</span>
+</a>
+<a class="group relative flex flex-col items-center" href="#">
+<span class="font-headline-md text-headline-md text-terracotta tracking-[0.25em] menu-item-hover transition-transform duration-500 group-hover:scale-105">RSVP</span>
+<span class="font-label-sm text-[10px] text-terracotta/40 tracking-[0.5em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">CONFIRM</span>
+</a>
+</div>
+</div>
+<!-- Footer inside Drawer -->
+<footer class="relative z-10 p-section-margin flex flex-col items-center gap-stack-gap-sm">
+<div class="h-px w-16 bg-terracotta/20 mb-4"></div>
+<p class="font-label-sm text-label-sm text-on-surface-variant/60 tracking-widest uppercase">Edoardo &amp; Alice</p>
+<p class="font-body-md text-[14px] text-on-surface-variant/40 italic">Giugno 2024 • Toscana, Italia</p>
+</footer>
+</nav>
+<!-- Overlay Helper for UI testing -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+<button class="px-8 py-3 bg-terracotta text-on-primary font-label-sm rounded-full shadow-lg hover:scale-105 transition-transform" onclick="toggleMenu()">
+            APRI MENU
+        </button>
+</div>
+<script>
+        let menuOpen = false;
+        function toggleMenu() {
+            const drawer = document.getElementById('nav-drawer');
+            menuOpen = !menuOpen;
+            
+            if (menuOpen) {
+                drawer.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                drawer.classList.add('opacity-100', 'translate-y-0');
+                document.body.style.overflow = 'hidden';
+            } else {
+                drawer.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                drawer.classList.remove('opacity-100', 'translate-y-0');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Auto-show for presentation
+        setTimeout(() => {
+            toggleMenu();
+        }, 800);
+    </script>
+</body></html>

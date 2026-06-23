@@ -2,64 +2,26 @@
 import MusicToggle from './MusicToggle.astro';
 ---
 
-<header class="header-mobile">
-	<div class="header-bar">
-		<div class="brand">Claudia & Jacopo</div>
-		<button id="menu-button" type="button" aria-expanded="false" aria-controls="anchor-nav" class="menu-button">
-			<span>Menu</span>
+<header class="sticky top-0 z-50 bg-surface border-b border-outline-variant/20 px-margin-mobile md:px-margin-desktop py-stack-md transition-all duration-300">
+	<div class="max-w-container-max mx-auto flex items-center justify-between">
+		<div class="flex items-center gap-stack-md">
+			<span class="material-symbols-outlined text-primary" style="font-size: 28px;">favorite</span>
+			<h1 class="font-headline-md text-headline-md text-primary">Claudia & Jacopo</h1>
+		</div>
+		<button id="menu-button" type="button" aria-expanded="false" aria-controls="anchor-nav" class="btn-secondary md:hidden">
+			<span class="material-symbols-outlined">menu</span>
 		</button>
 	</div>
 
-	<nav id="anchor-nav" class="anchor-nav" hidden>
-		<ul>
-			<li><a href="#hero">Hero</a></li>
-			<li><a href="#programma">Programma</a></li>
-			<li><a href="#come-arrivare">Come arrivare</a></li>
-			<li><a href="/rsvp">RSVP</a></li>
-			<li><a href="/regalo">Regalo / Lista nozze</a></li>
+	<nav id="anchor-nav" class="hidden md:block md:mt-0" hidden>
+		<ul class="flex flex-col md:flex-row gap-stack-md md:gap-stack-lg">
+			<li><a href="#hero" class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors">Hero</a></li>
+			<li><a href="#programma" class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors">Programma</a></li>
+			<li><a href="#come-arrivare" class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors">Come arrivare</a></li>
+			<li><a href="/rsvp" class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors">RSVP</a></li>
+			<li><a href="/regalo" class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors">Regalo</a></li>
 		</ul>
 	</nav>
 
 	<MusicToggle />
 </header>
-
-<style>
-	.header-mobile {
-		padding: 16px;
-		background: transparent;
-	}
-
-	.header-bar {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	.brand {
-		font-weight: 700;
-	}
-
-	.menu-button {
-		border: 1px solid;
-		background: none;
-		padding: 0.75rem 1rem;
-		border-radius: 999px;
-		cursor: pointer;
-	}
-
-	.anchor-nav {
-		margin-top: 1rem;
-	}
-
-	.anchor-nav ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: grid;
-		gap: 0.75rem;
-	}
-
-	.anchor-nav a {
-		text-decoration: none;
-	}
-</style>

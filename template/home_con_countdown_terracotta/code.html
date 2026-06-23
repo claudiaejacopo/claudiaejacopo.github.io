@@ -1,0 +1,237 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="it"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>E &amp; A | 25.06.2025 Venezia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#c05a3e",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#ffdad2",
+                    "on-primary-container": "#3d1004",
+                    "secondary": "#77564e",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#ffdad2",
+                    "on-secondary-container": "#2c1510",
+                    "tertiary": "#6e5d2e",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#f9e1a6",
+                    "on-tertiary-container": "#231b00",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#410002",
+                    "background": "#fcf9f2",
+                    "on-background": "#201a18",
+                    "surface": "#fcf9f2",
+                    "on-surface": "#201a18",
+                    "surface-variant": "#f4ded8",
+                    "on-surface-variant": "#53433f",
+                    "outline": "#85736e",
+                    "outline-variant": "#d8c2bc",
+                    "inverse-surface": "#362f2d",
+                    "inverse-on-surface": "#fbeeeb",
+                    "inverse-primary": "#ffb4a2",
+                    "surface-bright": "#fcf9f2",
+                    "surface-dim": "#e3ded7",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f7f3ed",
+                    "surface-container": "#f1ede7",
+                    "surface-container-high": "#ebe7e1",
+                    "surface-container-highest": "#e6e2db"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "stack-sm": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "stack-lg": "32px",
+                    "section-gap-mobile": "64px",
+                    "stack-md": "16px",
+                    "section-gap-desktop": "120px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Plus Jakarta Sans"],
+                    "body-lg": ["Libre Caslon Text"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-md": ["Libre Caslon Text"],
+                    "display-lg-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .fade-in { animation: fadeIn 1.5s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hairline-terracotta { border: 0.5px solid #c05a3e; }
+        .bg-warm-wash { background-color: rgba(192, 90, 62, 0.08); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile md:px-12 h-16 transition-all duration-300">
+<button class="text-primary hover:opacity-70 transition-opacity active:scale-95" id="menu-toggle">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-display-lg-mobile text-2xl text-primary tracking-widest uppercase">E &amp; A</div>
+<button class="text-primary hover:opacity-70 transition-opacity active:scale-95">
+<span class="material-symbols-outlined">music_note</span>
+</button>
+</header>
+<!-- Navigation Drawer -->
+<nav class="fixed inset-0 w-full h-full z-[60] bg-surface/98 backdrop-blur-xl flex flex-col justify-center items-center gap-stack-lg p-margin-mobile opacity-0 pointer-events-none transition-all duration-500" id="nav-drawer">
+<button class="absolute top-6 right-6 text-primary" id="menu-close">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary mb-12">THE CELEBRATION</div>
+<a class="nav-link text-primary font-bold border-b-2 border-primary text-2xl py-2" href="#hero">The Invitation</a>
+<a class="nav-link text-on-surface font-light hover:text-primary transition-colors text-2xl py-2" href="#programma">Our Story</a>
+<a class="nav-link text-on-surface font-light hover:text-primary transition-colors text-2xl py-2" href="#programma">The Wedding</a>
+<a class="nav-link text-on-surface font-light hover:text-primary transition-colors text-2xl py-2" href="#informazioni">Registry</a>
+<a class="nav-link text-on-surface font-light hover:text-primary transition-colors text-2xl py-2" href="/rsvp-page">RSVP</a>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-margin-mobile" id="hero">
+<div class="absolute inset-0 z-0 scale-105 transition-transform duration-10000 ease-linear hover:scale-100">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFe-Zo8usXRBE-bgangro9qiI5pmUfOYSrTva0NBZmRjT8bmJ3tSByuCIOcaQ4_0tQP-tpt3KlH4OxyuM8MP-PfR7Oa6TMa5KroUL_WglbCobIJX9mOCFQYd8mEGiJGvRqG_LovrPZq4nORAkwgKoya1ekxv-YY8y4VvKpYdH79RgCZbTuOCunDQamKFD4Dv8IJ3qvYZ1bQ9fTNZLtl-CpfJudAhqZUUGLchMEhhfr9FOTQ6d0NLUsd4g2LFNovVGe4oAhXQbErIpG')"></div>
+<div class="absolute inset-0 bg-primary/30 backdrop-brightness-75"></div>
+</div>
+<div class="relative z-10 text-center text-on-primary fade-in">
+<span class="font-label-caps text-label-caps tracking-[0.3em] uppercase block mb-6 text-white/90">The Union Of</span>
+<h1 class="font-display-lg text-display-lg md:text-[120px] leading-tight mb-8 drop-shadow-sm text-white">Edoardo &amp; Alessandra</h1>
+<p class="font-headline-sm text-headline-sm italic mb-12 text-white/95">25 Giugno 2025 • Venezia, Italia</p>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<a class="px-10 py-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary/90 transition-all active:scale-95 shadow-lg" href="/rsvp-page">Reserve your seat</a>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+<span class="material-symbols-outlined text-white/70 text-4xl">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Programma Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface max-w-container-max mx-auto px-margin-mobile" id="programma">
+<div class="text-center mb-24">
+<h2 class="font-display-lg-mobile md:text-display-lg text-primary mb-4">Il Programma</h2>
+<div class="w-16 h-px bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Timeline Item 1 -->
+<div class="group relative p-8 border border-outline-variant bg-surface-container-low hover:bg-surface-container-high transition-colors duration-500">
+<div class="text-primary mb-6 block">
+<span class="material-symbols-outlined text-5xl">church</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary mb-2 block">16:30</span>
+<h3 class="font-headline-sm text-headline-sm mb-4">Cerimonia</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">La promessa nella Chiesa di San Barnaba, tra marmi storici e luci d'oro.</p>
+<a class="inline-block mt-6 px-6 py-2 border border-primary text-primary font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-all uppercase" href="#">Vedi Posizione</a></div>
+<!-- Timeline Item 2 -->
+<div class="group relative p-8 border border-outline-variant bg-surface-container-low hover:bg-surface-container-high transition-colors duration-500 md:mt-12">
+<div class="text-primary mb-6 block">
+<span class="material-symbols-outlined text-5xl">local_bar</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary mb-2 block">18:30</span>
+<h3 class="font-headline-sm text-headline-sm mb-4">Aperitivo</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Giardini segreti sul Canal Grande. Note di jazz e sapori veneziani.</p>
+<a class="inline-block mt-6 px-6 py-2 border border-primary text-primary font-label-caps text-label-caps hover:bg-primary hover:text-on-primary transition-all uppercase" href="#">Vedi Posizione</a></div>
+<!-- Timeline Item 3 -->
+<!-- Timeline Item 4 -->
+</div>
+</section>
+<!-- Informazioni Section -->
+<!-- RSVP Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface" id="countdown-section">
+<div class="max-w-container-max mx-auto px-margin-mobile text-center">
+<h2 class="font-display-lg-mobile md:text-display-lg text-primary mb-12">Il Grande Giorno</h2>
+<div class="flex justify-center items-center gap-8 md:gap-16">
+<div class="flex flex-col items-center">
+<span class="font-display-lg text-4xl md:text-6xl text-primary mb-2">124</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Giorni</span>
+</div>
+<div class="w-px h-16 bg-outline-variant/30"></div>
+<div class="flex flex-col items-center">
+<span class="font-display-lg text-4xl md:text-6xl text-primary mb-2">14</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Ore</span>
+</div>
+<div class="w-px h-16 bg-outline-variant/30"></div>
+<div class="flex flex-col items-center">
+<span class="font-display-lg text-4xl md:text-6xl text-primary mb-2">42</span>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Minuti</span>
+</div>
+</div>
+<p class="mt-16 font-body-lg text-body-lg text-on-surface-variant italic">25 Giugno 2025 • Venezia</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/30 py-stack-lg flex flex-col items-center justify-center gap-stack-md w-full px-margin-mobile">
+<div class="font-display-lg-mobile text-2xl text-primary tracking-widest uppercase mb-4">E &amp; A</div>
+<div class="flex gap-8 mb-6">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">LOCATION</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">CONTACT US</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">PRIVACY</a>
+</div>
+<p class="font-label-caps text-label-caps text-secondary">© 2024 WITH LOVE</p>
+</footer>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const navDrawer = document.getElementById('nav-drawer');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function toggleMenu() {
+        const isOpen = navDrawer.classList.contains('opacity-100');
+        if (isOpen) {
+            navDrawer.classList.replace('opacity-100', 'opacity-0');
+            navDrawer.classList.add('pointer-events-none');
+            document.body.style.overflow = '';
+        } else {
+            navDrawer.classList.replace('opacity-0', 'opacity-100');
+            navDrawer.classList.remove('pointer-events-none');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    menuClose.addEventListener('click', toggleMenu);
+    navLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('shadow-sm');
+        } else {
+            header.classList.remove('shadow-sm');
+        }
+    });
+</script>
+</body></html>
