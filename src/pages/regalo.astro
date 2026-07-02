@@ -1,92 +1,62 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeaderMobile from '../components/HeaderMobile.astro';
 ---
 
 <Layout title="Regalo / Lista Nozze - Claudia & Jacopo | 25 Giugno 2025">
-	<section id="regalo" class="py-section-gap-mobile md:py-section-gap-desktop px-margin-mobile md:px-margin-desktop">
-		<div class="max-w-container-max mx-auto">
-			<div class="text-center mb-stack-lg">
-				<span class="material-symbols-outlined text-primary text-5xl inline-block mb-stack-md">favorite</span>
-				<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-sm">Il nostro Regalo più grande</h1>
-				<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto italic mb-stack-lg">La vostra presenza nel giorno del nostro sì è il dono più prezioso che potessimo desiderare.</p>				<img src=\"https://placehold.co/800x400/9b3f25/fcf9f2?text=Regalo+per+Voi\" alt=\"Regalo\" class=\"w-full rounded-lg shadow-lg object-cover h-64 md:h-80 mt-stack-lg\" />			</div>
-
+	<HeaderMobile />
+	<section class="min-h-screen bg-surface text-on-surface">
+		<main class="pt-24 px-margin-mobile py-stack-lg paper-texture">
 			<div class="max-w-2xl mx-auto space-y-stack-lg">
-				<div class="form-card p-stack-lg">
-					<div class="flex gap-stack-md mb-stack-md">
-						<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">favorite</span>
+				<div class="text-center space-y-stack-md">
+					<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+					<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary">Il nostro Regalo più grande sei Tu</h2>
+					<div class="h-px w-24 bg-outline-variant mx-auto"></div>
+					<p class="font-body-lg text-body-lg text-on-surface-variant max-w-prose mx-auto italic">
+						La vostra presenza nel giorno del nostro sì è il dono più prezioso che potessimo desiderare. Tuttavia, se desiderate partecipare alla realizzazione del nostro sogno di vita insieme o contribuire al nostro viaggio di nozze, qui di seguito trovate i dettagli per farlo.
+					</p>
+				</div>
+
+				<div class="rounded-[32px] overflow-hidden shadow-[0_20px_80px_rgba(155,63,37,0.12)]">
+					<img src="https://lh3.googleusercontent.com/aida/AP1WRLvQtTMH4GTQDVuVLWUUU3ixHXRRgHiUQrKeajl7Rarl3BCSy4Am1fT9zvo1v2epLhkNW0ovKcpjaxc0MYwAB4kCfbqmk5m_yUGcPGXUPTY_gtwxeJiwKsUncfvWm6Of0DV2uLZkt4q5IDgnCqF5zIFfD9SgRK6CJz4d92qmddQRiAnMvvoCbdqGl95rmrnilrLHWZnEksD4_dBshzw58Wr6gPNcOx_w8IM6GGLEoMjTeTSRfg-xczfUOX4" alt="Tramonto romantico a Venezia" class="w-full h-64 object-cover" />
+				</div>
+
+				<div class="rounded-[32px] border border-outline-variant/20 bg-surface-container-low p-stack-lg shadow-[0_20px_80px_rgba(155,63,37,0.08)] paper-texture">
+					<div class="flex gap-stack-md mb-stack-lg items-start">
+						<span class="material-symbols-outlined text-primary text-3xl">account_balance</span>
 						<div>
-							<h2 class="font-headline-md text-headline-md text-on-surface mb-stack-sm">Il nostro Regalo più grande sei Tu</h2>
-							<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">La vostra presenza nel giorno del nostro sì è il dono più prezioso che potessimo desiderare. Tuttavia, se desiderate partecipare alla realizzazione del nostro sogno di vita insieme o contribuire al nostro viaggio di nozze, qui di seguito trovate i dettagli per farlo.</p>
-							<a href="#iban" class="text-primary hover:underline font-body-md text-body-md">Vedi informazioni bonifico</a>
+							<p class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.3em] mb-stack-sm">Intestatario</p>
+							<p class="font-headline-sm text-headline-sm text-on-surface">Edoardo Bianchi e Alice Rossi</p>
 						</div>
+					</div>
+
+					<div class="bg-surface border border-outline-variant/20 rounded-[24px] p-stack-md mb-stack-md">
+						<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-stack-sm">IBAN</p>
+						<code class="block font-mono text-body-md text-primary tracking-widest break-all mb-stack-md">IT 00 X 00000 00000 0 000000000000</code>
+						<button type="button" onclick="navigator.clipboard.writeText('IT 00 X 00000 00000 0 000000000000')" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-on-primary font-label-caps text-label-caps shadow-sm hover:opacity-90 transition-all">
+							<span class="material-symbols-outlined">content_copy</span>
+							Copia IBAN
+						</button>
 					</div>
 				</div>
 
-				<div class="form-card p-stack-lg">
-					<div class="flex gap-stack-md mb-stack-md">
-						<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">account_balance</span>
-						<div id="iban">
-							<h2 class="font-headline-md text-headline-md text-on-surface mb-stack-md">Bonifico Bancario</h2>
-							<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">Se desiderate contribuire al nostro viaggio di nozze:</p>
-							<div class="bg-surface-container-low p-stack-md rounded-lg mb-stack-md border border-outline-variant/20">
-								<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-stack-sm">Intestatario</p>
-								<p class="font-body-md text-body-md text-on-surface mb-stack-md">Jacopo Guerini e Claudia Merati</p>
-								<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-stack-sm">IBAN</p>
-								<p class="font-body-md text-body-md text-on-surface font-mono mb-stack-md">IT 00 X 00000 00000 0 000000000000</p>
-								<button onclick="navigator.clipboard.writeText('IT 00 X 00000 00000 0 000000000000')" class="btn-secondary w-full">
-									<span class="material-symbols-outlined">content_copy</span>
-									Copia IBAN
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="form-card p-stack-lg">
-					<div class="flex gap-stack-md">
-						<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0">card_giftcard</span>
+				<div class="space-y-stack-lg rounded-[32px] border border-outline-variant/20 bg-surface-container-low p-stack-lg shadow-[0_20px_80px_rgba(155,63,37,0.08)]">
+					<div class="flex gap-stack-md items-start">
+						<span class="material-symbols-outlined text-primary text-3xl">card_giftcard</span>
 						<div>
-							<h2 class="font-headline-md text-headline-md text-on-surface mb-stack-md">Lista Nozze</h2>
+							<p class="font-headline-sm text-headline-sm text-on-surface mb-stack-md">Lista Nozze</p>
 							<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">Potete trovare la nostra lista nozze presso i seguenti store:</p>
-							<ul class="space-y-stack-sm">
-								<li><a href="#" class="text-primary hover:underline font-body-md text-body-md">→ Giftbox (online)</a></li>
-								<li><a href="#" class="text-primary hover:underline font-body-md text-body-md">→ Negozio locale</a></li>
+							<ul class="space-y-stack-sm text-body-md text-body-md text-on-surface">
+								<li><a href="#" class="text-primary hover:underline">→ Giftbox (online)</a></li>
+								<li><a href="#" class="text-primary hover:underline">→ Negozio locale</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 
 				<div class="text-center pt-stack-lg">
-					<a href="/" class="btn-primary">Torna alla homepage</a>
+					<a href="/" class="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-on-primary font-label-caps text-label-caps shadow-sm hover:opacity-90 transition-all">Torna alla homepage</a>
 				</div>
 			</div>
-		</div>
-	</section>
-</Layout>
+		</main>
 
-	<style>
-		.page-section {
-			padding: 24px;
-			max-width: 640px;
-			margin: 0 auto;
-		}
-
-		h1 {
-			font-size: 1.75rem;
-			margin-bottom: 1rem;
-		}
-
-		h2 {
-			font-size: 1.25rem;
-			margin-top: 1.5rem;
-		}
-
-		ul {
-			padding-left: 1.25rem;
-		}
-
-		a {
-			color: inherit;
-			text-decoration: underline;
-		}
-	</style>

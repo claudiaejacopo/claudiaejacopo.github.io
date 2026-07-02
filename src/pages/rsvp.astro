@@ -1,359 +1,58 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeaderMobile from '../components/HeaderMobile.astro';
 ---
 
 <Layout title="RSVP - Claudia & Jacopo | 25 Giugno 2025">
-	<section id="rsvp" class="min-h-screen py-section-gap-mobile md:py-section-gap-desktop px-margin-mobile md:px-margin-desktop flex flex-col justify-center">
-		<div class="max-w-2xl w-full mx-auto">
-			<div class="text-center mb-stack-lg">
-				<div class="flex items-center justify-center gap-stack-md mb-stack-md">
-					<span class="material-symbols-outlined text-primary text-5xl">favorite</span>
-					<h1 class="font-headline-md text-headline-md text-primary">Claudia & Alice</h1>
+	<HeaderMobile />
+	<section class="min-h-screen bg-surface text-on-surface">
+		<main class="pt-24 px-margin-mobile py-stack-lg paper-texture">
+			<div class="max-w-2xl mx-auto space-y-stack-lg">
+				<div class="text-center space-y-stack-md">
+					<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">edit_calendar</span>
+					<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary">Conferma la Presenza</h2>
+					<div class="h-px w-24 bg-outline-variant mx-auto"></div>
+					<p class="font-body-lg text-body-lg text-on-surface-variant max-w-prose mx-auto italic">
+						Se sei dei nostri, conferma la tua presenza e aiutaci a rendere il giorno del nostro matrimonio indimenticabile.
+					</p>
 				</div>
-				<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-sm">Conferma la Presenza</h2>
-				<p class="font-headline-sm text-headline-sm text-on-surface-variant italic">Sarai dei nostri?</p>
+
+				<div class="rounded-[32px] bg-surface-container-low border border-outline-variant/20 p-stack-lg shadow-[0_20px_80px_rgba(155,63,37,0.08)]">
+					<form id="rsvp-form" class="space-y-stack-lg">
+
+						<div class="space-y-stack-sm">
+							<p class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.3em] mb-stack-sm">La tua risposta</p>
+							<div class="grid grid-cols-1 gap-4">
+								<label class="peer flex items-center justify-between rounded-full border border-outline-variant/20 bg-surface-container-highest px-4 py-4 cursor-pointer transition-all hover:border-primary peer-checked:border-primary peer-checked:bg-primary peer-checked:text-on-primary">
+									<div class="flex items-center gap-3">
+										<span class="material-symbols-outlined">favorite</span>
+										<span class="font-body-md text-body-md">Ci sarò</span>
+									</div>
+									<input type="radio" name="partecipazione" value="Partecipo" class="hidden peer" required />
+								</label>
+								<label class="peer flex items-center justify-between rounded-full border border-outline-variant/20 bg-surface-container-highest px-4 py-4 cursor-pointer transition-all hover:border-primary peer-checked:border-primary peer-checked:bg-primary peer-checked:text-on-primary">
+									<div class="flex items-center gap-3">
+										<span class="material-symbols-outlined">event_busy</span>
+										<span class="font-body-md text-body-md">Purtroppo no</span>
+									</div>
+									<input type="radio" name="partecipazione" value="Non partecipo" class="hidden peer" required />
+								</label>
+							</div>
+						</div>
+
+						<div class="space-y-stack-sm">
+							<label for="note" class="block font-label-caps text-label-caps text-on-surface mb-stack-sm">Intolleranze alimentari o note speciali</label>
+							<textarea id="note" name="note" rows="4" placeholder="Raccontaci se hai esigenze particolari o canzoni che vorresti sentire..." class="input-field w-full resize-none rounded-[24px] border border-outline-variant/20 bg-surface-container-highest px-4 py-4"></textarea>
+						</div>
+
+						<button type="submit" class="w-full rounded-full bg-primary px-6 py-4 text-on-primary font-label-caps text-label-caps hover:opacity-90 transition-all">INVIA CONFERMA</button>
+					</form>
+				</div>
+
+				<div class="text-center pt-stack-lg">
+					<a href="/" class="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-on-primary font-label-caps text-label-caps shadow-sm hover:opacity-90 transition-all">Torna alla homepage</a>
+				</div>
 			</div>
-
-			<div data-fs-success class="hidden bg-surface-container-low border border-outline-variant/20 rounded-lg p-stack-lg mb-stack-lg text-center">
-				<p class="font-headline-sm text-headline-sm text-primary mb-stack-md">✓ Grazie! La tua risposta è stata registrata.</p>
-				<div class="flex flex-col sm:flex-row gap-stack-md justify-center">
-					<a href="/" class="btn-primary">Torna alla homepage</a>
-					<button type="button" class="btn-secondary" id="fill-another-btn">Compila per qualcun'altro</button>
-				</div>
-			</div>
-			<div data-fs-error class="hidden bg-error-container border border-error rounded-lg p-stack-md mb-stack-lg text-on-error-container"></div>
-
-			<form id="rsvp-form" class="grid gap-stack-md">
-				<div>
-					<label for="fullname" class="block font-label-caps text-label-caps text-on-surface mb-stack-sm">Nome e Cognome</label>
-					<input 
-						type="text" 
-						id="fullname"
-						name="fullname" 
-						placeholder="Es. Mario Rossi" 
-						required 
-						data-fs-field 
-						class="input-field w-full"
-					/>
-					<span data-fs-error="fullname" class="text-error text-sm mt-stack-sm block"></span>
-				</div>
-
-				<div>
-					<label class="block font-label-caps text-label-caps text-on-surface mb-stack-md">La tua risposta</label>
-					<div class="flex flex-col sm:flex-row gap-stack-md">
-						<label class="flex items-center cursor-pointer">
-							<input 
-								type="radio" 
-								name="partecipazione" 
-								value="Partecipo" 
-								required 
-								data-fs-field 
-								class="w-5 h-5 text-primary cursor-pointer"
-							/>
-							<span class="ml-stack-md font-body-md text-body-md text-on-surface">Ci sarò</span>
-						</label>
-						<label class="flex items-center cursor-pointer">
-							<input 
-								type="radio" 
-								name="partecipazione" 
-								value="Non partecipo" 
-								required 
-								data-fs-field 
-								class="w-5 h-5 text-primary cursor-pointer"
-							/>
-							<span class="ml-stack-md font-body-md text-body-md text-on-surface">Purtroppo no</span>
-						</label>
-					</div>
-					<span data-fs-error="partecipazione" class="text-error text-sm mt-stack-sm block"></span>
-				</div>
-
-				<div>
-					<label for="preferenza" class="block font-label-caps text-label-caps text-on-surface mb-stack-sm">Preferenza Alimentare</label>
-					<select 
-						id="preferenza"
-						name="preferenza" 
-						required 
-						data-fs-field
-						class="input-field w-full"
-					>
-						<option value="">Seleziona una preferenza</option>
-						<option value="Nessuna preferenza">Nessuna preferenza</option>
-						<option value="Vegano">Vegano</option>
-						<option value="Vegetariano">Vegetariano</option>
-						<option value="Allergie/intolleranze">Allergie/intolleranze</option>
-					</select>
-					<span data-fs-error="preferenza" class="text-error text-sm mt-stack-sm block"></span>
-				</div>
-
-				<div>
-					<label for="note" class="block font-label-caps text-label-caps text-on-surface mb-stack-sm">Intolleranze Alimentari o Note Speciali</label>
-					<textarea 
-						id="note"
-						name="note" 
-						placeholder="Raccontaci se hai esigenze particolari o canzoni che vorresti sentire..."
-						rows="4"
-						data-fs-field
-						class="input-field w-full resize-none"
-					></textarea>
-					<span data-fs-error="note" class="text-error text-sm mt-stack-sm block"></span>
-				</div>
-
-				<button 
-					type="submit" 
-					data-fs-submit-btn
-					class="btn-primary w-full sm:w-auto mx-auto sm:mx-0 mt-stack-md"
-				>
-					Invia RSVP
-				</button>
-			</form>
-		</div>
+		</main>
 	</section>
-
-	<script>
-		// @ts-ignore
-		window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-		// @ts-ignore
-		formspree('initForm', { formElement: '#rsvp-form', formId: 'xlgyelpd' });
-
-		const form = document.querySelector('#rsvp-form');
-		const successMessage = document.querySelector('[data-fs-success]');
-		const fillAnotherBtn = document.querySelector('#fill-another-btn');
-
-		form.addEventListener('submit', () => {
-			setTimeout(() => {
-				window.scrollTo(0, 0);
-			}, 500);
-		});
-
-		fillAnotherBtn?.addEventListener('click', () => {
-			form.reset();
-			successMessage?.classList.add('hidden');
-			form.style.display = 'grid';
-			form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-		});
-	</script>
-	<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </Layout>
-
-	<script>
-		// @ts-ignore
-		window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-		// @ts-ignore
-		formspree('initForm', { formElement: '#rsvp-form', formId: 'xlgyelpd' });
-
-		// Handle success - scroll to top
-		const form = document.querySelector('#rsvp-form');
-		const successMessage = document.querySelector('[data-fs-success]');
-		const fillAnotherBtn = document.querySelector('#fill-another-btn');
-
-		// Listen for form submission success
-		form.addEventListener('submit', () => {
-			// Scroll to top after a short delay to let Formspree process
-			setTimeout(() => {
-				window.scrollTo(0, 0);
-			}, 500);
-		});
-
-		// Reset form when clicking "fill another"
-		fillAnotherBtn?.addEventListener('click', () => {
-			form.reset();
-			successMessage?.classList.remove('visible');
-			form.style.display = 'grid';
-			// Scroll to form
-			form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-		});
-	</script>
-	<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-
-<style>
-	.rsvp-section {
-		padding: 2rem 1rem;
-	}
-
-	.section-content {
-		display: grid;
-		gap: 1.5rem;
-		max-width: 640px;
-		margin: 0 auto;
-	}
-
-	form {
-		background: #f9f9f9;
-		padding: 1.5rem;
-		border-radius: 20px;
-		box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
-		display: grid;
-		gap: 1.5rem;
-	}
-
-	.field-group {
-		display: grid;
-		gap: 0.75rem;
-	}
-
-	label {
-		display: grid;
-		gap: 0.5rem;
-		font-weight: 500;
-	}
-
-	input[type="text"],
-	select,
-	textarea {
-		width: 100%;
-		padding: 1rem;
-		border-radius: 12px;
-		border: 1px solid #ddd;
-		font: inherit;
-		font-size: 1rem;
-	}
-
-	input[type="text"]:focus,
-	select:focus,
-	textarea:focus {
-		outline: none;
-		border-color: #000;
-		box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-	}
-
-	textarea {
-		min-height: 100px;
-		resize: vertical;
-	}
-
-	button {
-		padding: 1rem 1.2rem;
-		border: none;
-		border-radius: 999px;
-		background: #000;
-		color: #fff;
-		font-weight: 700;
-		cursor: pointer;
-		font-size: 1rem;
-		transition: background 0.3s;
-	}
-
-	button:hover:not(:disabled) {
-		background: #333;
-	}
-
-	button:disabled {
-		opacity: 0.6;
-		cursor: not-allowed;
-	}
-
-	.radio-row {
-		display: grid;
-		gap: 0.75rem;
-	}
-
-	.radio-row label {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-weight: 400;
-	}
-
-	.radio-row input[type="radio"] {
-		width: auto;
-	}
-
-	.success-message {
-		display: none;
-		background: #e8f5e9;
-		border: 1px solid #4caf50;
-		color: #2e7d32;
-		padding: 1.5rem;
-		border-radius: 12px;
-		text-align: center;
-	}
-
-	.success-message.visible {
-		display: block;
-	}
-
-	.success-message p {
-		margin: 0 0 1rem 0;
-		font-weight: 600;
-		font-size: 1.1rem;
-	}
-
-	.success-actions {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1rem;
-	}
-
-	.btn {
-		padding: 1rem 1.2rem;
-		border: none;
-		border-radius: 999px;
-		font-weight: 700;
-		cursor: pointer;
-		font-size: 1rem;
-		text-decoration: none;
-		display: inline-block;
-		text-align: center;
-		transition: all 0.3s;
-	}
-
-	.btn-primary {
-		background: #4caf50;
-		color: #fff;
-	}
-
-	.btn-primary:hover {
-		background: #388e3c;
-	}
-
-	.btn-secondary {
-		background: #fff;
-		color: #2e7d32;
-		border: 2px solid #2e7d32;
-	}
-
-	.btn-secondary:hover {
-		background: #f5f5f5;
-	}
-
-	.error-message {
-		display: none;
-		background: #ffebee;
-		border: 1px solid #f44336;
-		color: #c62828;
-		padding: 1rem;
-		border-radius: 12px;
-		text-align: center;
-	}
-
-	.error-message.visible {
-		display: block;
-	}
-
-	[data-fs-error] {
-		display: none;
-		color: #f44336;
-		font-size: 0.85rem;
-		margin-top: 0.25rem;
-	}
-
-	[data-fs-error]:not(:empty) {
-		display: block;
-	}
-
-	h2 {
-		margin: 0 0 0.5rem 0;
-		font-size: 2rem;
-	}
-
-	p {
-		margin: 0 0 1rem 0;
-		color: #666;
-	}
-
-	@media (max-width: 640px) {
-		.success-actions {
-			grid-template-columns: 1fr;
-		}
-	}
-</style>

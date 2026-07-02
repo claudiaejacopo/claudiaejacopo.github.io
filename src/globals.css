@@ -1,15 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 
 html {
 	scroll-behavior: smooth;
 }
 
+:root {
+	--color-cream: #FCF9F2;
+	--color-terracotta: #C05A3E;
+	--color-terracotta-soft: rgba(192, 90, 62, 0.12);
+	--color-sage: #8A9A84;
+	--color-ivory: #FFF8F3;
+	--color-text: #1F1B16;
+	--color-outline: #85736E;
+}
+
 body {
-	@apply bg-surface text-on-surface;
+	background-color: var(--color-cream);
+	color: var(--color-text);
+	@apply text-on-surface;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -21,6 +33,76 @@ body {
 	vertical-align: middle;
 	font-size: 1.5rem;
 	line-height: 1;
+}
+
+.paper-texture {
+	background-color: var(--color-cream);
+	background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+}
+
+.double-border {
+	position: relative;
+	padding: 20px;
+}
+
+.double-border::before {
+	content: '';
+	position: absolute;
+	inset: 12px;
+	border: 1px solid var(--color-sage);
+	pointer-events: none;
+}
+
+.double-border::after {
+	content: '';
+	position: absolute;
+	inset: 16px;
+	border: 0.5px solid var(--color-sage);
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+.luxury-text-shadow {
+	text-shadow: 0 2px 4px rgba(192, 90, 62, 0.1);
+}
+
+.menu-item-hover::after {
+	content: '';
+	position: absolute;
+	bottom: -4px;
+	left: 50%;
+	width: 0;
+	height: 1px;
+	background-color: currentColor;
+	transition: all 0.4s ease-out;
+	transform: translateX(-50%);
+}
+
+.menu-item-hover:hover::after {
+	width: 40px;
+}
+
+.grain-overlay {
+	background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+.nav-drawer {
+	position: fixed;
+	inset: 0;
+	z-index: 60;
+	background: rgba(252, 249, 242, 0.96);
+	backdrop-filter: blur(20px);
+	transition: opacity 0.35s ease;
+}
+
+.nav-drawer-link {
+	@apply text-primary font-headline-md text-headline-md tracking-[0.25em] uppercase transition-colors;
+}
+
+.nav-drawer-link:hover {
+	color: var(--color-terracotta);
 }
 
 .fade-in {
@@ -43,11 +125,58 @@ body {
 }
 
 .btn-primary {
-	@apply inline-block bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded-lg hover:bg-primary-container active:bg-primary-container transition-colors duration-200 cursor-pointer;
+	@apply inline-flex items-center justify-center rounded-full px-8 py-3 font-semibold transition duration-300 ease-out cursor-pointer;
+	background-color: var(--color-terracotta);
+	color: #fff;
+	border: 1px solid rgba(255, 255, 255, 0.32);
+	box-shadow: 0 18px 50px rgba(192, 90, 62, 0.2);
+}
+
+.btn-primary:hover {
+	background-color: #b84b32;
+	box-shadow: 0 24px 60px rgba(192, 90, 62, 0.25);
+	transform: translateY(-1px);
 }
 
 .btn-secondary {
-	@apply inline-block bg-surface-container-high text-on-surface font-label-caps text-label-caps px-6 py-3 rounded-lg border border-outline hover:bg-surface-container active:bg-surface-container transition-colors duration-200 cursor-pointer;
+	@apply inline-flex items-center justify-center rounded-full px-8 py-3 font-semibold transition duration-300 ease-out cursor-pointer;
+	background-color: rgba(255, 248, 243, 0.92);
+	border: 1px solid rgba(133, 115, 110, 0.28);
+	color: var(--color-text);
+}
+
+.btn-secondary:hover {
+	background-color: rgba(255, 248, 243, 1);
+	transform: translateY(-1px);
+}
+
+.btn-glow {
+	position: relative;
+	overflow: hidden;
+}
+
+.btn-glow::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.7), transparent 55%);
+	opacity: 0;
+	transition: opacity 0.4s ease, transform 0.4s ease;
+	transform: translateY(-12px) scale(1.2);
+}
+
+.btn-glow:hover::before {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+.mobile-nav {
+	@apply overflow-hidden transition-[max-height] duration-300 ease-out;
+	max-height: 0;
+}
+
+.mobile-nav.open {
+	max-height: 28rem;
 }
 
 .input-field {

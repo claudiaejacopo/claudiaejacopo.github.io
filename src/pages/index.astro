@@ -5,17 +5,43 @@ import HeaderMobile from '../components/HeaderMobile.astro';
 import HeroSection from '../components/HeroSection.astro';
 import ProgrammaSection from '../components/ProgrammaSection.astro';
 import ComeArrivareSection from '../components/ComeArrivareSection.astro';
-import RSVPSection from '../components/RSVPSection.astro';
 import FooterContacts from '../components/FooterContacts.astro';
 ---
 
 <Layout>
+	<script is:inline slot="head">
+		const coverEntered = localStorage.getItem('coverEntered') === 'true';
+		if (coverEntered) document.documentElement.classList.add('cover-entered');
+		document.documentElement.classList.add('js-ready');
+	</script>
+	<script type="module" slot="head" src="https://unpkg.com/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.esm.js"></script>
+	<style is:inline slot="head">
+		html:not(.js-ready) body {
+			visibility: hidden;
+		}
+		html.cover-entered #cover-section {
+			opacity: 0;
+			transform: translateY(-16px);
+			pointer-events: none;
+			visibility: hidden;
+		}
+		html.cover-entered #home-content {
+			opacity: 1;
+			transform: translateY(0);
+			visibility: visible;
+		}
+	</style>
 	<CoverSection />
 
 	<div id="home-content" class="home-content">
 		<HeaderMobile />
 
 		<main id="main-home" class="main-home">
+			<div class="flex justify-end">
+				<button id="return-cover" type="button" class="inline-flex items-center justify-center rounded-full border border-outline-variant/30 bg-surface px-3 py-2 text-primary hover:bg-surface-container-low transition-all" aria-label="Torna alla copertina">
+					<span class="material-symbols-outlined text-lg">undo</span>
+				</button>
+			</div>
 			<HeroSection />
 			<ProgrammaSection />
 			<ComeArrivareSection />
@@ -28,35 +54,73 @@ import FooterContacts from '../components/FooterContacts.astro';
 	<script type="module">
 		const coverEnterButton = document.getElementById('cover-enter');
 		const coverSection = document.getElementById('cover-section');
+		const coverLottie = document.getElementById('cover-lottie');
 		const homeContent = document.getElementById('home-content');
-		const menuButton = document.getElementById('menu-button');
-		const anchorNav = document.getElementById('anchor-nav');
 		const audio = document.getElementById('background-audio');
 		const musicToggle = document.getElementById('music-toggle');
+		const musicToggleIcon = musicToggle?.querySelector('.material-symbols-outlined');
+		const musicToggleLabel = musicToggle?.querySelector('[data-music-label]');
+		const returnCoverButton = document.getElementById('return-cover');
 
 		let hasEntered = false;
-		let isMenuOpen = false;
 		let isMusicPlaying = false;
+		const audioAvailable = Boolean(audio?.src);
+		const coverEntered = localStorage.getItem('coverEntered') === 'true';
+
+		if (!audioAvailable && musicToggle) {
+			musicToggle.hidden = true;
+		}
 
 		function showHome() {
 			hasEntered = true;
+			localStorage.setItem('coverEntered', 'true');
+			document.documentElement.classList.add('cover-entered');
 			coverSection?.classList.add('cover-hidden');
+			coverSection?.classList.remove('cover-playing');
 			homeContent?.classList.add('home-visible');
-			setMusic(true);
+			document.documentElement.style.overflow = 'auto';
+			document.body.style.overflow = 'auto';
+			if (audioAvailable) {
+				setMusic(true);
+			}
 		}
 
-		function setMenu(open) {
-			isMenuOpen = open;
-			if (anchorNav) {
-				anchorNav.hidden = !open;
+		if (coverEntered) {
+			showHome();
+		}
+
+		function showCover() {
+			hasEntered = false;
+			localStorage.removeItem('coverEntered');
+			document.documentElement.classList.remove('cover-entered');
+			coverSection?.classList.remove('cover-hidden', 'cover-playing');
+			homeContent?.classList.remove('home-visible');
+			document.documentElement.style.overflow = 'hidden';
+			document.body.style.overflow = 'hidden';
+			if (coverLottie?.stop) {
+				coverLottie.stop();
 			}
-			if (menuButton) {
-				menuButton.setAttribute('aria-expanded', String(open));
+			if (coverEnterButton) {
+				coverEnterButton.disabled = false;
 			}
+		}
+
+		returnCoverButton?.addEventListener('click', () => {
+			showCover();
+		});
+
+		function onCoverAnimationComplete() {
+			if (!hasEntered) {
+				showHome();
+			}
+		}
+
+		function ensureLottieReady() {
+			return window.customElements?.whenDefined('lottie-player').then(() => true).catch(() => false);
 		}
 
 		async function setMusic(play) {
-			if (!audio) return;
+			if (!audioAvailable || !audio) return;
 			isMusicPlaying = play;
 			if (play) {
 				try {
@@ -69,31 +133,119 @@ import FooterContacts from '../components/FooterContacts.astro';
 			}
 			if (musicToggle) {
 				musicToggle.setAttribute('aria-pressed', String(play));
-				musicToggle.textContent = play ? 'Musica On' : 'Musica Off';
+			}
+			if (musicToggleIcon) {
+				musicToggleIcon.textContent = play ? 'volume_up' : 'volume_off';
+			}
+			if (musicToggleLabel) {
+				musicToggleLabel.textContent = play ? 'Musica On' : 'Musica Off';
 			}
 		}
 
-		coverEnterButton?.addEventListener('click', () => {
+		coverEnterButton?.addEventListener('click', async () => {
 			if (!hasEntered) {
-				showHome();
+				coverSection?.classList.add('cover-playing');
+				if (coverEnterButton) {
+					coverEnterButton.disabled = true;
+				}
+
+				const ready = await ensureLottieReady();
+				if (ready && coverLottie?.play) {
+					coverLottie.addEventListener('complete', onCoverAnimationComplete, { once: true });
+					coverLottie.play();
+					setTimeout(() => {
+						if (!hasEntered) {
+							showHome();
+						}
+					}, 2200);
+				} else {
+					showHome();
+				}
 			}
 		});
 
-		menuButton?.addEventListener('click', () => setMenu(!isMenuOpen));
-		musicToggle?.addEventListener('click', () => setMusic(!isMusicPlaying));
+		musicToggle?.addEventListener('click', () => {
+			if (audioAvailable) {
+				setMusic(!isMusicPlaying);
+			}
+		});
 	</script>
 
 	<style>
 		.home-content {
-			display: none;
+			position: fixed;
+			inset: 0;
+			width: 100%;
+			opacity: 0;
+			transform: translateY(24px);
+			visibility: hidden;
+			transition: opacity 0.6s ease, transform 0.6s ease, visibility 0s linear 0.6s;
+			overflow-y: auto;
+			background: inherit;
+			z-index: 20;
 		}
 
 		.home-visible {
-			display: block;
+			opacity: 1;
+			transform: translateY(0);
+			visibility: visible;
+			transition-delay: 0s;
+		}
+
+		html:not(.js-ready) body {
+			visibility: hidden;
+		}
+
+		html.cover-entered #cover-section {
+			opacity: 0;
+			transform: scale(0.98);
+			filter: blur(1px);
+			pointer-events: none;
+			visibility: hidden;
+		}
+
+		html.cover-entered #home-content {
+			opacity: 1;
+			transform: translateY(0);
+			visibility: visible;
 		}
 
 		.cover-hidden {
-			display: none;
+			opacity: 0;
+			transform: translateY(-16px);
+			pointer-events: none;
+			transition: opacity 0.45s ease, transform 0.45s ease;
+		}
+
+		#cover-section {
+			transition: opacity 0.45s ease, transform 0.45s ease;
+		}
+
+		#cover-section.cover-playing {
+			cursor: progress;
+		}
+
+		#cover-section.cover-playing #cover-lottie {
+			opacity: 1;
+		}
+
+		#cover-section.cover-playing .cover-card {
+			transform: translateY(-10px) scale(1.02);
+		}
+
+		#cover-lottie {
+			transition: opacity 0.6s ease;
+		}
+
+		.main-home > * {
+			opacity: 0;
+			transform: translateY(20px);
+			transition: opacity 0.45s ease, transform 0.45s ease;
+		}
+
+		.home-visible .main-home > * {
+			opacity: 1;
+			transform: translateY(0);
 		}
 
 		.main-home {

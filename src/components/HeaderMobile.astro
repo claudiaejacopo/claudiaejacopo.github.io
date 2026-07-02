@@ -1,27 +1,87 @@
 ---
-import MusicToggle from './MusicToggle.astro';
 ---
 
-<header class="sticky top-0 z-50 bg-surface border-b border-outline-variant/20 px-margin-mobile md:px-margin-desktop py-stack-md transition-all duration-300">
-	<div class="max-w-container-max mx-auto flex items-center justify-between">
-		<div class="flex items-center gap-stack-md">
-			<span class="material-symbols-outlined text-primary" style="font-size: 28px;">favorite</span>
-			<h1 class="font-headline-md text-headline-md text-primary">Claudia & Jacopo</h1>
-		</div>
-		<button id="menu-button" type="button" aria-expanded="false" aria-controls="anchor-nav" class="btn-secondary md:hidden">
-			<span class="material-symbols-outlined">menu</span>
-		</button>
-	</div>
-
-	<nav id="anchor-nav" class="hidden md:block md:mt-0" hidden>
-		<ul class="flex flex-col md:flex-row gap-stack-md md:gap-stack-lg">
-			<li><a href="#hero" class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors">Hero</a></li>
-			<li><a href="#programma" class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors">Programma</a></li>
-			<li><a href="#come-arrivare" class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors">Come arrivare</a></li>
-			<li><a href="/rsvp" class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors">RSVP</a></li>
-			<li><a href="/regalo" class="font-body-md text-body-md text-on-surface hover:text-primary transition-colors">Regalo</a></li>
-		</ul>
-	</nav>
-
-	<MusicToggle />
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile md:px-12 h-16 transition-all duration-300">
+	<button id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-drawer" class="text-primary hover:opacity-70 transition-opacity active:scale-95">
+		<span class="material-symbols-outlined">menu</span>
+	</button>
+	<div class="font-display-lg-mobile text-2xl text-primary tracking-widest uppercase">C &amp; J</div>
+	<button id="music-toggle" type="button" aria-pressed="false" class="text-primary hover:opacity-70 transition-opacity active:scale-95">
+		<span class="material-symbols-outlined">music_note</span>
+	</button>
 </header>
+
+<nav id="nav-drawer" class="fixed inset-0 w-full h-full z-[60] bg-surface/98 backdrop-blur-xl flex flex-col justify-start items-center gap-stack-lg p-margin-mobile pt-32 opacity-0 pointer-events-none translate-y-4 transition-all duration-500">
+	<div class="absolute inset-0 grain-overlay"></div>
+	<button class="absolute top-8 right-5 z-20 rounded-full bg-surface/90 p-3 text-primary shadow-lg shadow-surface/10 pointer-events-auto" id="menu-close" type="button">
+		<span class="material-symbols-outlined text-4xl">close</span>
+	</button>
+	<div class="relative z-10 text-center pt-12">
+		<div class="font-display-lg-mobile text-display-lg-mobile text-primary mb-12">THE CELEBRATION</div>
+		<div class="flex flex-col items-center gap-12">
+			<a href="#hero" class="nav-drawer-link group relative flex flex-col items-center text-terracotta">
+				<span class="font-headline-md text-headline-md tracking-[0.25em] menu-item-hover transition-transform duration-500 group-hover:scale-105">INIZIO</span>
+				<span class="font-label-caps text-[10px] text-terracotta/40 tracking-[0.5em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">HOME</span>
+			</a>
+			<a href="#programma" class="nav-drawer-link group relative flex flex-col items-center text-terracotta">
+				<span class="font-headline-md text-headline-md tracking-[0.25em] menu-item-hover transition-transform duration-500 group-hover:scale-105">PROGRAMMA</span>
+				<span class="font-label-caps text-[10px] text-terracotta/40 tracking-[0.5em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">SCHEDULE</span>
+			</a>
+			<a href="#come-arrivare" class="nav-drawer-link group relative flex flex-col items-center text-terracotta">
+				<span class="font-headline-md text-headline-md tracking-[0.25em] menu-item-hover transition-transform duration-500 group-hover:scale-105">INFORMAZIONI</span>
+				<span class="font-label-caps text-[10px] text-terracotta/40 tracking-[0.5em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">DETAILS</span>
+			</a>
+			<a href="/regalo" class="nav-drawer-link group relative flex flex-col items-center text-terracotta">
+				<span class="font-headline-md text-headline-md tracking-[0.25em] menu-item-hover transition-transform duration-500 group-hover:scale-105">LISTA NOZZE</span>
+				<span class="font-label-caps text-[10px] text-terracotta/40 tracking-[0.5em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">REGISTRY</span>
+			</a>
+			<a href="/rsvp" class="nav-drawer-link group relative flex flex-col items-center text-terracotta">
+				<span class="font-headline-md text-headline-md tracking-[0.25em] menu-item-hover transition-transform duration-500 group-hover:scale-105">RSVP</span>
+				<span class="font-label-caps text-[10px] text-terracotta/40 tracking-[0.5em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">CONFIRM</span>
+			</a>
+		</div>
+	</div>
+	<footer class="relative z-10 p-section-margin flex flex-col items-center gap-stack-sm">
+		<div class="h-px w-16 bg-terracotta/20 mb-4"></div>
+		<p class="font-label-caps text-label-caps text-on-surface-variant/60 tracking-widest uppercase">Claudia &amp; Jacopo</p>
+		<p class="font-body-md text-[14px] text-on-surface-variant/40 italic">Giugno 2025 • Venezia, Italia</p>
+	</footer>
+</nav>
+
+<script type="module">
+	const menuToggle = document.getElementById('menu-toggle');
+	const menuClose = document.getElementById('menu-close');
+	const navDrawerLinks = document.querySelectorAll('.nav-drawer-link');
+	const homeContent = document.getElementById('home-content');
+	let isMenuOpen = false;
+
+	function setMenu(open) {
+		isMenuOpen = open;
+		const navDrawer = document.getElementById('nav-drawer');
+		if (navDrawer) {
+			if (open) {
+				navDrawer.classList.add('opacity-100', 'translate-y-0');
+				navDrawer.classList.remove('pointer-events-none', 'translate-y-4');
+			} else {
+				navDrawer.classList.remove('opacity-100', 'translate-y-0');
+				navDrawer.classList.add('pointer-events-none', 'translate-y-4');
+			}
+		}
+		if (homeContent) {
+			homeContent.style.overflow = open ? 'hidden' : '';
+		}
+		if (menuToggle) {
+			menuToggle.setAttribute('aria-expanded', String(open));
+			const icon = menuToggle.querySelector('.material-symbols-outlined');
+			if (icon) {
+				icon.textContent = open ? 'close' : 'menu';
+			}
+		}
+		document.documentElement.style.overflow = open ? 'hidden' : '';
+		document.body.style.overflow = open ? 'hidden' : '';
+	}
+
+	menuToggle?.addEventListener('click', () => setMenu(!isMenuOpen));
+	menuClose?.addEventListener('click', () => setMenu(false));
+	navDrawerLinks.forEach(link => link.addEventListener('click', () => setMenu(false)));
+</script>
