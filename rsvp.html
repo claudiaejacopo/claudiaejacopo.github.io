@@ -11,16 +11,7 @@
 <style>.material-symbols-outlined{font-variation-settings:'FILL'0,'wght'400}.form-focus-effect:focus-within{border-bottom-color:#635f40}.botanical-accent{opacity:.15;pointer-events:none}</style>
 </head>
 <body class="bg-background text-on-surface font-body-md">
-<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 md:px-16 py-4 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
-  <div class="font-display text-headline-md text-primary italic">C &amp; J</div>
-  <nav class="hidden md:flex gap-6 items-center">
-    <a href="homepage.html" class="uppercase tracking-widest">Home</a>
-    <a href="programma.html" class="uppercase tracking-widest">Programma</a>
-    <a href="rsvp.html" class="uppercase tracking-widest text-secondary border-b border-secondary">RSVP</a>
-    <a href="lista-nozze.html" class="uppercase tracking-widest">Lista Nozze</a>
-  </nav>
-  <div class="md:hidden"><span class="material-symbols-outlined text-primary cursor-pointer">menu</span></div>
-</header>
+<header id="site-header" class="fixed top-0 left-0 w-full z-50"></header>
 <main class="relative pt-24 pb-24 px-5 md:px-16">
   <div class="max-w-3xl mx-auto text-center mb-12">
     <h2 class="text-4xl font-display text-primary mb-4">RSVP</h2>
@@ -64,4 +55,5 @@
 <script>
   document.getElementById('rsvp-form').addEventListener('submit', (e)=>{e.preventDefault();const btn=e.target.querySelector('button');btn.innerText='Grazie!';btn.disabled=true;setTimeout(()=>{btn.innerText='Invia Conferma';btn.disabled=false;},2000)});
 </script>
+<script src="js/header.js"></script>
 </body></html>

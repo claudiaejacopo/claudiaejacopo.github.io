@@ -13,16 +13,7 @@
 <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300;display:inline-block;vertical-align:middle}.timeline-line{background:linear-gradient(to bottom,transparent,#cbc6b9 15%,#cbc6b9 85%,transparent)}.botanical-accent{pointer-events:none;opacity:.15}</style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
-<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 md:px-16 py-4 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
-  <div class="font-display text-headline-md text-primary italic">C &amp; J</div>
-  <div class="hidden md:flex gap-8">
-    <a href="homepage.html" class="font-label-lg uppercase tracking-widest text-on-surface-variant">Home</a>
-    <a href="programma.html" class="font-label-lg uppercase tracking-widest text-secondary border-b border-secondary">Programma</a>
-    <a href="rsvp.html" class="font-label-lg uppercase tracking-widest text-on-surface-variant">RSVP</a>
-    <a href="lista-nozze.html" class="font-label-lg uppercase tracking-widest text-on-surface-variant">Lista Nozze</a>
-  </div>
-  <button class="font-label-lg uppercase bg-primary text-on-primary px-6 py-2">RSVP</button>
-</nav>
+<header id="site-header" class="fixed top-0 left-0 w-full z-50"></header>
 <main class="relative pt-24">
   <section class="relative h-[614px] flex items-center justify-center overflow-hidden px-6 md:px-16">
     <div class="absolute inset-0 z-0">
@@ -97,4 +88,5 @@
   const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('opacity-100');entry.target.classList.remove('opacity-0','translate-y-10')}})},observerOptions);
   document.querySelectorAll('.group').forEach(el=>{el.classList.add('opacity-0','translate-y-10','transition-all','duration-1000','ease-out');observer.observe(el)});
 </script>
+<script src="js/header.js"></script>
 </body></html>

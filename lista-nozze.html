@@ -10,16 +10,7 @@
 <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght'300}.glass-effect{backdrop-filter:blur(8px)}body{scroll-behavior:smooth}</style>
 </head>
 <body class="bg-background text-on-surface font-body-md">
-<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 md:px-16 py-4 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
-  <div class="font-display text-headline-md text-primary italic">C &amp; J</div>
-  <div class="hidden md:flex gap-6 items-center">
-    <a href="homepage.html">Home</a>
-    <a href="programma.html">Programma</a>
-    <a href="rsvp.html">RSVP</a>
-    <a href="lista-nozze.html" class="text-secondary border-b">Lista Nozze</a>
-  </div>
-  <button class="bg-primary text-on-primary px-6 py-2">RSVP</button>
-</nav>
+<header id="site-header" class="fixed top-0 left-0 w-full z-50"></header>
 <header class="relative w-full h-[520px] flex items-center justify-center pt-24">
   <div class="absolute inset-0 z-0">
     <div class="w-full h-full bg-cover bg-center" style="background-image:url('https://via.placeholder.com/1600x900?text=Registry+Hero')"></div>
@@ -63,4 +54,5 @@
 <script>
   function copyToClipboard(id){const text=document.getElementById(id).innerText;navigator.clipboard.writeText(text);} 
 </script>
+<script src="js/header.js"></script>
 </body></html>
