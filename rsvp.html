@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RSVP — Claudia &amp; Jacopo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config"> tailwind.config = { darkMode: "class" } </script>
+<link rel="stylesheet" href="css/theme.css">
+<style>.material-symbols-outlined{font-variation-settings:'FILL'0,'wght'400}.form-focus-effect:focus-within{border-bottom-color:#635f40}.botanical-accent{opacity:.15;pointer-events:none}</style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 md:px-16 py-4 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+  <div class="font-display text-headline-md text-primary italic">C &amp; J</div>
+  <nav class="hidden md:flex gap-6 items-center">
+    <a href="homepage.html" class="uppercase tracking-widest">Home</a>
+    <a href="programma.html" class="uppercase tracking-widest">Programma</a>
+    <a href="rsvp.html" class="uppercase tracking-widest text-secondary border-b border-secondary">RSVP</a>
+    <a href="lista-nozze.html" class="uppercase tracking-widest">Lista Nozze</a>
+  </nav>
+  <div class="md:hidden"><span class="material-symbols-outlined text-primary cursor-pointer">menu</span></div>
+</header>
+<main class="relative pt-24 pb-24 px-5 md:px-16">
+  <div class="max-w-3xl mx-auto text-center mb-12">
+    <h2 class="text-4xl font-display text-primary mb-4">RSVP</h2>
+    <p class="text-lg text-tertiary">Siamo impazienti di celebrare questo giorno speciale con voi. Confermate la vostra presenza entro il 15 Agosto 2025.</p>
+    <div class="w-24 h-px bg-outline-variant/50 my-6"></div>
+    <form id="rsvp-form" class="text-left space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div><label class="uppercase text-sm text-on-surface-variant">Nome</label><input placeholder="Es. Claudia" class="w-full border-b border-outline py-3 bg-transparent"/></div>
+        <div><label class="uppercase text-sm">Cognome</label><input placeholder="Es. Rossi" class="w-full border-b border-outline py-3 bg-transparent"/></div>
+      </div>
+      <div>
+        <label class="uppercase text-sm">Confermi la tua partecipazione?</label>
+        <div class="flex gap-6 mt-3">
+          <label class="flex items-center gap-3"><input type="radio" name="att" value="yes" class="hidden peer"/><span class="w-6 h-6 border rounded-full peer-checked:bg-primary flex items-center justify-center"></span>Sì, ci sarò con gioia</label>
+          <label class="flex items-center gap-3"><input type="radio" name="att" value="no" class="hidden peer"/><span class="w-6 h-6 border rounded-full peer-checked:bg-secondary flex items-center justify-center"></span>Purtroppo non potrò venire</label>
+        </div>
+      </div>
+      <div class="max-w-xs"><label class="uppercase text-sm">Numero di ospiti (Incluso te)</label><select class="w-full border-b border-outline py-3 bg-transparent"><option>1 Ospite</option><option>2 Ospiti</option></select></div>
+      <div><label class="uppercase text-sm">Intolleranze, allergie o regimi alimentari</label><textarea rows="2" class="w-full border-b border-outline py-3 bg-transparent" placeholder="Es. Celiachia..."></textarea></div>
+      <div class="text-center"><button class="bg-primary text-on-primary px-8 py-3 rounded shadow">Invia Conferma</button></div>
+    </form>
+  </div>
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <div class="rounded-xl overflow-hidden shadow"><img src="https://via.placeholder.com/800x600?text=RSVP+Photo" class="w-full h-full object-cover"/></div>
+    <div>
+      <h3 class="text-2xl">Non vediamo l'ora di vedervi</h3>
+      <p class="text-on-surface-variant">Ogni dettaglio è stato pensato per condividere il nostro amore con le persone più importanti della nostra vita.</p>
+    </div>
+  </div>
+</main>
+<footer class="w-full py-10 px-6 md:px-16 bg-surface-container-low border-t border-outline-variant/20 text-center">
+  <div class="font-display text-headline-sm text-primary">C &amp; J</div>
+  <nav class="flex justify-center gap-6 mt-4">
+    <a href="homepage.html">Home</a>
+    <a href="programma.html">Programma</a>
+    <a href="rsvp.html" class="font-bold">RSVP</a>
+    <a href="lista-nozze.html">Lista Nozze</a>
+  </nav>
+  <p class="mt-4 text-tertiary">Claudia &amp; Jacopo 2024 — "Amore è ogni cosa che ci rende felici."</p>
+</footer>
+<script>
+  document.getElementById('rsvp-form').addEventListener('submit', (e)=>{e.preventDefault();const btn=e.target.querySelector('button');btn.innerText='Grazie!';btn.disabled=true;setTimeout(()=>{btn.innerText='Invia Conferma';btn.disabled=false;},2000)});
+</script>
+</body></html>

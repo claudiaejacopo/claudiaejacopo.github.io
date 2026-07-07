@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Claudia &amp; Jacopo — Wedding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "outline": "#7a776c",
+                    "surface-container": "#f0eded",
+                    "primary-fixed": "#eae3bc",
+                    "primary-container": "#b2ac88",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#732010",
+                    "on-tertiary-fixed-variant": "#474742",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#cec7a2",
+                    "primary": "#635f40",
+                    "on-primary-fixed-variant": "#4b472b",
+                    "surface-bright": "#fcf9f8",
+                    "inverse-primary": "#cec7a2",
+                    "on-secondary-fixed-variant": "#802918",
+                    "on-primary-container": "#444024",
+                    "secondary-fixed": "#ffdad3",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-dim": "#dcd9d9",
+                    "secondary-container": "#fd876f",
+                    "tertiary-fixed-dim": "#c9c6c0",
+                    "on-tertiary-container": "#40403b",
+                    "tertiary-container": "#adaba5",
+                    "tertiary": "#5f5e59",
+                    "surface-variant": "#e4e2e1",
+                    "outline-variant": "#cbc6b9",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f3f0f0",
+                    "secondary": "#9f402d",
+                    "secondary-fixed-dim": "#ffb4a5",
+                    "surface-container-high": "#eae7e7",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-background": "#1b1c1c",
+                    "on-surface": "#1b1c1c",
+                    "on-surface-variant": "#49473d",
+                    "on-tertiary-fixed": "#1c1c18",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#303030",
+                    "background": "#fcf9f8",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#635f40",
+                    "tertiary-fixed": "#e5e2db",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-primary-fixed": "#1f1c04",
+                    "on-secondary-fixed": "#3e0500",
+                    "surface": "#fcf9f8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "max-width": "1280px",
+                    "xl": "80px",
+                    "margin-mobile": "20px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "lg": "48px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "label-lg": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "label-sm": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "display": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "300"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .fade-in { animation: fadeIn 1.2s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar Shell -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300" id="top-nav">
+<div class="font-display text-headline-sm md:text-headline-md text-primary dark:text-primary-fixed-dim italic">
+            C &amp; J
+        </div>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-md">
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-secondary dark:text-secondary-fixed border-b border-secondary hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#home">Home</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#programma">Programma</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#rsvp">RSVP</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-300" href="#lista-nozze">Lista Nozze</a>
+<button class="ml-4 bg-primary text-on-primary px-6 py-2 rounded-full font-label-lg text-label-lg uppercase tracking-widest hover:opacity-80 transition-opacity">
+                RSVP
+            </button>
+</div>
+<!-- Mobile Toggle -->
+<button class="md:hidden text-primary p-2" id="mobile-menu-btn">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</nav>
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 z-[60] bg-surface translate-x-full transition-transform duration-500 ease-in-out md:hidden" id="mobile-menu">
+<div class="flex flex-col h-full p-margin-mobile">
+<div class="flex justify-between items-center mb-xl">
+<span class="font-display text-headline-md text-primary italic">C &amp; J</span>
+<button class="text-primary" id="close-menu-btn">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-lg">
+<a class="mobile-nav-link font-display text-headline-lg text-primary border-b border-outline-variant pb-2" href="#home">Home</a>
+<a class="mobile-nav-link font-display text-headline-lg text-on-surface-variant border-b border-outline-variant pb-2" href="#programma">Programma</a>
+<a class="mobile-nav-link font-display text-headline-lg text-on-surface-variant border-b border-outline-variant pb-2" href="#rsvp">RSVP</a>
+<a class="mobile-nav-link font-display text-headline-lg text-on-surface-variant border-b border-outline-variant pb-2" href="#lista-nozze">Lista Nozze</a>
+</div>
+<div class="mt-auto py-lg">
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-label-lg text-label-lg uppercase tracking-widest">
+                    RSVP Ora
+                </button>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-xl overflow-hidden" id="home">
+<!-- Background Botanical Accent -->
+<div class="absolute -top-20 -left-20 opacity-10 pointer-events-none transform -rotate-12">
+<svg fill="none" height="400" viewbox="0 0 200 200" width="400" xmlns="http://www.w3.org/2000/svg">
+<path class="text-primary" d="M100 20C100 20 120 60 100 100C80 140 100 180 100 180M100 60C100 60 60 50 40 70M100 100C100 100 140 90 160 110M100 140C100 140 70 130 50 150" stroke="currentColor" stroke-width="1"></path>
+</svg>
+</div>
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<!-- Text Content -->
+<div class="md:col-span-5 order-2 md:order-1 z-10 fade-in">
+<h1 class="font-display text-headline-lg-mobile md:text-display text-primary mb-md">
+                        Claudia &amp; <br class="hidden md:block"/>Jacopo
+                    </h1>
+<p class="font-label-lg text-label-lg text-secondary uppercase tracking-[0.2em] mb-lg">
+                        14 Settembre 2024 — Toscana
+                    </p>
+<div class="h-px w-24 bg-outline-variant/50 mb-lg"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic leading-relaxed">
+                        Iniziamo il nostro viaggio più bello e desideriamo viverlo insieme alle persone che amiamo di più.
+                    </p>
+</div>
+<!-- Hero Image -->
+<div class="md:col-span-7 order-1 md:order-2 fade-in delay-1">
+<div class="relative">
+<div class="aspect-[4/5] md:aspect-[3/4] w-full bg-surface-container-low overflow-hidden rounded-lg shadow-sm border border-outline-variant/10">
+<img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000" data-alt="A cinematic, romantic photography shot of a sophisticated couple in an embrace, standing in a golden-hour sunlit olive grove in Tuscany. The visual style is editorial and high-end, featuring soft lighting and a warm, dreamy atmosphere with sage green leaves and soft terracotta tones in the background. The couple wears elegant, modern wedding attire, looking serene and deeply in love. The image captures a timeless, airy aesthetic consistent with a luxury wedding magazine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuqakzL6uoxTsp0UUnc91b-VzA34aCJuKQTluyvD7R2yVSnt1O-9UHNwebsSYGx2UTaipilkTysDcOxktMBq9mFSJi_h6o_abaMbnf9KXAytvWzJKQryW3sqm3_g23jb__G0lapz_8FksrJLO9GxxSNOMnG5gg-dAAJ12SBbYwetQfbfvBBEOGaao1tqJAL5ZGf5YOxpmhN8WAbJUqOAB53zyE5f-ZfMt-HoITEoz-oQ5tvMIUi-gg"/>
+</div>
+<!-- Decorative Frame Element -->
+<div class="absolute -bottom-6 -right-6 w-32 h-32 border-r-2 border-b-2 border-primary-container/30 hidden md:block"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Welcome Message Section -->
+<section class="bg-surface-container-lowest py-xl">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop text-center max-w-3xl">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-md">favorite</span>
+<h2 class="font-headline-sm md:text-headline-md text-primary mb-md">
+                    Non vediamo l'ora di festeggiare con voi
+                </h2>
+<div class="w-12 h-px bg-secondary-container mx-auto mb-lg"></div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl leading-loose">
+                    Siamo pronti a dirci "Sì" in una cornice di colline dorate e profumo di rosmarino. In questo spazio troverete tutti i dettagli per raggiungerci e condividere con noi la gioia di questo giorno speciale. La vostra presenza è il regalo più grande che potessimo desiderare.
+                </p>
+</div>
+</section>
+<!-- Highlights Bento Grid -->
+<section class="py-xl bg-background">
+<div class="container mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- Programma Card -->
+<a class="group relative flex flex-col h-full bg-surface-container-low p-md transition-all duration-500 hover:shadow-xl hover:-translate-y-2 border border-outline-variant/20 rounded-lg" href="#programma">
+<div class="mb-lg overflow-hidden rounded-lg aspect-square">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A minimalist, editorial shot of an elegant wedding program printed on textured cream paper with gold foil accents, resting on a rustic wooden table with a sprig of dried lavender. Soft, warm morning light creates delicate shadows, emphasizing the sophisticated typography. The color palette includes cream, gold, and muted sage green, reflecting a luxury wedding aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLFqFRBIi5bcaNyA1PVMrnKdz_tyVlwJuIjcgqL7uo4gV_VhTBZ_eZN_Zlhg01DYF6PzVeJbG_Tkvu46HAqEFWhJmnncduJEzd3yCAzfL5YggfwJKK1yXK3VaLqK_Zlcg6THfn44VCtgiBut9Rm1dfPwS8vAHMyJosOCNivnT-NMNMuLrHOdrIvfNKR3w_XKk8PcX7JFaFLaEiEJ1ssdzDdRhbdNslWnPtTg20_qWN1uxv1e3Zw7Ld"/>
+</div>
+<h3 class="font-headline-sm text-primary mb-xs">Programma</h3>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-md">L'evento</p>
+<p class="font-body-md text-on-surface-variant text-sm mb-4">Scopri i momenti, gli orari e i luoghi del nostro matrimonio.</p>
+<div class="mt-auto flex items-center text-secondary font-label-lg group-hover:gap-2 transition-all">
+                            Scopri di più <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</div>
+</a>
+<!-- RSVP Card (Highlighted) -->
+<a class="group relative flex flex-col h-full bg-primary-container/10 p-md transition-all duration-500 hover:shadow-xl hover:-translate-y-2 border border-primary-container/30 rounded-lg md:col-span-2" href="#rsvp">
+<div class="flex flex-col md:flex-row gap-md h-full">
+<div class="w-full md:w-1/2 overflow-hidden rounded-lg h-48 md:h-full">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up of a vintage fountain pen resting on a heavy-weight cream envelope with a wax seal. The scene is lit by soft window light, creating an atmosphere of classical elegance and intimacy. The colors are dominated by soft whites, warm wood tones, and a hint of terracotta wax. Editorial photography style for a high-end wedding website." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT0x1CqO6SX5LghKNTFq59dAU01SXKNe_UmYZbQ8YyQ3vbUhVFZO-yfAwS3e9CR6eQ7077mQ7zmDyHsP-MXFIs452bL3cremQ-Q13UFF2veQtZ2Ru2ZpqeyMb_Yu-00P68exV3PsMemD3Rz1h4nuXLT8RDlWy-LENGGeca-QSkz8fO4nV9R_Pih4xJyYqWeRilonnM754gKp4WXiN5wzPDoL2ZYtQfyDy26lVQbTsqdXCkoEb9pjCQ"/>
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-center">
+<h3 class="font-headline-sm text-primary mb-xs">Conferma Presenza</h3>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-md">RSVP</p>
+<p class="font-body-md text-on-surface-variant mb-lg">Facci sapere se sarai dei nostri entro il 30 Giugno 2024.</p>
+<div class="mt-auto">
+<span class="inline-flex items-center bg-primary text-on-primary px-6 py-3 rounded-full font-label-lg text-label-lg uppercase tracking-widest transition-all group-hover:bg-secondary">
+                                        Compila il Form <span class="material-symbols-outlined ml-2">check_circle</span>
+</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Lista Nozze Card -->
+<a class="group relative flex flex-col h-full bg-surface-container-low p-md transition-all duration-500 hover:shadow-xl hover:-translate-y-2 border border-outline-variant/20 rounded-lg" href="#lista-nozze">
+<div class="mb-lg overflow-hidden rounded-lg aspect-square">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An artistic flat-lay of travel accessories and architectural sketches, representing a honeymoon in Greece or Italy. The composition includes a vintage compass, a small silk scarf, and a sketch of a Mediterranean coastline. The lighting is bright and airy, with soft sage and terracotta accents. High-end, editorial lifestyle photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXvlvT5i9z1AFw1HQ0wrpdiRC4MoKAr0JkydwJu0MrpDRdlkYOJC89bi1RTE2elr-6pkfu_N0b-l-WPOJ54W-RVzuXA-yxbDFuEN6f0-m4M_jLDtrQZhJJ9MQ2hxr2T4W8k1HdXwlBZ6EMJ5qDyNP1MacPWeQOwKt9yYihQKOvgR9ghNrVsvmwMVOqRvjrsBYEF5V4DiEZCxtqj-P0feHdoXx8x_nQji0ksdScwnHP4qf8lpkQcqvr"/>
+</div>
+<h3 class="font-headline-sm text-primary mb-xs">Lista Nozze</h3>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-md">Il nostro sogno</p>
+<p class="font-body-md text-on-surface-variant text-sm mb-4">Contribuisci alla nostra luna di miele o alla nostra nuova casa.</p>
+<div class="mt-auto flex items-center text-secondary font-label-lg group-hover:gap-2 transition-all">
+                            Scopri di più <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Aesthetic Divider -->
+<div class="flex justify-center py-xl bg-background overflow-hidden">
+<div class="flex items-center gap-md opacity-20">
+<span class="material-symbols-outlined text-primary text-6xl">spa</span>
+<div class="h-px w-64 bg-primary"></div>
+<span class="material-symbols-outlined text-primary text-6xl">spa</span>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-lg px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-md text-center bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant/20" id="footer">
+<div class="font-display text-headline-sm text-primary">Claudia &amp; Jacopo</div>
+<nav class="flex flex-wrap justify-center gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#home">Home</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#programma">Programma</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#rsvp">RSVP</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#lista-nozze">Lista Nozze</a>
+</nav>
+<div class="h-px w-16 bg-outline-variant/30"></div>
+<p class="font-body-md text-body-md text-tertiary dark:text-tertiary-fixed-dim max-w-sm italic">
+            "Amore è ogni cosa che ci rende felici."
+        </p>
+<div class="font-label-sm text-label-sm text-on-surface-variant/60 mt-4">
+            Claudia &amp; Jacopo 2024 — Tutti i diritti riservati
+        </div>
+</footer>
+<!-- Scripts -->
+<script>
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileNavLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Scroll Background Logic
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('top-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-md');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('py-2', 'shadow-md');
+                nav.classList.add('py-4');
+            }
+        });
+
+        // Simple Fade-in Observer
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('opacity-0');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lista Nozze | Claudia &amp; Jacopo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/theme.css">
+<style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght'300}.glass-effect{backdrop-filter:blur(8px)}body{scroll-behavior:smooth}</style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 md:px-16 py-4 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+  <div class="font-display text-headline-md text-primary italic">C &amp; J</div>
+  <div class="hidden md:flex gap-6 items-center">
+    <a href="homepage.html">Home</a>
+    <a href="programma.html">Programma</a>
+    <a href="rsvp.html">RSVP</a>
+    <a href="lista-nozze.html" class="text-secondary border-b">Lista Nozze</a>
+  </div>
+  <button class="bg-primary text-on-primary px-6 py-2">RSVP</button>
+</nav>
+<header class="relative w-full h-[520px] flex items-center justify-center pt-24">
+  <div class="absolute inset-0 z-0">
+    <div class="w-full h-full bg-cover bg-center" style="background-image:url('https://via.placeholder.com/1600x900?text=Registry+Hero')"></div>
+    <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+  </div>
+  <div class="relative z-10 text-center max-w-4xl px-6">
+    <span class="uppercase tracking-[0.3em] text-white/90 block mb-4">Il Nostro Viaggio</span>
+    <h1 class="text-4xl font-display text-white italic">Giappone &amp; Polinesia</h1>
+    <p class="text-white/90 max-w-2xl mx-auto mt-4">Il regalo più grande sarà avervi con noi. Se però desiderate contribuire al nostro primo grande viaggio...</p>
+  </div>
+</header>
+<main class="py-12 px-6 md:px-16">
+  <section class="max-w-3xl mx-auto bg-white border p-8 shadow">
+    <h2 class="text-2xl mb-4">Come Contribuire</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <label class="uppercase text-sm text-secondary">Intestatario</label>
+        <p class="text-lg">Claudia Rossi &amp; Jacopo Bianchi</p>
+      </div>
+      <div>
+        <label class="uppercase text-sm text-secondary">IBAN</label>
+        <p id="iban" class="tracking-wider">IT 99 L 01234 56789 012345678901</p>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-between items-center">
+      <p class="text-sm text-on-surface-variant">Se desiderate avvisarci, scriveteci un messaggio privato o lasciate una nota durante il bonifico.</p>
+      <a href="mailto:love@claudiaejacopo.com" class="bg-primary text-on-primary px-4 py-2">Invia Messaggio</a>
+    </div>
+  </section>
+</main>
+<footer class="w-full py-10 px-6 md:px-16 bg-surface-container-low border-t border-outline-variant/20 text-center">
+  <div class="font-display text-headline-sm text-primary">Claudia &amp; Jacopo</div>
+  <div class="flex gap-6 justify-center mt-4">
+    <a href="homepage.html">Home</a>
+    <a href="programma.html">Programma</a>
+    <a href="rsvp.html">RSVP</a>
+    <a href="lista-nozze.html" class="font-bold">Lista Nozze</a>
+  </div>
+  <p class="mt-4 italic">Claudia &amp; Jacopo 2024 — "Amore è ogni cosa che ci rende felici."</p>
+</footer>
+<script>
+  function copyToClipboard(id){const text=document.getElementById(id).innerText;navigator.clipboard.writeText(text);} 
+</script>
+</body></html>

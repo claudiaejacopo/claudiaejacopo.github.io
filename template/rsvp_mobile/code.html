@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RSVP - Claudia & Jacopo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "outline": "#7a776c",
+                        "surface-container": "#f0eded",
+                        "primary-fixed": "#eae3bc",
+                        "primary-container": "#b2ac88",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#732010",
+                        "on-tertiary-fixed-variant": "#474742",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#cec7a2",
+                        "primary": "#635f40",
+                        "on-primary-fixed-variant": "#4b472b",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-primary": "#cec7a2",
+                        "on-secondary-fixed-variant": "#802918",
+                        "on-primary-container": "#444024",
+                        "secondary-fixed": "#ffdad3",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-dim": "#dcd9d9",
+                        "secondary-container": "#fd876f",
+                        "tertiary-fixed-dim": "#c9c6c0",
+                        "on-tertiary-container": "#40403b",
+                        "tertiary-container": "#adaba5",
+                        "tertiary": "#5f5e59",
+                        "surface-variant": "#e4e2e1",
+                        "outline-variant": "#cbc6b9",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f3f0f0",
+                        "secondary": "#9f402d",
+                        "secondary-fixed-dim": "#ffb4a5",
+                        "surface-container-high": "#eae7e7",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-background": "#1b1c1c",
+                        "on-surface": "#1b1c1c",
+                        "on-surface-variant": "#49473d",
+                        "on-tertiary-fixed": "#1c1c18",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#303030",
+                        "background": "#fcf9f8",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#635f40",
+                        "tertiary-fixed": "#e5e2db",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-primary-fixed": "#1f1c04",
+                        "on-secondary-fixed": "#3e0500",
+                        "surface": "#fcf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "max-width": "1280px",
+                        "xl": "80px",
+                        "margin-mobile": "20px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "label-lg": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Montserrat"],
+                        "label-sm": ["Montserrat"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "display": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "300"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-focus-ring:focus {
+            box-shadow: 0 0 0 1px #635f40;
+            border-color: #635f40;
+        }
+        .bg-botanical-light {
+            background-color: #fcf9f8;
+            background-image: radial-gradient(circle at 100% 0%, rgba(178, 172, 136, 0.1) 0%, transparent 40%),
+                              radial-gradient(circle at 0% 100%, rgba(159, 64, 45, 0.05) 0%, transparent 40%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+<div class="font-display text-headline-sm md:text-headline-md text-primary italic">C & J</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-md">
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Home</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Programma</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-secondary border-b border-secondary" href="#">RSVP</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Lista Nozze</a>
+</nav>
+<!-- Mobile Menu Trigger -->
+<button class="md:hidden text-primary p-2" id="mobile-menu-btn">
+<span class="material-symbols-outlined text-[32px]">menu</span>
+</button>
+</header>
+<!-- Mobile Navigation Overlay -->
+<div class="fixed inset-0 bg-background z-[60] flex flex-col items-center justify-center gap-lg translate-x-full transition-transform duration-500 md:hidden" id="mobile-nav">
+<button class="absolute top-6 right-6 text-primary" id="close-menu-btn">
+<span class="material-symbols-outlined text-[32px]">close</span>
+</button>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant" href="#">Home</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant" href="#">Programma</a>
+<a class="font-headline-sm text-headline-sm text-secondary font-bold" href="#">RSVP</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant" href="#">Lista Nozze</a>
+</div>
+<main class="pt-[120px] pb-xl bg-botanical-light min-h-screen">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-xl items-start">
+<!-- Left Column: Editorial Content -->
+<div class="md:col-span-5 space-y-md">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-tight">
+                        RSVP — <br/>Conferma la tua presenza
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                        Siamo impazienti di celebrare il nostro giorno più bello insieme a voi. Vi preghiamo di compilare il modulo per aiutarci a organizzare al meglio ogni dettaglio.
+                    </p>
+<div class="pt-base">
+<span class="font-label-lg text-label-lg uppercase tracking-widest text-secondary block mb-2">Promemoria</span>
+<p class="font-body-md text-body-md text-tertiary italic">"Si prega di confermare entro il 15 Agosto 2025"</p>
+</div>
+<!-- Decorative Image -->
+<div class="relative hidden md:block pt-lg">
+<div class="w-full aspect-[4/5] rounded-lg overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A sophisticated and romantic wedding invitation still life. Elegant cream-colored paper envelopes, delicate dried botanical sprigs of sage and lavender, and a wax seal are arranged on a minimalist light wood surface. The lighting is soft and airy, casting gentle shadows that evoke an atmosphere of refined luxury and intimate celebration. The color palette is composed of soft creams, desaturated sage greens, and warm terracotta accents, maintaining a high-end editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-YVAEwIPboJMR0A6labZSRngCZEB2Pnffd4Mhjquzm0e7KpfDX895vmKOTNQlAwUiOm0fIT3Z8VvXW5AdFyGg0gUDVy6U15uYnyogix3J6epJxH1KPgvaUDizCzkAd0Z3GmZNM57ThkSXZgV9i3uBC9A05F1FJ4CKTalf5HkxG1P5clMBso6Yqktpup0EQ2cOO7ParHW_5W7rhA16ED6MbTcjed797Z34B-_UrPauObDahXMFLfqv"/>
+</div>
+<!-- Botanical Accent SVG Placeholder -->
+<div class="absolute -bottom-8 -right-8 w-48 h-48 opacity-20 pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[120px]">eco</span>
+</div>
+</div>
+</div>
+<!-- Right Column: RSVP Form -->
+<div class="md:col-span-7 bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-xl border border-outline-variant/20 shadow-sm">
+<form action="#" class="space-y-lg" id="rsvp-form">
+<!-- Name Field -->
+<div class="space-y-sm">
+<label class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant block" for="full_name">Nome e Cognome</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant py-4 font-body-lg text-body-lg focus:ring-0 focus:border-primary transition-colors placeholder:text-outline-variant/50" id="full_name" name="full_name" placeholder="Inserisci il tuo nome completo" required="" type="text"/>
+</div>
+<!-- Attendance Radio -->
+<div class="space-y-sm">
+<span class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant block mb-4">Parteciperai?</span>
+<div class="flex flex-col sm:flex-row gap-md">
+<label class="flex items-center gap-base cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input class="peer appearance-none w-6 h-6 border-2 border-outline-variant rounded-full checked:border-primary transition-all" name="attendance" type="radio" value="yes"/>
+<div class="absolute w-3 h-3 bg-primary rounded-full scale-0 peer-checked:scale-100 transition-transform"></div>
+</div>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">Sì, ci sarò!</span>
+</label>
+<label class="flex items-center gap-base cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input class="peer appearance-none w-6 h-6 border-2 border-outline-variant rounded-full checked:border-secondary transition-all" name="attendance" type="radio" value="no"/>
+<div class="absolute w-3 h-3 bg-secondary rounded-full scale-0 peer-checked:scale-100 transition-transform"></div>
+</div>
+<span class="font-body-md text-body-md group-hover:text-secondary transition-colors">Purtroxto non potrò venire</span>
+</label>
+</div>
+</div>
+<!-- Dietary Needs -->
+<div class="space-y-sm">
+<label class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant block" for="dietary">Intolleranze o allergie</label>
+<textarea class="w-full bg-surface-container-low/50 border border-outline-variant/30 p-4 rounded-lg font-body-md text-body-md focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" id="dietary" name="dietary" placeholder="Segnalaci eventuali necessità alimentari..." rows="3"></textarea>
+</div>
+<!-- Extra Guests (Optional Logic) -->
+<div class="space-y-sm">
+<label class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant block" for="guests">Numero di ospiti (incluso te)</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant py-4 font-body-lg text-body-lg focus:ring-0 focus:border-primary transition-colors cursor-pointer" id="guests" name="guests">
+<option value="1">1 Persona</option>
+<option value="2">2 Persone</option>
+<option value="3">3 Persone</option>
+<option value="4">4 Persone</option>
+</select>
+</div>
+<!-- Submit Button -->
+<div class="pt-md">
+<button class="w-full md:w-auto bg-secondary text-white px-xl py-4 rounded-full font-label-lg text-label-lg uppercase tracking-widest hover:bg-on-secondary-fixed-variant hover:-translate-y-0.5 transition-all duration-300 shadow-md" type="submit">
+                                Invia Conferma
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-md text-center bg-surface-container-low border-t border-outline-variant/20">
+<div class="font-display text-headline-sm text-primary">C & J</div>
+<nav class="flex flex-wrap justify-center gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Programma</a>
+<a class="font-label-sm text-label-sm text-primary font-bold" href="#">RSVP</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Lista Nozze</a>
+</nav>
+<div class="pt-sm">
+<p class="font-body-md text-body-md text-tertiary">Claudia & Jacopo 2024 — "Amore è ogni cosa che ci rende felici."</p>
+</div>
+</footer>
+<script>
+        // Simple Navigation Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.remove('translate-x-full');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('translate-x-full');
+        });
+
+        // Form Interaction
+        const form = document.getElementById('rsvp-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.innerText = 'Invio in corso...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Grazie! La tua conferma è stata inviata con successo.');
+                submitBtn.innerText = 'Inviato';
+                submitBtn.classList.remove('bg-secondary');
+                submitBtn.classList.add('bg-primary-container');
+            }, 1500);
+        });
+
+        // Micro-interaction for radio buttons
+        const radioLabels = document.querySelectorAll('label[class*="group"]');
+        radioLabels.forEach(label => {
+            label.addEventListener('click', () => {
+                radioLabels.forEach(l => l.querySelector('span').classList.remove('font-bold', 'text-primary', 'text-secondary'));
+                const input = label.querySelector('input');
+                const span = label.querySelector('span');
+                if (input.checked) {
+                    span.classList.add('font-bold');
+                    if(input.value === 'yes') span.classList.add('text-primary');
+                    else span.classList.add('text-secondary');
+                }
+            });
+        });
+    </script>
+</body></html>

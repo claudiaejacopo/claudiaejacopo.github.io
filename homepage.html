@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Claudia &amp; Jacopo — Il Nostro Matrimonio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config"> tailwind.config = { darkMode: "class" } </script>
+<link rel="stylesheet" href="css/theme.css">
+<style>body{background:#fcf9f8;color:#1b1c1c;scroll-behavior:smooth}.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300}.reveal{opacity:0;transform:translateY(20px);transition:all .8s ease-out}.reveal.active{opacity:1;transform:translateY(0)}</style>
+</head>
+<body class="font-body-md text-body-md">
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 md:px-16 py-4 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+<a class="font-display text-headline-sm md:text-headline-md text-primary italic" href="homepage.html">C &amp; J</a>
+<nav class="hidden md:flex gap-6 items-center">
+  <a href="homepage.html" class="font-label-lg text-label-lg uppercase tracking-widest text-secondary border-b border-secondary">Home</a>
+  <a href="programma.html" class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant">Programma</a>
+  <a href="rsvp.html" class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant">RSVP</a>
+  <a href="lista-nozze.html" class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant">Lista Nozze</a>
+</nav>
+<a class="bg-primary px-6 py-2 text-on-primary font-label-lg text-label-lg uppercase tracking-widest" href="rsvp.html">RSVP</a>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+    <div class="w-full h-full bg-cover bg-center transition-transform duration-1000 scale-105" style="background-image: url('https://via.placeholder.com/1600x900?text=Hero+Image')"></div>
+    <div class="absolute inset-0 bg-black/10"></div>
+  </div>
+  <div class="relative z-10 text-center px-6">
+    <p class="font-label-lg text-label-lg uppercase tracking-[0.3em] text-white mb-4">Salva la Data</p>
+    <h1 class="font-display text-4xl md:text-6xl text-white mb-2 italic">Claudia &amp; Jacopo</h1>
+    <p class="font-headline-sm text-headline-sm text-white italic">14 Settembre 2024 — Toscana, Italia</p>
+  </div>
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+    <span class="material-symbols-outlined text-white text-3xl">expand_more</span>
+  </div>
+</section>
+<!-- Welcome + Cards (links updated) -->
+<section class="py-20 px-6 md:px-16 bg-surface max-w-screen-xl mx-auto text-center">
+  <div class="max-w-2xl reveal">
+    <span class="material-symbols-outlined text-primary text-4xl mb-4">church</span>
+    <h2 class="font-headline-lg text-2xl md:text-4xl text-primary mb-4">Benvenuti al Nostro Matrimonio</h2>
+    <p class="text-lg italic">"Amore è ogni cosa che ci rende felici." Siamo felici di invitarvi...</p>
+  </div>
+</section>
+<section class="py-20 px-6 md:px-16 bg-surface-container-low">
+  <div class="max-w-max-width mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+      <a class="group relative md:col-span-8 h-[400px] overflow-hidden reveal" href="programma.html">
+        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://via.placeholder.com/800x500?text=Program+Card')"></div>
+        <div class="absolute inset-0 bg-black/30 group-hover:bg-black/20"></div>
+        <div class="absolute bottom-6 left-6 p-4">
+          <p class="font-label-lg text-label-lg text-white/80 uppercase tracking-widest mb-2">Dettagli</p>
+          <h3 class="font-headline-md text-white">Il Programma</h3>
+        </div>
+      </a>
+      <a class="group relative md:col-span-4 h-[400px] overflow-hidden reveal" href="rsvp.html">
+        <div class="absolute inset-0 bg-secondary-container"></div>
+        <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+          <span class="material-symbols-outlined text-white text-5xl mb-4">mail</span>
+          <h3 class="font-headline-md text-white mb-2">Conferma Presenza</h3>
+          <p class="text-white/90">Fateci sapere se sarete dei nostri entro il 30 Luglio.</p>
+          <div class="mt-6 px-6 py-2 border border-white text-white font-label-lg uppercase tracking-widest">RSVP</div>
+        </div>
+      </a>
+      <a class="group relative md:col-span-5 h-[500px] overflow-hidden reveal" href="homepage.html">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('https://via.placeholder.com/800x500?text=Location+Card')"></div>
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="absolute bottom-6 left-6 p-4">
+          <h3 class="font-headline-md text-white mb-2">La Location</h3>
+          <p class="font-body-md text-white/80 italic">Villa Gamberaia, Firenze</p>
+        </div>
+      </a>
+      <a class="group relative md:col-span-7 h-[500px] overflow-hidden reveal" href="lista-nozze.html">
+        <div class="absolute inset-0 bg-primary-container/20"></div>
+        <div class="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-multiply" style="background-image:url('https://via.placeholder.com/800x500?text=Registry+Card')"></div>
+        <div class="absolute inset-0 flex flex-col justify-end p-8">
+          <h3 class="font-headline-md text-primary mb-2">Lista Nozze</h3>
+          <p class="font-body-md text-on-surface-variant max-w-md">Abbiamo pensato a una lista nozze per chi volesse aiutarci a realizzare il nostro sogno di un viaggio indimenticabile.</p>
+          <div class="mt-6 font-label-lg text-primary border-b border-primary w-fit uppercase tracking-widest">Scopri di più</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="py-20 px-6 md:px-16 text-center bg-surface">
+  <div class="max-w-3xl mx-auto reveal">
+    <span class="material-symbols-outlined text-outline-variant text-6xl mb-4 opacity-30">format_quote</span>
+    <blockquote class="font-display text-2xl italic">"L'amore è composto da un'unica anima che abita due corpi."</blockquote>
+    <cite class="block mt-4 font-label-lg uppercase tracking-[0.2em]">— Aristotele</cite>
+  </div>
+</section>
+</main>
+<footer class="w-full py-10 px-6 md:px-16 flex flex-col items-center gap-6 text-center bg-surface-container-low border-t border-outline-variant/20">
+  <div class="font-display text-headline-sm text-primary">C &amp; J</div>
+  <nav class="flex flex-wrap justify-center gap-6">
+    <a href="homepage.html" class="text-on-surface-variant">Home</a>
+    <a href="programma.html" class="text-on-surface-variant">Programma</a>
+    <a href="rsvp.html" class="text-on-surface-variant">RSVP</a>
+    <a href="lista-nozze.html" class="text-on-surface-variant">Lista Nozze</a>
+  </nav>
+  <div class="w-12 h-px bg-outline-variant/30"></div>
+  <p class="text-sm text-tertiary">Claudia &amp; Jacopo 2024 — "Amore è ogni cosa che ci rende felici."</p>
+</footer>
+<script>
+  function reveal(){document.querySelectorAll('.reveal').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight-150)el.classList.add('active')})}
+  window.addEventListener('scroll',reveal);window.addEventListener('load',reveal);
+  window.addEventListener('scroll',()=>{const header=document.querySelector('header');if(window.scrollY>50){header.classList.add('py-2','shadow-sm');header.classList.remove('py-4')}else{header.classList.remove('py-2','shadow-sm');header.classList.add('py-4')}});
+</script>
+</body></html>

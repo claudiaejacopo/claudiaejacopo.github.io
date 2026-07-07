@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RSVP — Claudia &amp; Jacopo</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e4e2e1",
+                    "surface-container-high": "#eae7e7",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#802918",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#cbc6b9",
+                    "inverse-on-surface": "#f3f0f0",
+                    "primary-container": "#b2ac88",
+                    "on-background": "#1b1c1c",
+                    "secondary-container": "#fd876f",
+                    "primary-fixed": "#eae3bc",
+                    "on-primary-fixed": "#1f1c04",
+                    "inverse-primary": "#cec7a2",
+                    "surface-tint": "#635f40",
+                    "surface-container-low": "#f6f3f2",
+                    "on-primary-container": "#444024",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#303030",
+                    "on-secondary-container": "#732010",
+                    "on-surface-variant": "#49473d",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#c9c6c0",
+                    "surface": "#fcf9f8",
+                    "on-error-container": "#93000a",
+                    "outline": "#7a776c",
+                    "on-secondary-fixed": "#3e0500",
+                    "secondary": "#9f402d",
+                    "tertiary": "#5f5e59",
+                    "surface-bright": "#fcf9f8",
+                    "surface-variant": "#e4e2e1",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#adaba5",
+                    "surface-container": "#f0eded",
+                    "secondary-fixed": "#ffdad3",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#4b472b",
+                    "tertiary-fixed": "#e5e2db",
+                    "primary": "#635f40",
+                    "background": "#fcf9f8",
+                    "secondary-fixed-dim": "#ffb4a5",
+                    "on-tertiary-container": "#40403b",
+                    "surface-dim": "#dcd9d9",
+                    "on-surface": "#1b1c1c",
+                    "on-tertiary-fixed": "#1c1c18",
+                    "primary-fixed-dim": "#cec7a2",
+                    "on-tertiary-fixed-variant": "#474742"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "margin-desktop": "64px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "margin-mobile": "20px",
+                    "lg": "48px",
+                    "md": "24px",
+                    "max-width": "1280px",
+                    "gutter": "24px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Montserrat"],
+                    "label-lg": ["Montserrat"],
+                    "display": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "label-sm": ["Montserrat"],
+                    "body-md": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "300"}],
+                    "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-focus-effect:focus-within {
+            border-bottom-color: #635f40;
+        }
+        .botanical-accent {
+            opacity: 0.15;
+            pointer-events: none;
+            position: absolute;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+<div class="font-display text-headline-md text-primary italic">C &amp; J</div>
+<nav class="hidden md:flex gap-md items-center">
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Home</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Programma</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-secondary border-b border-secondary" href="#">RSVP</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Lista Nozze</a>
+</nav>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+</div>
+</header>
+<main class="relative pt-xl pb-xl px-margin-mobile md:px-margin-desktop overflow-hidden">
+<!-- Background Elements -->
+<div class="botanical-accent top-20 -left-10 w-64 h-64">
+<svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M44.7,-76.4C58.1,-69.2,69.2,-58.1,76.4,-44.7C83.7,-31.4,87.1,-15.7,86.2,-0.5C85.3,14.6,80.1,29.3,71.8,42.4C63.5,55.5,52,67.1,38.5,74.7C25.1,82.3,9.6,85.9,-5.4,85.1C-20.5,84.4,-35.1,79.2,-48,70.9C-60.8,62.6,-71.8,51.1,-78.9,37.6C-86,24,-89.2,8.4,-87.3,-6.5C-85.4,-21.4,-78.4,-35.6,-68.3,-47.4C-58.1,-59.1,-44.9,-68.4,-31,-75.2C-17.2,-81.9,-2.6,-86.1,11.8,-84.3C26.3,-82.5,31.4,-83.6,44.7,-76.4Z" fill="#635F40" transform="translate(100 100)"></path>
+</svg>
+</div>
+<!-- RSVP Section Content -->
+<div class="max-w-3xl mx-auto relative z-10 flex flex-col items-center text-center mb-xl mt-lg">
+<h2 class="font-display text-display text-primary mb-sm">RSVP</h2>
+<p class="font-body-lg text-body-lg text-tertiary max-w-xl mb-md">
+                Siamo impazienti di celebrare questo giorno speciale con voi. Per favore, confermate la vostra presenza entro il <span class="font-semibold">15 Agosto 2025</span>.
+            </p>
+<div class="w-24 h-px bg-outline-variant/50 mb-xl"></div>
+<!-- RSVP Form -->
+<form class="w-full text-left space-y-xl" id="rsvp-form">
+<!-- Identity Group -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-xs form-focus-effect">
+<label class="font-label-lg text-label-lg uppercase text-on-surface-variant">Nome</label>
+<input class="bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-body-md placeholder:text-outline/50" placeholder="Es. Claudia" type="text"/>
+</div>
+<div class="flex flex-col gap-xs form-focus-effect">
+<label class="font-label-lg text-label-lg uppercase text-on-surface-variant">Cognome</label>
+<input class="bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-body-md placeholder:text-outline/50" placeholder="Es. Rossi" type="text"/>
+</div>
+</div>
+<!-- Attendance Choice -->
+<div class="space-y-md">
+<label class="font-label-lg text-label-lg uppercase text-on-surface-variant block">Confermi la tua partecipazione?</label>
+<div class="flex flex-wrap gap-md">
+<label class="group relative flex items-center gap-sm cursor-pointer">
+<input class="peer hidden" name="attendance" type="radio" value="yes"/>
+<div class="w-6 h-6 border border-outline rounded-full flex items-center justify-center peer-checked:bg-primary peer-checked:border-primary transition-all">
+<div class="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100"></div>
+</div>
+<span class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Sì, ci sarò con gioia</span>
+</label>
+<label class="group relative flex items-center gap-sm cursor-pointer">
+<input class="peer hidden" name="attendance" type="radio" value="no"/>
+<div class="w-6 h-6 border border-outline rounded-full flex items-center justify-center peer-checked:bg-secondary peer-checked:border-secondary transition-all">
+<div class="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100"></div>
+</div>
+<span class="font-body-md text-on-surface-variant group-hover:text-secondary transition-colors">Purtroppo non potrò venire</span>
+</label>
+</div>
+</div>
+<!-- Guests Count -->
+<div class="flex flex-col gap-xs max-w-xs">
+<label class="font-label-lg text-label-lg uppercase text-on-surface-variant">Numero di ospiti (Incluso te)</label>
+<select class="bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-body-md appearance-none cursor-pointer">
+<option value="1">1 Ospite</option>
+<option value="2">2 Ospiti</option>
+<option value="3">3 Ospiti</option>
+<option value="4">4 Ospiti</option>
+<option value="more">Più di 4 (Specifica nelle note)</option>
+</select>
+</div>
+<!-- Dietaries -->
+<div class="flex flex-col gap-xs form-focus-effect">
+<label class="font-label-lg text-label-lg uppercase text-on-surface-variant">Intolleranze, allergie o regimi alimentari</label>
+<textarea class="bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-body-md placeholder:text-outline/50 resize-none" placeholder="Es. Celiachia, Vegano, Allergia alle arachidi..." rows="2"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="flex justify-center pt-md">
+<button class="group relative bg-primary text-on-primary px-xl py-md rounded-lg overflow-hidden transition-all hover:bg-primary-container hover:shadow-lg active:scale-95" type="submit">
+<span class="relative z-10 font-label-lg uppercase tracking-widest">Invia Conferma</span>
+<div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+</button>
+</div>
+</form>
+</div>
+<!-- Visual Anchor Card -->
+<div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-lg items-center pt-xl">
+<div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-surface-container shadow-xl transition-transform duration-700 hover:scale-[1.02]">
+<img class="w-full h-full object-cover" data-alt="A soft, romantic editorial photograph of a high-end wedding invitation suite laying on a cream-colored linen surface. The scene is illuminated by soft, natural afternoon sunlight casting long, gentle shadows. There are sprigs of dried eucalyptus and a delicate gold calligraphy pen next to the paper. The overall aesthetic is minimalist and luxurious, using a palette of sage green, ivory, and soft charcoal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCepc-7CCRAgUmn4D4jp7r94QvWHW3H73QcU3x-Dtt6V-oHqTRftSaSIzRRyfPs4XwW8zMwVdcs8ZsvaJ7seEY3V9U1GUmPDpAFD9pEso05QGque2QzW9-wHbkhNgAnHFVSs8lNkmugt9bPOXqMUBG54SRmAQDBPS9AwnoAu089KDP0n5qHalH1VWeag3CoBwQn9hMRULY-3CubeReFua9FfQmznwdxMK6CQ6IjkDuomu6LZlUYPu2b"/>
+</div>
+<div class="space-y-md">
+<h3 class="font-display text-headline-lg text-tertiary">Non vediamo l'ora di vedervi</h3>
+<p class="font-body-md text-on-surface-variant">
+                    Ogni dettaglio è stato pensato per condividere il nostro amore con le persone più importanti della nostra vita. La vostra presenza è il regalo più bello che potremmo ricevere.
+                </p>
+<div class="flex items-center gap-sm text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-lg uppercase tracking-widest italic">Claudia &amp; Jacopo</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-md text-center bg-surface-container-low border-t border-outline-variant/20">
+<div class="font-display text-headline-sm text-primary">C &amp; J</div>
+<nav class="flex flex-wrap justify-center gap-md">
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary transition-colors" href="#">Programma</a>
+<a class="font-label-sm text-label-sm uppercase text-primary font-bold" href="#">RSVP</a>
+<a class="font-label-sm text-label-sm uppercase text-on-surface-variant hover:text-primary transition-colors" href="#">Lista Nozze</a>
+</nav>
+<p class="font-body-md text-body-md text-tertiary">Claudia &amp; Jacopo 2024 — "Amore è ogni cosa che ci rende felici."</p>
+</footer>
+<script>
+        // Micro-interaction for the form
+        const form = document.getElementById('rsvp-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span>';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = '<span class="font-label-lg uppercase tracking-widest">Grazie!</span>';
+                btn.classList.replace('bg-primary', 'bg-primary-container');
+                
+                // Show success feedback
+                const notification = document.createElement('div');
+                notification.className = 'fixed bottom-8 right-8 bg-surface-container-highest border border-primary text-primary px-lg py-sm rounded-full shadow-xl transform translate-y-20 transition-all duration-500 z-[100]';
+                notification.innerHTML = 'La tua conferma è stata inviata.';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.classList.remove('translate-y-20');
+                }, 100);
+            }, 1500);
+        });
+
+        // Floating botanical effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const botanical = document.querySelector('.botanical-accent');
+            if (botanical) {
+                botanical.style.transform = `translateY(${scrolled * 0.1}px) rotate(${scrolled * 0.02}deg)`;
+            }
+        });
+    </script>
+</body></html>

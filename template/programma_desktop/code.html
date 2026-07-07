@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Programma | Claudia &amp; Jacopo</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e4e2e1",
+                    "surface-container-high": "#eae7e7",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#802918",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#cbc6b9",
+                    "inverse-on-surface": "#f3f0f0",
+                    "primary-container": "#b2ac88",
+                    "on-background": "#1b1c1c",
+                    "secondary-container": "#fd876f",
+                    "primary-fixed": "#eae3bc",
+                    "on-primary-fixed": "#1f1c04",
+                    "inverse-primary": "#cec7a2",
+                    "surface-tint": "#635f40",
+                    "surface-container-low": "#f6f3f2",
+                    "on-primary-container": "#444024",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#303030",
+                    "on-secondary-container": "#732010",
+                    "on-surface-variant": "#49473d",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#c9c6c0",
+                    "surface": "#fcf9f8",
+                    "on-error-container": "#93000a",
+                    "outline": "#7a776c",
+                    "on-secondary-fixed": "#3e0500",
+                    "secondary": "#9f402d",
+                    "tertiary": "#5f5e59",
+                    "surface-bright": "#fcf9f8",
+                    "surface-variant": "#e4e2e1",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#adaba5",
+                    "surface-container": "#f0eded",
+                    "secondary-fixed": "#ffdad3",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#4b472b",
+                    "tertiary-fixed": "#e5e2db",
+                    "primary": "#635f40",
+                    "background": "#fcf9f8",
+                    "secondary-fixed-dim": "#ffb4a5",
+                    "on-tertiary-container": "#40403b",
+                    "surface-dim": "#dcd9d9",
+                    "on-surface": "#1b1c1c",
+                    "on-tertiary-fixed": "#1c1c18",
+                    "primary-fixed-dim": "#cec7a2",
+                    "on-tertiary-fixed-variant": "#474742"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "margin-desktop": "64px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "margin-mobile": "20px",
+                    "lg": "48px",
+                    "md": "24px",
+                    "max-width": "1280px",
+                    "gutter": "24px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Montserrat"],
+                    "label-lg": ["Montserrat"],
+                    "display": ["Playfair Display"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "label-sm": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "300"}],
+                    "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .timeline-line {
+            background: linear-gradient(to bottom, transparent, #cbc6b9 15%, #cbc6b9 85%, transparent);
+        }
+        .botanical-accent {
+            pointer-events: none;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+<div class="font-display text-headline-md text-primary dark:text-primary-fixed-dim italic">C &amp; J</div>
+<!-- Desktop Nav -->
+<div class="hidden md:flex gap-xl">
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Home</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-secondary border-b border-secondary" href="#">Programma</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">RSVP</a>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Lista Nozze</a>
+</div>
+<button class="font-label-lg text-label-lg uppercase tracking-widest bg-primary text-on-primary px-6 py-2 transition-all hover:bg-secondary">
+            RSVP
+        </button>
+</nav>
+<main class="relative pt-xl">
+<!-- Hero Section -->
+<section class="relative h-[614px] flex items-center justify-center overflow-hidden px-margin-mobile md:px-margin-desktop">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic, high-key wide shot of a sun-drenched Italian olive grove at golden hour. The soft afternoon light filters through silver-green leaves, casting elegant shadows on the grass. The aesthetic is editorial and minimalist, with a desaturated sage and warm cream color palette that evokes a sense of timeless romance and quiet luxury." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuASdkjfDZlwu_enRI55NdKkcqrOojYY4B0gk8xY2XNi4utXWQMUwSpn3TKjk0slOJvM1yMWruf0GAuEppwVkdHrRnWTUiCWfohz119734XV_FV0bLMktoRPtCwfYhvQiXOT-oK1cW0_SIrBVx95ewSzMjcymDAo6mg4sJmL9JRoUszK7ZepoT6_dGCY0w0Fb9rlXgq7lhnX_oDfRWKFNje6D97aeFxi5KOGOyIAJW8-c9QHDlXo5QNv')"></div>
+<div class="absolute inset-0 bg-surface/30 backdrop-blur-[2px]"></div>
+</div>
+<div class="relative z-10 text-center max-w-4xl">
+<span class="font-label-lg text-label-lg uppercase tracking-[0.4em] text-primary mb-4 block">Save the Date</span>
+<h1 class="font-display text-display text-primary leading-tight mb-6">Il Nostro Viaggio</h1>
+<p class="font-body-lg text-body-lg text-tertiary max-w-2xl mx-auto italic">“Amore è ogni cosa che ci rende felici.”</p>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="relative py-xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<!-- Botanical background accent -->
+<div class="absolute top-20 right-0 botanical-accent">
+<span class="material-symbols-outlined text-[320px] text-primary">eco</span>
+</div>
+<div class="absolute bottom-40 left-0 botanical-accent -scale-x-100">
+<span class="material-symbols-outlined text-[280px] text-primary">potted_plant</span>
+</div>
+<div class="relative flex flex-col items-center">
+<!-- Vertical Line -->
+<div class="absolute left-1/2 -translate-x-1/2 h-full w-[1px] timeline-line"></div>
+<!-- Event 1: Cerimonia -->
+<div class="relative w-full mb-32 group">
+<div class="flex flex-col md:flex-row items-center justify-center gap-xl md:gap-gutter">
+<div class="flex-1 md:text-right order-2 md:order-1">
+<span class="font-label-lg text-label-lg text-secondary mb-2 block">16:00</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">La Cerimonia</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm ml-auto">
+                                La promessa di una vita insieme, celebrata tra le mura secolari della <strong>Basilica di San Miniato al Monte</strong>, con vista sulla magica Firenze.
+                            </p>
+<a class="inline-flex items-center gap-2 mt-6 font-label-sm text-label-sm text-primary hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                                MAPPA DELLA BASILICA
+                            </a>
+</div>
+<div class="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-surface border border-outline-variant shadow-sm order-1 md:order-2">
+<span class="material-symbols-outlined text-primary" data-icon="church">church</span>
+</div>
+<div class="flex-1 order-3">
+<div class="w-full aspect-[4/3] bg-cover bg-center rounded shadow-xl group-hover:scale-[1.02] transition-transform duration-500" data-alt="An editorial close-up of a delicate wedding invitation resting on an aged stone ledge, surrounded by a few stray sprigs of dried lavender. The lighting is soft and natural, emphasizing the fine paper texture and elegant typography. The color palette is composed of muted sage, soft creams, and a hint of dusty terracotta." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcniAJKJqTV8WtYEIe9fP5sGVytjBXgP3c9gT6mcfpbBg_xy_0ubnUMuS-R7wx01ecj0tsXFOUvHzp6injQYu9Xs2OCuSr5gdd8FbojJKDePD0flZvS7Hsz8XMH2Drw8ZdbtcqdBjpxySrSQuA76MS8r40kmNHS7deq9dFhwL-4v4Dzxeih8Ab5-nB3dN0if7SXtZiaPPYwNJ6oxNiIjMIa098JxZmd77vFBzQ1QdRm_5IelDbiGhx')"></div>
+</div>
+</div>
+</div>
+<!-- Event 2: Aperitivo -->
+<div class="relative w-full mb-32 group">
+<div class="flex flex-col md:flex-row items-center justify-center gap-xl md:gap-gutter">
+<div class="flex-1 order-3 md:order-1">
+<div class="w-full aspect-[4/3] bg-cover bg-center rounded shadow-xl group-hover:scale-[1.02] transition-transform duration-500" data-alt="A sophisticated scene of an outdoor garden reception in Italy. Crystal glasses of pale rosé wine and small gourmet appetizers are arranged on a minimalist white linen tablecloth. In the background, blurred lush greenery and soft string lights create an atmosphere of airy refinement and summer joy." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuABfsoTA_OZp05cFIIdAzSQTuqOfIDK2RaccEmw_eYYCRokOrNCUDsStKzWEiLYnlGIlYdH1FkONK3javfk-jNJJqvW9YkJAE58MWU0wBAid_acO3j5nUVy6Jgfo-Wh2NNcDBNHf57Mt2NucHAeVUb84ZURESYODVdTDcQJiBBUAWpl_QPQOzrJwu7aBz0_S-p3YzH90AaEi_1mf7Y_ExOI6cmBI5EA0iUxKHnhaOaSS3uDdB20O-qL')"></div>
+</div>
+<div class="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-surface border border-outline-variant shadow-sm order-1 md:order-2">
+<span class="material-symbols-outlined text-primary" data-icon="local_bar">local_bar</span>
+</div>
+<div class="flex-1 md:text-left order-2 md:order-3">
+<span class="font-label-lg text-label-lg text-secondary mb-2 block">17:30</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">Aperitivo in Villa</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                                Un brindisi al tramonto tra i profumi dei <strong>giardini della villa</strong>. Musica lounge e delizie locali per dare inizio ai festeggiamenti.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Event 3: Cena -->
+<div class="relative w-full mb-32 group">
+<div class="flex flex-col md:flex-row items-center justify-center gap-xl md:gap-gutter">
+<div class="flex-1 md:text-right order-2 md:order-1">
+<span class="font-label-lg text-label-lg text-secondary mb-2 block">19:30</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">Cena Conviviale</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm ml-auto">
+                                Un lungo tavolo imperiale a <strong>lume di candela</strong>. Un menù curato che celebra i sapori autentici della nostra terra e la gioia dello stare insieme.
+                            </p>
+</div>
+<div class="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-surface border border-outline-variant shadow-sm order-1 md:order-2">
+<span class="material-symbols-outlined text-primary" data-icon="restaurant">restaurant</span>
+</div>
+<div class="flex-1 order-3">
+<div class="w-full aspect-[4/3] bg-cover bg-center rounded shadow-xl group-hover:scale-[1.02] transition-transform duration-500" data-alt="A long wedding banquet table set outdoors under a canopy of stars and warm fairy lights. The table is dressed with fine white linen, minimalist sage green napkins, and numerous slender white candles. Elegant floral arrangements of white peonies and eucalyptus run down the center. The mood is intimate, warm, and deeply romantic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCblJI50FLWaal9YPje6yFIgeffK9OS96riYbemZj2OCRVfQ9GThv79UPz5sh0f4O48YMf60DonWRIVXVtmRk2OhS3zDzioracLbwJSvRef6cH6CTErRw8kvxoOppkVjdVMt-KgmY-9mnUu5MavtkceA4vx5gJ-llX8NlQyY_xh0x2qV0X35sB_qhLvFwCojZuljTdwPp-46ryeldBKDkmiLhS643xXcZ6C4ETHo2oVri1x6lwUsTA')"></div>
+</div>
+</div>
+</div>
+<!-- Event 4: Torta & Party -->
+<div class="relative w-full group">
+<div class="flex flex-col md:flex-row items-center justify-center gap-xl md:gap-gutter">
+<div class="flex-1 order-3 md:order-1">
+<div class="w-full aspect-[4/3] bg-cover bg-center rounded shadow-xl group-hover:scale-[1.02] transition-transform duration-500" data-alt="A festive, motion-blurred shot of people dancing and celebrating under a canopy of sparkling lights. Subtle reflections of disco balls and warm amber lighting create a dynamic energy. The overall feel is one of sophisticated fun, with a focus on movement and shared happiness in a luxury event setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAaNVKieQEzdCCjpFtOiB0n_-2WpR0T9plSzRVHF36m61Nayhzs6bMIMhmuVfoJGHoVsQu4EUwcvuMi9YtZRJxIjqCC1xvroaf8AGxko0gOe4gDe5fnc8K5QQQ3jZsK3NW7DR8D0-FO86hW4lJb7we4Xs6rWIxCLcWrDPjZNVDZf2YmXlZdOpYuVUwTj7udGdw3pd5A_srr_YzrSTaadNItsSPt-Mb0jUAQ3P_mTV8sL9a09hVP8iUX')"></div>
+</div>
+<div class="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-surface border border-outline-variant shadow-sm order-1 md:order-2">
+<span class="material-symbols-outlined text-primary" data-icon="celebration">celebration</span>
+</div>
+<div class="flex-1 md:text-left order-2 md:order-3">
+<span class="font-label-lg text-label-lg text-secondary mb-2 block">22:00</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">Torta &amp; Party</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                                Il taglio della torta sotto il cielo stellato, seguito da open bar e balli fino a tarda notte. Preparate le scarpe comode!
+                            </p>
+<div class="mt-6 flex gap-4">
+<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-label-sm font-label-sm rounded-full">Open Bar</span>
+<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-label-sm font-label-sm rounded-full">Live DJ Set</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Accommodations / Info CTA -->
+<section class="py-xl bg-surface-container-low/50 mt-xl border-y border-outline-variant/10">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<h2 class="font-display text-headline-lg text-primary mb-md">Hai bisogno di altre informazioni?</h2>
+<p class="font-body-lg text-body-lg text-tertiary mb-lg max-w-2xl mx-auto">Troverai indicazioni su come raggiungerci, dove soggiornare e come confermare la tua presenza nella sezione dedicata.</p>
+<div class="flex flex-wrap justify-center gap-md">
+<button class="px-xl py-4 border border-primary text-primary font-label-lg uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all duration-500">
+                        Logistica &amp; Alloggi
+                    </button>
+<button class="px-xl py-4 bg-secondary text-on-secondary font-label-lg uppercase tracking-widest hover:opacity-90 shadow-md transition-all">
+                        Conferma RSVP
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-lg px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-md text-center bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant/20">
+<div class="font-display text-headline-sm text-primary">C &amp; J</div>
+<div class="flex gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-label-sm text-label-sm text-primary font-bold" href="#">Programma</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">RSVP</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Lista Nozze</a>
+</div>
+<p class="font-body-md text-body-md text-tertiary dark:text-tertiary-fixed-dim">
+            Claudia &amp; Jacopo 2024 — "Amore è ogni cosa che ci rende felici."
+        </p>
+<div class="mt-4 opacity-50 flex gap-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</footer>
+<script>
+        // Simple intersection observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.group').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000', 'ease-out');
+            observer.observe(el);
+        });
+
+        // Sticky Nav effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('py-2', 'shadow-sm');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2', 'shadow-sm');
+            }
+        });
+    </script>
+</body></html>

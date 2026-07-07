@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Programma | Claudia &amp; Jacopo</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config"> tailwind.config = { darkMode: "class" } </script>
+<link rel="stylesheet" href="css/theme.css">
+<style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300;display:inline-block;vertical-align:middle}.timeline-line{background:linear-gradient(to bottom,transparent,#cbc6b9 15%,#cbc6b9 85%,transparent)}.botanical-accent{pointer-events:none;opacity:.15}</style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 md:px-16 py-4 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+  <div class="font-display text-headline-md text-primary italic">C &amp; J</div>
+  <div class="hidden md:flex gap-8">
+    <a href="homepage.html" class="font-label-lg uppercase tracking-widest text-on-surface-variant">Home</a>
+    <a href="programma.html" class="font-label-lg uppercase tracking-widest text-secondary border-b border-secondary">Programma</a>
+    <a href="rsvp.html" class="font-label-lg uppercase tracking-widest text-on-surface-variant">RSVP</a>
+    <a href="lista-nozze.html" class="font-label-lg uppercase tracking-widest text-on-surface-variant">Lista Nozze</a>
+  </div>
+  <button class="font-label-lg uppercase bg-primary text-on-primary px-6 py-2">RSVP</button>
+</nav>
+<main class="relative pt-24">
+  <section class="relative h-[614px] flex items-center justify-center overflow-hidden px-6 md:px-16">
+    <div class="absolute inset-0 z-0">
+      <div class="w-full h-full bg-cover bg-center" style="background-image:url('https://via.placeholder.com/1600x900?text=Program+Hero')"></div>
+      <div class="absolute inset-0 bg-surface/30 backdrop-blur-[2px]"></div>
+    </div>
+    <div class="relative z-10 text-center max-w-4xl">
+      <span class="font-label-lg uppercase tracking-[0.4em] text-primary mb-4 block">Save the Date</span>
+      <h1 class="font-display text-display text-primary leading-tight mb-6">Il Nostro Viaggio</h1>
+      <p class="font-body-lg text-body-lg text-tertiary max-w-2xl mx-auto italic">“Amore è ogni cosa che ci rende felici.”</p>
+    </div>
+  </section>
+  <section class="relative py-20 px-6 md:px-16 max-w-6xl mx-auto">
+    <div class="absolute left-1/2 -translate-x-1/2 h-full w-[1px] timeline-line"></div>
+    <!-- Events (kept simple and presentational) -->
+    <div class="space-y-20">
+      <div class="grid md:grid-cols-3 gap-6 items-center">
+        <div class="md:col-span-2 text-right">
+          <span class="block text-secondary">16:00</span>
+          <h3 class="text-2xl text-primary">La Cerimonia</h3>
+          <p class="max-w-md ml-auto">La promessa di una vita insieme, celebrata tra le mura secolari della <strong>Basilica di San Miniato al Monte</strong>.</p>
+        </div>
+        <div class="flex items-center justify-center">
+          <div class="w-12 h-12 rounded-full bg-surface border border-outline-variant flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-primary">church</span></div>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 items-center">
+        <div class="flex items-center justify-center order-1 md:order-none">
+          <div class="w-12 h-12 rounded-full bg-surface border border-outline-variant flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-primary">local_bar</span></div>
+        </div>
+        <div class="md:col-span-2 text-left">
+          <span class="block text-secondary">17:30</span>
+          <h3 class="text-2xl text-primary">Aperitivo in Villa</h3>
+          <p class="max-w-md">Un brindisi al tramonto tra i profumi dei giardini della villa.</p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 items-center">
+        <div class="md:col-span-2 text-right">
+          <span class="block text-secondary">19:30</span>
+          <h3 class="text-2xl text-primary">Cena Conviviale</h3>
+          <p class="max-w-md ml-auto">Un lungo tavolo imperiale a lume di candela.</p>
+        </div>
+        <div class="flex items-center justify-center">
+          <div class="w-12 h-12 rounded-full bg-surface border border-outline-variant flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-primary">restaurant</span></div>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 items-center">
+        <div class="flex items-center justify-center">
+          <div class="w-12 h-12 rounded-full bg-surface border border-outline-variant flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-primary">celebration</span></div>
+        </div>
+        <div class="md:col-span-2 text-left">
+          <span class="block text-secondary">22:00</span>
+          <h3 class="text-2xl text-primary">Torta &amp; Party</h3>
+          <p class="max-w-md">Il taglio della torta sotto il cielo stellato, seguito da open bar e balli fino a tarda notte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="w-full py-10 px-6 md:px-16 flex flex-col items-center gap-6 text-center bg-surface-container-low border-t border-outline-variant/20">
+  <div class="font-display text-headline-sm text-primary">C &amp; J</div>
+  <div class="flex gap-6">
+    <a href="homepage.html">Home</a>
+    <a href="programma.html" class="font-bold">Programma</a>
+    <a href="rsvp.html">RSVP</a>
+    <a href="lista-nozze.html">Lista Nozze</a>
+  </div>
+</footer>
+<script>
+  // Simple reveal on scroll
+  const observerOptions={threshold:.1,rootMargin:'0px 0px -50px 0px'};
+  const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('opacity-100');entry.target.classList.remove('opacity-0','translate-y-10')}})},observerOptions);
+  document.querySelectorAll('.group').forEach(el=>{el.classList.add('opacity-0','translate-y-10','transition-all','duration-1000','ease-out');observer.observe(el)});
+</script>
+</body></html>
