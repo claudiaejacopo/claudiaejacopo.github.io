@@ -190,3 +190,46 @@
     height: 32px;
   }
 }
+
+/* Su mobile la busta riempie l'intero schermo invece di restare
+   una card centrata, per un effetto più immersivo tipo "lettera aperta". */
+@media (max-width: 640px) {
+  .invito-screen {
+    padding: 0;
+  }
+
+  .envelope {
+    width: 100vw;
+    height: 100dvh;
+    aspect-ratio: unset;
+  }
+
+  .envelope-body {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .envelope-flap {
+    height: 34vh;
+  }
+
+  .envelope-seal {
+    top: 17vh;
+  }
+
+  .letter-card {
+    left: 0;
+    right: 0;
+    top: 32vh;
+    bottom: 0;
+    height: auto;
+    border-radius: 0;
+    justify-content: flex-start;
+    padding-top: 15%;
+  }
+
+  .invito-hint {
+    bottom: 4%;
+  }
+}
