@@ -92,6 +92,14 @@
               <p class="guest-greeting" data-guest-greeting></p>
 
               <form data-rsvp-form novalidate>
+                <!-- Campi Web3Forms (https://docs.web3forms.com/getting-started/installation) -->
+                <input type="hidden" name="subject" value="Nuova conferma RSVP — Claudia &amp; Jacopo">
+                <input type="hidden" name="from_name" value="Sito Matrimonio Claudia &amp; Jacopo">
+                <input type="hidden" name="nome" data-hidden-nome value="">
+                <input type="hidden" name="cognome" data-hidden-cognome value="">
+                <!-- Honeypot anti-spam: deve restare sempre vuoto/deselezionato -->
+                <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
+
                 <fieldset class="choice-group" data-presence-group>
                   <legend>Parteciperai?</legend>
                   <div class="choice-grid">

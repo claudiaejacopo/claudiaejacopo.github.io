@@ -5,6 +5,7 @@
 (function () {
   const SEARCH_ENDPOINT = 'data/guests.json';
   const SUBMIT_ENDPOINT = 'https://api.web3forms.com/submit';
+  // TODO: inserisci qui la tua Access Key Web3Forms (https://web3forms.com/)
   const ACCESS_KEY = '83a19377-c81f-4e87-bce2-25b083d2c10d';
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -22,6 +23,8 @@
     const allergyField = document.querySelector('[data-allergy-field]');
     const allergyInput = document.getElementById('dettaglio-allergia');
     const successMessage = document.querySelector('[data-success-message]');
+    const hiddenNomeInput = rsvpForm.querySelector('[data-hidden-nome]');
+    const hiddenCognomeInput = rsvpForm.querySelector('[data-hidden-cognome]');
 
     if (!searchForm || !rsvpForm || !searchStep || !detailsStep || !successStep) {
       return;
@@ -229,6 +232,9 @@
             cognome: String(match.cognome || '').trim()
           };
 
+          if (hiddenNomeInput) hiddenNomeInput.value = selectedGuest.nome;
+          if (hiddenCognomeInput) hiddenCognomeInput.value = selectedGuest.cognome;
+
           greeting.textContent = buildGreeting(selectedGuest);
           searchStep.hidden = true;
           detailsStep.hidden = false;
@@ -287,25 +293,13 @@
         return;
       }
 
-      const presenzaInput = rsvpForm.querySelector('input[name="presenza"]:checked');
-      const noteValue = rsvpForm.note.value.trim();
-      const vegetarianoBool = document.getElementById('vegetariano').checked;
-      const veganoBool = document.getElementById('vegano').checked;
-      const allergiaBool = allergyToggle.checked;
-      const dettaglioAllergiaValue = allergiaBool ? allergyInput.value.trim() : '';
-      const payload = {
-        access_key: ACCESS_KEY,
-        subject: 'Nuova conferma RSVP — Claudia & Jacopo',
-        from_name: 'Sito Matrimonio Claudia & Jacopo',
-        nome: selectedGuest.nome,
-        cognome: selectedGuest.cognome,
-        presenza: presenzaInput.value,
-        note: noteValue,
-        vegetariano: vegetarianoBool,
-        vegano: veganoBool,
-        allergia: allergiaBool,
-        dettaglio_allergia: dettaglioAllergiaValue
-      };
+      // Assicura che i campi nascosti nome/cognome siano allineati all'invitato trovato
+      // prima di raccogliere il FormData (Web3Forms: docs.web3forms.com/getting-started/installation).
+      if (hiddenNomeInput) hiddenNomeInput.value = selectedGuest.nome;
+      if (hiddenCognomeInput) hiddenCognomeInput.value = selectedGuest.cognome;
+
+      const formData = new FormData(rsvpForm);
+      formData.append('access_key', ACCESS_KEY);
 
       rsvpSubmit.disabled = true;
       rsvpSubmit.textContent = 'Invio in corso...';
@@ -313,8 +307,8 @@
 
       fetch(SUBMIT_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        headers: { Accept: 'application/json' },
+        body: formData
       })
         .then(function (response) {
           return response.json().catch(function () {
