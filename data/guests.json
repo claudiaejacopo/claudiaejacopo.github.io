@@ -1,0 +1,17 @@
+[
+  {
+    "nome": "Mario",
+    "cognome": "Rossi",
+    "risposto": false
+  },
+  {
+    "nome": "Giulia",
+    "cognome": "Bianchi",
+    "risposto": false
+  },
+  {
+    "nome": "Luca",
+    "cognome": "Verdi",
+    "risposto": true
+  }
+]

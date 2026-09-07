@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSVP — Claudia &amp; Jacopo</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/rsvp.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-brand" href="index.html">
+        <img src="logo.png" alt="Logo Claudia & Jacopo">
+        <span>Claudia &amp; Jacopo</span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Apri menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" data-site-nav>
+        <a href="index.html#home">Home</a>
+        <a href="dettagli.html">Dettagli</a>
+        <a href="rsvp.html" aria-current="page">RSVP</a>
+        <a href="lista-nozze.html">Lista Nozze</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero rsvp-hero">
+      <div class="container">
+        <p class="eyebrow">RSVP</p>
+        <h1>Conferma la tua presenza</h1>
+        <p class="rsvp-hero-copy">
+          Saremo felici di festeggiare con te. Cerca il tuo invito e inviaci la tua risposta
+          in pochi semplici passaggi.
+        </p>
+      </div>
+    </section>
+
+    <section class="rsvp-page">
+      <div class="container">
+        <div class="rsvp-grid">
+          <aside class="card rsvp-sidecard" aria-label="Informazioni RSVP">
+            <span class="step-badge">Due passaggi</span>
+            <h2>Come funziona</h2>
+            <ol class="rsvp-steps-list">
+              <li>Cerca il tuo nome e cognome.</li>
+              <li>Conferma la tua presenza e aggiungi eventuali note.</li>
+            </ol>
+            <div class="divider"></div>
+            <p>
+              Se hai dubbi sulla ricerca o preferisci, puoi sempre contattare direttamente gli sposi.
+            </p>
+          </aside>
+
+          <div class="rsvp-flow">
+            <section class="card rsvp-card" data-step-search aria-labelledby="search-title">
+              <span class="step-badge">Passo 1</span>
+              <h2 id="search-title">Trova il tuo invito</h2>
+              <p class="section-copy">
+                Inserisci nome e cognome esattamente come compaiono sull'invito.
+              </p>
+
+              <form data-search-form novalidate>
+                <div class="form-grid two-columns">
+                  <div class="form-field">
+                    <label for="search-name">Nome</label>
+                    <input id="search-name" name="nome" type="text" autocomplete="given-name" required>
+                    <p class="field-error" data-error-for="search-name"></p>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="search-surname">Cognome</label>
+                    <input id="search-surname" name="cognome" type="text" autocomplete="family-name" required>
+                    <p class="field-error" data-error-for="search-surname"></p>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <button class="btn" type="submit" data-search-submit>Cerca</button>
+                </div>
+              </form>
+
+              <div class="status-stack" aria-live="polite" aria-atomic="true">
+                <div class="status-box" data-search-status hidden></div>
+              </div>
+            </section>
+
+            <section class="card rsvp-card" data-step-details hidden aria-labelledby="details-title">
+              <span class="step-badge">Passo 2</span>
+              <h2 id="details-title">Completa la tua conferma</h2>
+              <p class="guest-greeting" data-guest-greeting></p>
+
+              <form data-rsvp-form novalidate>
+                <fieldset class="choice-group" data-presence-group>
+                  <legend>Parteciperai?</legend>
+                  <div class="choice-grid">
+                    <label class="choice-card">
+                      <input type="radio" name="presenza" value="Sarò presente" required>
+                      <span class="choice-title">Sarò presente</span>
+                      <span class="choice-copy">Non vedo l'ora di festeggiare con voi.</span>
+                    </label>
+                    <label class="choice-card">
+                      <input type="radio" name="presenza" value="Non potrò essere presente" required>
+                      <span class="choice-title">Non potrò essere presente</span>
+                      <span class="choice-copy">Vi penserò con affetto quel giorno.</span>
+                    </label>
+                  </div>
+                  <p class="field-error" data-error-for="presenza"></p>
+                </fieldset>
+
+                <fieldset class="choice-group">
+                  <legend>Preferenze alimentari</legend>
+                  <div class="dietary-options">
+                    <label class="check-option">
+                      <input type="checkbox" id="vegetariano" name="vegetariano">
+                      <span>Vegetariano/a</span>
+                    </label>
+                    <label class="check-option">
+                      <input type="checkbox" id="vegano" name="vegano">
+                      <span>Vegano/a</span>
+                    </label>
+                    <label class="check-option">
+                      <input type="checkbox" id="allergia" name="allergia" data-allergy-toggle>
+                      <span>Ho un'allergia o intolleranza</span>
+                    </label>
+                  </div>
+
+                  <div class="form-field allergy-detail" data-allergy-field hidden>
+                    <label for="dettaglio-allergia">Quale allergia o intolleranza?</label>
+                    <input id="dettaglio-allergia" name="dettaglio_allergia" type="text" autocomplete="off">
+                    <p class="field-error" data-error-for="dettaglio-allergia"></p>
+                  </div>
+                </fieldset>
+
+                <div class="form-field">
+                  <label for="note">Note per gli sposi</label>
+                  <textarea id="note" name="note" rows="5" placeholder="Se vuoi, lasciaci un messaggio o una nota organizzativa."></textarea>
+                  <p class="field-hint">Campo facoltativo.</p>
+                </div>
+
+                <div class="form-actions">
+                  <button class="btn" type="submit" data-rsvp-submit>Invia conferma</button>
+                </div>
+
+                <div class="status-stack" aria-live="polite" aria-atomic="true">
+                  <div class="status-box" data-submit-status hidden></div>
+                </div>
+              </form>
+            </section>
+
+            <section class="card rsvp-card success-panel" data-step-success hidden aria-live="polite" aria-atomic="true">
+              <span class="step-badge">Confermato</span>
+              <h2>Grazie di cuore!</h2>
+              <p data-success-message>
+                La tua risposta è stata inviata con successo. Non vediamo l'ora di condividere
+                questa giornata speciale.
+              </p>
+              <a class="btn secondary" href="index.html">Torna alla home</a>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="music-toggle" data-music-toggle data-playing="false" aria-label="Riproduci la musica">
+    <span class="icon-playing">♫</span>
+    <span class="icon-paused">♪</span>
+  </button>
+
+  <footer class="site-footer">
+    <div class="divider"></div>
+    <p>Claudia &amp; Jacopo — 14 Ottobre 2027</p>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/audio-player.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.CJMusicPlayer.init();
+    });
+  </script>
+  <script src="js/rsvp.js"></script>
+</body>
+</html>

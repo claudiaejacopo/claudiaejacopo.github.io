@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Nozze — Claudia &amp; Jacopo</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/lista-nozze.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-brand" href="index.html">
+        <img src="logo.png" alt="Logo Claudia & Jacopo">
+        <span>Claudia &amp; Jacopo</span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Apri menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" data-site-nav>
+        <a href="index.html#home">Home</a>
+        <a href="dettagli.html">Dettagli</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="lista-nozze.html" aria-current="page">Lista Nozze</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Il vostro regalo più bello</p>
+      <h1>Lista Nozze</h1>
+      <div class="divider"></div>
+    </section>
+
+    <section class="registry-overview container">
+      <div class="registry-layout">
+        <article class="card registry-copy">
+          <span class="registry-kicker">Un pensiero per il nostro futuro</span>
+          <!-- TESTO PLACEHOLDER: personalizzare -->
+          <p>
+            La vostra presenza sarà già per noi il dono più prezioso. Se desiderate
+            accompagnarci anche con un pensiero, saremo felici di destinare il vostro
+            contributo a un progetto speciale da vivere insieme, tra nuovi inizi e un
+            viaggio da ricordare. Ogni gesto, piccolo o grande, farà parte dei primi
+            passi della nostra vita come marito e moglie.
+          </p>
+          <p class="registry-copy-note">
+            Qui sotto trovate i riferimenti per un eventuale contributo: li
+            personalizzeremo con tutti i dettagli definitivi più avanti.
+          </p>
+        </article>
+
+        <div class="registry-photos" aria-label="Immagini segnaposto della lista nozze">
+          <figure class="card registry-photo">
+            <img src="assets/img/placeholder-1.svg" alt="Illustrazione segnaposto da sostituire con una foto di Claudia e Jacopo">
+            <figcaption>Un ricordo da sostituire con una vostra foto speciale.</figcaption>
+          </figure>
+          <figure class="card registry-photo">
+            <img src="assets/img/placeholder-2.svg" alt="Illustrazione segnaposto da sostituire con una foto o un'immagine del viaggio di nozze">
+            <figcaption>Un angolo dedicato al viaggio o a un momento da raccontare.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="registry-iban-section container">
+      <article class="card iban-card">
+        <div class="iban-heading">
+          <p class="eyebrow">Coordinate per il regalo</p>
+          <h2>Contributo alla lista nozze</h2>
+        </div>
+
+        <p class="iban-holder">
+          <strong>Intestato a:</strong> Claudia [Cognome] &amp; Jacopo [Cognome]
+        </p>
+
+        <div class="iban-display" data-iban-value tabindex="0" aria-label="IBAN segnaposto">
+          IT60 X054 2811 1010 0000 0123 456
+        </div>
+
+        <div class="iban-actions">
+          <button
+            class="btn"
+            type="button"
+            data-copy-iban
+            data-iban-raw="IT60X0542811101000000123456"
+            data-default-label="Copia IBAN"
+          >
+            Copia IBAN
+          </button>
+          <p class="copy-feedback" data-copy-feedback aria-live="polite"></p>
+        </div>
+
+        <p class="iban-note">
+          Il codice IBAN e l'intestazione riportati in questa sezione sono
+          segnaposto e potranno essere aggiornati con i dati definitivi.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <button class="music-toggle" data-music-toggle data-playing="false" aria-label="Riproduci la musica">
+    <span class="icon-playing">♫</span>
+    <span class="icon-paused">♪</span>
+  </button>
+
+  <footer class="site-footer">
+    <div class="divider"></div>
+    <p>Claudia &amp; Jacopo — 14 Ottobre 2027</p>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/audio-player.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.CJMusicPlayer.init();
+    });
+  </script>
+  <script src="js/lista-nozze.js"></script>
+</body>
+</html>

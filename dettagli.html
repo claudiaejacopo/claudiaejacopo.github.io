@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dettagli — Claudia & Jacopo</title>
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dettagli.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-brand" href="index.html">
+        <img src="logo.png" alt="Logo Claudia & Jacopo">
+        <span>Claudia &amp; Jacopo</span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Apri menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" data-site-nav>
+        <a href="index.html#home">Home</a>
+        <a href="dettagli.html" aria-current="page">Dettagli</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="lista-nozze.html">Lista Nozze</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero dettagli-hero">
+      <div class="container">
+        <span class="eyebrow">Vi aspettiamo</span>
+        <h1>Il Giorno del Sì</h1>
+        <div class="divider"></div>
+        <p class="dettagli-intro">
+          Saremo felici di condividere con voi ogni momento della giornata, dalla
+          cerimonia al brindisi finale. Le due location si raggiungono comodamente
+          in auto, per vivere insieme una festa d'autunno piena di calore.
+        </p>
+      </div>
+    </section>
+
+    <section class="timeline-section">
+      <div class="container">
+        <div class="timeline" aria-label="Programma della giornata">
+          <article class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true">
+              <span>⛪</span>
+            </div>
+            <div class="timeline-content card">
+              <p class="timeline-time">Ore 11:00</p>
+              <h2>Cerimonia</h2>
+              <p class="timeline-venue">Santuario Madonna dei Campi</p>
+              <p class="timeline-address">Stezzano (BG)</p>
+              <p class="timeline-text">
+                Inizieremo la nostra giornata insieme con la cerimonia, circondati
+                dall'affetto delle persone più care.
+              </p>
+              <a
+                class="btn secondary"
+                href="https://www.google.com/maps/search/?api=1&amp;query=Santuario+Madonna+dei+Campi+Stezzano+BG"
+                target="_blank"
+                rel="noopener"
+              >
+                Vedi su Google Maps
+              </a>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true">
+              <span>🥂</span>
+            </div>
+            <div class="timeline-content card">
+              <p class="timeline-time">Dalle 13:00 / 13:30</p>
+              <h2>Ricevimento</h2>
+              <p class="timeline-venue">Tenuta Acquaviva</p>
+              <p class="timeline-address">Travagliato (BS)</p>
+              <p class="timeline-text">
+                Ci sposteremo poi alla Tenuta per festeggiare tra sapori, sorrisi
+                e un pomeriggio da vivere con lentezza e gioia.
+              </p>
+              <a
+                class="btn secondary"
+                href="https://www.google.com/maps/search/?api=1&amp;query=Tenuta+Acquaviva+Travagliato+BS"
+                target="_blank"
+                rel="noopener"
+              >
+                Vedi su Google Maps
+              </a>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true">
+              <span>🍰</span>
+            </div>
+            <div class="timeline-content card">
+              <p class="timeline-time">Ore 18:30</p>
+              <h2>Taglio della torta</h2>
+              <p class="timeline-venue">Tenuta Acquaviva</p>
+              <p class="timeline-address">Travagliato (BS)</p>
+              <p class="timeline-text">
+                Concluderemo la giornata con il taglio della torta, tra luci
+                soffuse, abbracci e l'ultima dolce sorpresa insieme.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <section class="info-note card" aria-labelledby="info-utili-title">
+          <h2 id="info-utili-title">Informazioni utili</h2>
+          <p>
+            Se desiderate organizzarvi in anticipo, vi consigliamo di raggiungere
+            la cerimonia con qualche minuto di anticipo e di tenere a portata di
+            mano gli indirizzi delle due location per un passaggio sereno da un
+            momento all'altro della festa.
+          </p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <button class="music-toggle" data-music-toggle data-playing="false" aria-label="Riproduci la musica">
+    <span class="icon-playing">♫</span>
+    <span class="icon-paused">♪</span>
+  </button>
+
+  <footer class="site-footer">
+    <div class="divider"></div>
+    <p>Claudia &amp; Jacopo — 14 Ottobre 2027</p>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/audio-player.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.CJMusicPlayer.init();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claudia &amp; Jacopo — 14 Ottobre 2027</title>
+  <meta name="description" content="Il sito del matrimonio di Claudia e Jacopo, 14 Ottobre 2027.">
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/invito.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- ===================== LETTERA D'INVITO ===================== -->
+  <div class="invito-screen" data-invito-screen role="button" tabindex="0"
+       aria-label="Clicca per aprire l'invito">
+    <div class="envelope" data-envelope>
+      <div class="envelope-body">
+        <div class="letter-card">
+          <img class="letter-logo" src="logo.png" alt="">
+          <p class="letter-names">Claudia &amp; Jacopo</p>
+          <p class="letter-date">14 Ottobre 2027</p>
+        </div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-seal">
+          <img src="logo.png" alt="">
+        </div>
+      </div>
+    </div>
+    <p class="invito-hint">Tocca per aprire l'invito</p>
+  </div>
+
+  <!-- ===================== HOME ===================== -->
+  <header class="site-header">
+    <div class="container">
+      <a class="site-brand" href="index.html">
+        <img src="logo.png" alt="Logo Claudia & Jacopo">
+        <span>Claudia &amp; Jacopo</span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Apri menu" aria-expanded="false">☰</button>
+      <nav class="site-nav" data-site-nav>
+        <a href="index.html#home" aria-current="page">Home</a>
+        <a href="dettagli.html">Dettagli</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="lista-nozze.html">Lista Nozze</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="home-hero">
+      <img class="home-logo" src="logo.png" alt="Logo Claudia & Jacopo">
+      <p class="eyebrow">Ci sposiamo</p>
+      <h1>Claudia &amp; Jacopo</h1>
+      <p class="home-date">14 Ottobre 2027</p>
+      <p class="home-intro">
+        Con grande gioia vi invitiamo a festeggiare insieme a noi il giorno più
+        importante della nostra vita. Un autunno pieno di colori, calore e
+        affetto, da condividere con le persone che amiamo.
+      </p>
+
+      <div class="countdown" data-countdown aria-live="polite">
+        <div class="countdown-item">
+          <span class="countdown-number" data-cd-days>0</span>
+          <span class="countdown-label">Giorni</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" data-cd-hours>00</span>
+          <span class="countdown-label">Ore</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" data-cd-mins>00</span>
+          <span class="countdown-label">Minuti</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" data-cd-secs>00</span>
+          <span class="countdown-label">Secondi</span>
+        </div>
+      </div>
+
+      <div class="home-links">
+        <a class="btn" href="rsvp.html">Conferma la tua presenza</a>
+        <a class="btn secondary" href="dettagli.html">Dettagli dell'evento</a>
+      </div>
+    </section>
+
+    <section class="home-summary">
+      <div class="card">
+        <div class="summary-icon">⛪</div>
+        <h3>Cerimonia</h3>
+        <p>Ore 11:00</p>
+        <p>Santuario Madonna dei Campi<br>Stezzano (BG)</p>
+      </div>
+      <div class="card">
+        <div class="summary-icon">🥂</div>
+        <h3>Ricevimento</h3>
+        <p>Dalle 13:00 / 13:30</p>
+        <p>Tenuta Acquaviva<br>Travagliato (BS)</p>
+      </div>
+      <div class="card">
+        <div class="summary-icon">🍰</div>
+        <h3>Taglio della torta</h3>
+        <p>Ore 18:30</p>
+        <p>Tenuta Acquaviva<br>Travagliato (BS)</p>
+      </div>
+    </section>
+  </main>
+
+  <button class="music-toggle" data-music-toggle data-playing="false" aria-label="Riproduci la musica">
+    <span class="icon-playing">♫</span>
+    <span class="icon-paused">♪</span>
+  </button>
+
+  <footer class="site-footer">
+    <div class="divider"></div>
+    <p>Claudia &amp; Jacopo — 14 Ottobre 2027</p>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/audio-player.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/invito.js"></script>
+</body>
+</html>
