@@ -12,23 +12,20 @@
 </head>
 <body>
 
-  <!-- ===================== LETTERA D'INVITO ===================== -->
+  <!-- ===================== SIGILLO D'INVITO ===================== -->
   <div class="invito-screen" data-invito-screen role="button" tabindex="0"
        aria-label="Clicca per aprire l'invito">
-    <div class="envelope" data-envelope>
-      <div class="envelope-body">
-        <div class="letter-card">
-          <img class="letter-logo" src="logo.png" alt="">
-          <p class="letter-names">Claudia &amp; Jacopo</p>
-          <p class="letter-date">14 Ottobre 2027</p>
-        </div>
-        <div class="envelope-flap"></div>
-        <div class="envelope-seal">
-          <img src="logo.png" alt="">
-        </div>
+    <div class="leaves-decor" data-leaves="8" aria-hidden="true"></div>
+    <div class="seal" data-seal>
+      <span class="seal-glow" aria-hidden="true"></span>
+      <div class="seal-disc seal-disc-left">
+        <img src="logo.png" alt="">
+      </div>
+      <div class="seal-disc seal-disc-right">
+        <img src="logo.png" alt="">
       </div>
     </div>
-    <p class="invito-hint">Tocca per aprire l'invito</p>
+    <p class="invito-hint">Clicca ovunque per aprire l'invito</p>
   </div>
 
   <!-- ===================== HOME ===================== -->
@@ -50,6 +47,7 @@
 
   <main id="home">
     <section class="home-hero">
+      <div class="leaves-decor" data-leaves="7" aria-hidden="true"></div>
       <img class="home-logo" src="logo.png" alt="Logo Claudia & Jacopo">
       <p class="eyebrow">Ci sposiamo</p>
       <h1>Claudia &amp; Jacopo</h1>
@@ -120,6 +118,8 @@
   <script src="js/nav.js"></script>
   <script src="js/audio-player.js"></script>
   <script src="js/countdown.js"></script>
+  <script src="js/leaves.js"></script>
+  <script src="js/reveal.js"></script>
   <script src="js/invito.js"></script>
 </body>
 </html>

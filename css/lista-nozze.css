@@ -38,6 +38,13 @@ main {
   font-size: 0.9rem;
 }
 
+.registry-accent {
+  display: block;
+  width: 56px;
+  height: 56px;
+  margin: 0 0 16px;
+}
+
 .registry-copy p,
 .iban-note,
 .iban-holder,
