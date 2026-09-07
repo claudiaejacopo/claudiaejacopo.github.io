@@ -43,13 +43,20 @@
     }
 
     var opened = false;
+    var envelope = document.querySelector('[data-envelope]');
 
     function openInvito() {
       if (opened) return;
       opened = true;
 
       markInvitoSeen();
+
+      // Il sigillo si frattura per primo, poi la falda si solleva come se
+      // si stesse aprendo una vera busta con cera lacca.
       seal.classList.add('is-open');
+      setTimeout(function () {
+        if (envelope) envelope.classList.add('is-open');
+      }, 260);
 
       // Avvia la musica: questo click e' un vero "user gesture", quindi
       // l'autoplay del browser lo consente in modo affidabile.
@@ -63,7 +70,7 @@
         home.setAttribute('tabindex', '-1');
         home.focus({ preventScroll: true });
         document.body.classList.add('site-entered');
-      }, 900);
+      }, 1450);
 
       invitoScreen.setAttribute('aria-hidden', 'true');
     }

@@ -399,16 +399,24 @@ footer.site-footer .divider {
 
 /* ---------------------------------------------------------
    Scroll reveal (fade/slide-up) — vedi js/reveal.js
+   Lo stato nascosto e' applicato direttamente via selettore
+   (nessuna classe aggiunta da JS in ritardo) e attivo solo se
+   la classe html.js-reveal e' presente: viene impostata da uno
+   script inline sincrono in <head>, prima del primo paint, cosi'
+   da evitare il flash di contenuto visibile che poi scompare (FOUC).
+   Se JS e' disabilitato, html.js-reveal non c'e' e il contenuto
+   resta sempre visibile.
    --------------------------------------------------------- */
-.reveal-init {
+html.js-reveal main section,
+html.js-reveal main .card {
   opacity: 0;
   transform: translateY(26px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal-visible {
-  opacity: 1;
-  transform: none;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* ---------------------------------------------------------
@@ -426,6 +434,7 @@ footer.site-footer .divider {
   position: absolute;
   top: -12%;
   opacity: 0;
+  filter: blur(0.4px) saturate(0.75) brightness(1.05);
   animation: leaf-fall linear infinite;
   will-change: transform, opacity;
 }
@@ -434,18 +443,20 @@ footer.site-footer .divider {
   width: 100%;
   height: 100%;
   display: block;
+  opacity: 0.6;
 }
 
 @keyframes leaf-fall {
-  0% { transform: translateY(-10%) translateX(0) rotate(0deg); opacity: 0; }
-  8% { opacity: 0.85; }
-  92% { opacity: 0.7; }
+  0% { transform: translateY(-10%) translateX(0) rotate(var(--leaf-rotate-start, 0deg)); opacity: 0; }
+  8% { opacity: 0.4; }
+  92% { opacity: 0.3; }
   100% { transform: translateY(120vh) translateX(var(--leaf-drift, 40px)) rotate(360deg); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .leaves-decor { display: none; }
-  .reveal-init {
+  html.js-reveal main section,
+  html.js-reveal main .card {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
