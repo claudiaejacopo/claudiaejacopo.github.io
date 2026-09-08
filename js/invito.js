@@ -51,12 +51,14 @@
 
       markInvitoSeen();
 
-      // Il sigillo si frattura per primo, poi la falda si solleva come se
-      // si stesse aprendo una vera busta con cera lacca.
+      // Il cordoncino si scioglie e il sigillo si frattura insieme, non
+      // appena si clicca (~0.75s); solo dopo, a busta "slegata", la falda
+      // puo' scivolare via verso l'alto ed uscire dallo schermo (il
+      // ritardo/durata della falda e' gestito via CSS con
+      // animation-delay, cosi' i due movimenti restano sincronizzati
+      // anche se il timing dell'animazione cambia in futuro).
       seal.classList.add('is-open');
-      setTimeout(function () {
-        if (envelope) envelope.classList.add('is-open');
-      }, 260);
+      if (envelope) envelope.classList.add('is-open');
 
       // Avvia la musica: questo click e' un vero "user gesture", quindi
       // l'autoplay del browser lo consente in modo affidabile.
@@ -64,15 +66,16 @@
         window.CJMusicPlayer.init({ autoplayIntent: true });
       }
 
-      // La busta si apre (sigillo che si spacca + falda che si solleva)
-      // e poi l'intera schermata dissolve, lasciando spazio al sito.
+      // La dissolvenza parte solo a busta completamente aperta: la falda
+      // (ritardo 400ms + durata 1500ms) finisce a ~1900ms; aggiungiamo
+      // una pausa di ~350ms prima di far sfumare via l'intera schermata.
       setTimeout(function () {
         invitoScreen.classList.add('is-hidden');
         home.classList.add('is-visible');
         home.setAttribute('tabindex', '-1');
         home.focus({ preventScroll: true });
         document.body.classList.add('site-entered');
-      }, 1300);
+      }, 2250);
 
       invitoScreen.setAttribute('aria-hidden', 'true');
     }
