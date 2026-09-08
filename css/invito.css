@@ -79,8 +79,9 @@
   transform: translateX(-50%) scale(1.04);
 }
 
-/* Rivestimento interno della busta: un bordo a righe che intravede
-   appena oltre il bordo della falda, come nelle buste foderate */
+/* Rivestimento interno della busta: un rivestimento a tono caldo che
+   intravede appena oltre il bordo della falda, come nelle buste
+   foderate (nessun pattern a righe, solo colore e ombreggiatura) */
 .envelope-liner {
   position: absolute;
   top: 0;
@@ -88,11 +89,8 @@
   width: 100%;
   height: 56%;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-  background: repeating-linear-gradient(
-    135deg,
-    rgba(122, 59, 59, 0.16) 0 7px,
-    rgba(214, 181, 126, 0.4) 7px 14px
-  );
+  background: linear-gradient(165deg, #ecd9b2 0%, #dcbb80 55%, #c9a24b 100%);
+  box-shadow: inset 0 -20px 28px rgba(92, 43, 43, 0.22);
   transform: scale(0.965);
   transform-origin: top center;
   z-index: 3;
@@ -192,13 +190,8 @@
 }
 
 .envelope-flap-face.back {
-  background:
-    repeating-linear-gradient(
-      135deg,
-      rgba(122, 59, 59, 0.14) 0 7px,
-      rgba(251, 246, 238, 0.95) 7px 14px
-    ),
-    linear-gradient(180deg, #fbf6ee, #f3e5cf);
+  background: linear-gradient(200deg, #fbf6ee 0%, #f0e2c8 55%, #e3d3b8 100%);
+  box-shadow: inset 0 14px 24px rgba(122, 59, 59, 0.18);
   transform: rotateX(180deg);
 }
 
@@ -249,9 +242,12 @@
     radial-gradient(circle at 68% 74%, rgba(0, 0, 0, 0.2), transparent 48%),
     linear-gradient(155deg, var(--color-bordeaux) 0%, var(--color-bordeaux-dark) 100%);
   border: 3px solid rgba(61, 30, 20, 0.4);
-  box-shadow:
-    0 14px 30px rgba(61, 43, 35, 0.35),
-    0 0 0 5px rgba(122, 59, 59, 0.12) inset;
+  /* drop-shadow (invece di box-shadow) viene calcolato dopo il clip-path,
+     quindi segue esattamente il contorno visibile anche quando il disco
+     e' tagliato a meta' per l'animazione di frattura, senza artefatti
+     "squadrati" */
+  filter: drop-shadow(0 10px 16px rgba(61, 43, 35, 0.45));
+  box-shadow: 0 0 0 5px rgba(122, 59, 59, 0.12) inset;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -305,14 +301,27 @@
   opacity: 0;
 }
 
-/* Su mobile la schermata occupa l'intero viewport senza margini */
+/* Su mobile la busta riempie l'intero schermo (bordo a bordo), per
+   un effetto immersivo invece di un piccolo oggetto centrato */
 @media (max-width: 640px) {
   .invito-screen {
-    padding: 0 20px;
+    padding: 0;
+    gap: 0;
   }
 
   .envelope {
-    width: clamp(200px, 62vw, 260px);
+    width: 100vw;
+    height: 100dvh;
+    aspect-ratio: unset;
+  }
+
+  .envelope-body {
+    border-radius: 0;
+  }
+
+  /* Con la busta a schermo intero non ha senso un'ombra "da tavolo" */
+  .envelope-shadow {
+    display: none;
   }
 
   .seal {
@@ -321,6 +330,13 @@
   }
 
   .invito-hint {
-    bottom: 4%;
+    position: absolute;
+    left: 50%;
+    bottom: 6%;
+    transform: translateX(-50%);
+    z-index: 7;
+    margin: 0;
+    color: var(--color-cream);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
   }
 }
