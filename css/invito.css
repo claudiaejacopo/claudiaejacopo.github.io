@@ -31,14 +31,24 @@
 }
 
 .invito-hint {
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  z-index: 7;
+  margin: 0;
+  max-width: 86vw;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(61, 43, 35, 0.55);
+  backdrop-filter: blur(4px);
   font-family: var(--font-body);
   font-style: italic;
-  color: var(--color-text-soft);
-  font-size: 1.1rem;
+  color: var(--color-cream);
+  font-size: 1.05rem;
   letter-spacing: 0.5px;
   text-align: center;
+  white-space: normal;
   animation: hint-pulse 2.4s ease-in-out infinite;
 }
 
@@ -130,40 +140,6 @@
   pointer-events: none;
 }
 
-/* Lettera che, dopo l'apertura, scivola verso l'alto come se
-   venisse estratta dalla busta */
-.envelope-letter {
-  position: absolute;
-  left: 50%;
-  top: 62%;
-  width: 80%;
-  height: 66%;
-  transform: translate(-50%, 0);
-  background: linear-gradient(180deg, #fffaf1, #f6efe0);
-  border: 1px solid rgba(122, 59, 59, 0.2);
-  border-radius: 6px;
-  box-shadow: 0 12px 26px rgba(61, 43, 35, 0.2);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 22%;
-  z-index: 4;
-  opacity: 0;
-  transition: transform 1.15s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.7s ease 0.15s;
-}
-
-.envelope-letter-monogram {
-  font-family: var(--font-script);
-  font-size: clamp(1.3rem, 4vw, 1.8rem);
-  color: var(--color-terracotta);
-  letter-spacing: 0.5px;
-}
-
-.envelope.letter-out .envelope-letter {
-  opacity: 1;
-  transform: translate(-50%, -76%);
-}
-
 .envelope-flap {
   position: absolute;
   top: 0;
@@ -242,12 +218,9 @@
     radial-gradient(circle at 68% 74%, rgba(0, 0, 0, 0.2), transparent 48%),
     linear-gradient(155deg, var(--color-bordeaux) 0%, var(--color-bordeaux-dark) 100%);
   border: 3px solid rgba(61, 30, 20, 0.4);
-  /* drop-shadow (invece di box-shadow) viene calcolato dopo il clip-path,
-     quindi segue esattamente il contorno visibile anche quando il disco
-     e' tagliato a meta' per l'animazione di frattura, senza artefatti
-     "squadrati" */
-  filter: drop-shadow(0 10px 16px rgba(61, 43, 35, 0.45));
-  box-shadow: 0 0 0 5px rgba(122, 59, 59, 0.12) inset;
+  /* Nessuna ombra esterna: solo un sottilissimo anello interno per
+     dare un minimo di rilievo alla cera, senza aureola intorno */
+  box-shadow: 0 0 0 3px rgba(122, 59, 59, 0.1) inset;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -275,14 +248,17 @@
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4), 0 -1px 0 rgba(255, 255, 255, 0.12);
 }
 
+/* Il sigillo si spacca lungo una crepa irregolare (non una linea dritta
+   verticale) in due pezzi asimmetrici, che poi cadranno verso il basso
+   per gravita' */
 .seal-disc-left {
-  clip-path: inset(0 50% 0 0);
-  transform-origin: left center;
+  clip-path: polygon(0% 0%, 62% 0%, 45% 38%, 70% 55%, 40% 68%, 58% 100%, 0% 100%);
+  transform-origin: 30% 35%;
 }
 
 .seal-disc-right {
-  clip-path: inset(0 0 0 50%);
-  transform-origin: right center;
+  clip-path: polygon(62% 0%, 100% 0%, 100% 100%, 58% 100%, 40% 68%, 70% 55%, 45% 38%);
+  transform-origin: 72% 65%;
 }
 
 /* Stato: sigillo aperto (si frattura prima che la falda si sollevi) */
@@ -291,14 +267,22 @@
   transform: scale(1.4);
 }
 
+.seal.is-open .seal-disc-left,
+.seal.is-open .seal-disc-right {
+  /* Caduta per gravita', non piu' scivolamento laterale: la cera si
+     spacca e cade verso il basso mentre la falda si solleva */
+  transition: transform 0.9s cubic-bezier(0.55, 0.06, 0.9, 0.35), opacity 0.6s ease 0.15s;
+}
+
 .seal.is-open .seal-disc-left {
-  transform: translateX(-46%) rotate(-16deg);
+  transform: translate(-14%, 58%) rotate(-22deg);
   opacity: 0;
 }
 
 .seal.is-open .seal-disc-right {
-  transform: translateX(46%) rotate(16deg);
+  transform: translate(20%, 66%) rotate(16deg);
   opacity: 0;
+  transition-delay: 0.05s, 0.2s;
 }
 
 /* Su mobile la busta riempie l'intero schermo (bordo a bordo), per
@@ -330,13 +314,8 @@
   }
 
   .invito-hint {
-    position: absolute;
-    left: 50%;
-    bottom: 6%;
-    transform: translateX(-50%);
-    z-index: 7;
-    margin: 0;
-    color: var(--color-cream);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    bottom: 5.5%;
+    font-size: 0.98rem;
+    padding: 9px 18px;
   }
 }

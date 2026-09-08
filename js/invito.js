@@ -58,25 +58,21 @@
         if (envelope) envelope.classList.add('is-open');
       }, 260);
 
-      // Una volta sollevata la falda, la lettera scivola verso l'alto
-      // come se venisse estratta dalla busta.
-      setTimeout(function () {
-        if (envelope) envelope.classList.add('letter-out');
-      }, 820);
-
       // Avvia la musica: questo click e' un vero "user gesture", quindi
       // l'autoplay del browser lo consente in modo affidabile.
       if (window.CJMusicPlayer) {
         window.CJMusicPlayer.init({ autoplayIntent: true });
       }
 
+      // La busta si apre (sigillo che si spacca + falda che si solleva)
+      // e poi l'intera schermata dissolve, lasciando spazio al sito.
       setTimeout(function () {
         invitoScreen.classList.add('is-hidden');
         home.classList.add('is-visible');
         home.setAttribute('tabindex', '-1');
         home.focus({ preventScroll: true });
         document.body.classList.add('site-entered');
-      }, 1900);
+      }, 1300);
 
       invitoScreen.setAttribute('aria-hidden', 'true');
     }
