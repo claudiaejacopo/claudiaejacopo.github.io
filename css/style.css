@@ -15,6 +15,7 @@
   --color-gold: #c9a24b;
   --color-gold-light: #d9b877;
   --color-sage: #8a9575;
+  --color-sage-dark: #5f6b48;
   --color-cream: #fbf6ee;
   --color-cream-dark: #f6efe4;
   --color-text: #3d2b23;
@@ -69,7 +70,20 @@ h1, h2, h3, h4 {
   color: var(--color-bordeaux-dark);
   font-weight: 600;
   margin: 0 0 0.5em;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
+  line-height: 1.25;
+}
+
+/* I titoli grandi (hero, page-hero) restano compatti e "stampati",
+   con un tracking piu' stretto; i titoli piccoli nelle card guadagnano
+   invece un tocco di respiro, per un effetto piu' da etichetta elegante */
+h1 {
+  letter-spacing: -0.2px;
+  line-height: 1.08;
+}
+
+h3, h4 {
+  letter-spacing: 0.6px;
 }
 
 a {
@@ -272,52 +286,69 @@ button {
 }
 
 .card {
-  background: var(--bg-panel);
+  position: relative;
+  background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  border: 1px solid var(--border-soft);
+  box-shadow: 0 14px 32px rgba(92, 43, 43, 0.1);
+  border: 1px solid rgba(201, 162, 75, 0.4);
   padding: 32px;
+  overflow: hidden;
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
+/* Grana leggera della carta, coerente con la texture usata sul body */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.86 0 0 0 0 0.78 0 0 0 0 0.63 0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  pointer-events: none;
+}
+
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(61, 43, 35, 0.2);
-  border-color: rgba(201, 162, 75, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(92, 43, 43, 0.16);
+  border-color: rgba(201, 162, 75, 0.75);
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--color-terracotta);
-  color: var(--color-white);
-  border: none;
-  padding: 12px 26px;
+  background: rgba(251, 246, 238, 0.5);
+  color: var(--color-terracotta);
+  border: 1.5px solid var(--color-terracotta);
+  padding: 12px 30px;
   border-radius: 999px;
-  font-size: 1.05rem;
-  letter-spacing: 0.4px;
-  box-shadow: 0 8px 20px rgba(181, 80, 45, 0.28);
-  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  box-shadow: none;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn:hover {
-  background: var(--color-bordeaux);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(122, 59, 59, 0.35);
+  background: var(--color-terracotta);
+  color: var(--color-white);
+  border-color: var(--color-terracotta);
+  box-shadow: 0 10px 22px rgba(181, 80, 45, 0.22);
 }
 
 .btn.secondary {
-  background: transparent;
-  color: var(--color-bordeaux);
-  border: 1.5px solid var(--color-bordeaux);
-  box-shadow: none;
+  background: rgba(251, 246, 238, 0.5);
+  color: var(--color-sage-dark);
+  border: 1.5px solid var(--color-sage);
 }
 
 .btn.secondary:hover {
-  background: var(--color-bordeaux);
+  background: var(--color-sage);
   color: var(--color-white);
-  box-shadow: 0 14px 28px rgba(122, 59, 59, 0.22);
+  border-color: var(--color-sage);
+  box-shadow: 0 10px 22px rgba(138, 149, 117, 0.22);
 }
 
 .btn:disabled {
