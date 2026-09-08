@@ -137,3 +137,53 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Sezione dedicata di richiamo alla conferma presenza */
+.home-rsvp-cta {
+  position: relative;
+  max-width: 760px;
+  margin: 80px auto 0;
+  padding: 52px 32px;
+  text-align: center;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(201, 162, 75, 0.08), rgba(255, 255, 255, 0.6)),
+    var(--bg-panel);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.home-rsvp-cta .divider {
+  margin-top: 0;
+}
+
+.home-rsvp-cta .eyebrow {
+  font-family: var(--font-script);
+  font-size: 1.7rem;
+  color: var(--color-terracotta);
+  margin: 0;
+}
+
+.home-rsvp-cta h2 {
+  margin: 6px 0 14px;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+}
+
+.home-rsvp-cta p {
+  max-width: 480px;
+  margin: 0 auto 28px;
+  color: var(--color-text-soft);
+  font-size: 1.08rem;
+}
+
+.home-rsvp-cta .btn {
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .home-rsvp-cta {
+    margin-top: 56px;
+    padding: 40px 22px;
+  }
+}

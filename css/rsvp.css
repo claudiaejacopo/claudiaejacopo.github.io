@@ -277,6 +277,13 @@
   text-decoration: none;
 }
 
+.success-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
 [hidden] {
   display: none !important;
 }
@@ -303,7 +310,8 @@
     padding-bottom: 64px;
   }
 
-  .form-actions .btn {
+  .form-actions .btn,
+  .success-actions .btn {
     width: 100%;
     justify-content: center;
     min-height: 52px;

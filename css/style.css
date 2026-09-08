@@ -345,23 +345,25 @@ footer.site-footer .divider {
   right: 20px;
   bottom: 20px;
   z-index: 80;
-  width: 56px;
-  height: 56px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  border: none;
-  background: var(--color-bordeaux-dark);
-  color: var(--color-gold-light);
-  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(201, 162, 75, 0.4);
+  background: rgba(251, 246, 238, 0.92);
+  color: var(--color-bordeaux-dark);
+  box-shadow: 0 6px 16px rgba(61, 43, 35, 0.16);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
-  transition: transform 0.2s ease, background 0.25s ease;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .music-toggle:hover {
-  transform: scale(1.06);
-  background: var(--color-bordeaux);
+  transform: scale(1.05);
+  background: var(--color-cream-dark);
+  box-shadow: 0 8px 20px rgba(61, 43, 35, 0.2);
 }
 
 .music-toggle[data-playing="true"] .icon-playing {
@@ -378,12 +380,13 @@ footer.site-footer .divider {
 }
 
 .music-toggle .icon-playing {
-  animation: music-pulse 1.1s ease-in-out infinite;
+  color: var(--color-terracotta);
+  animation: music-pulse 1.8s ease-in-out infinite;
 }
 
 @keyframes music-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.18); }
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.08); opacity: 1; }
 }
 
 /* Utility */
@@ -411,8 +414,13 @@ html.js-reveal main section,
 html.js-reveal main .card {
   opacity: 0;
   transform: translateY(26px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+/* Leggero stagger tra le card affiancate, per un ingresso più curato */
+html.js-reveal main .card:nth-child(2) { transition-delay: 0.08s; }
+html.js-reveal main .card:nth-child(3) { transition-delay: 0.16s; }
+html.js-reveal main .card:nth-child(4) { transition-delay: 0.24s; }
 
 .reveal-visible {
   opacity: 1 !important;

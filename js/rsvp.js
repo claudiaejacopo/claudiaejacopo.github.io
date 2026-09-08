@@ -25,6 +25,7 @@
     const successMessage = document.querySelector('[data-success-message]');
     const hiddenNomeInput = rsvpForm.querySelector('[data-hidden-nome]');
     const hiddenCognomeInput = rsvpForm.querySelector('[data-hidden-cognome]');
+    const resetRsvpButton = document.querySelector('[data-reset-rsvp]');
 
     if (!searchForm || !rsvpForm || !searchStep || !detailsStep || !successStep) {
       return;
@@ -345,6 +346,44 @@
           rsvpSubmit.textContent = 'Invia conferma';
         });
     });
+
+    function resetRsvpFlow() {
+      selectedGuest = null;
+
+      searchForm.reset();
+      rsvpForm.reset();
+
+      clearSearchValidation();
+      clearRsvpValidation();
+      setStatus(searchStatus, '', '');
+      setStatus(submitStatus, '', '');
+
+      if (hiddenNomeInput) hiddenNomeInput.value = '';
+      if (hiddenCognomeInput) hiddenCognomeInput.value = '';
+      if (greeting) greeting.textContent = '';
+
+      toggleAllergyField(false);
+
+      rsvpSubmit.disabled = false;
+      rsvpSubmit.textContent = 'Invia conferma';
+      searchSubmit.disabled = false;
+      searchSubmit.textContent = 'Cerca';
+
+      successStep.hidden = true;
+      detailsStep.hidden = true;
+      searchStep.hidden = false;
+
+      searchStep.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      const nameField = document.getElementById('search-name');
+      if (nameField) {
+        nameField.focus({ preventScroll: true });
+      }
+    }
+
+    if (resetRsvpButton) {
+      resetRsvpButton.addEventListener('click', resetRsvpFlow);
+    }
 
     toggleAllergyField(false);
   });
