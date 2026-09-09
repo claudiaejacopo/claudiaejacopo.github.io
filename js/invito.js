@@ -51,12 +51,9 @@
 
       markInvitoSeen();
 
-      // Il cordoncino si scioglie e il sigillo si frattura insieme, non
-      // appena si clicca (~0.75s); solo dopo, a busta "slegata", la falda
-      // puo' scivolare via verso l'alto ed uscire dallo schermo (il
-      // ritardo/durata della falda e' gestito via CSS con
-      // animation-delay, cosi' i due movimenti restano sincronizzati
-      // anche se il timing dell'animazione cambia in futuro).
+      // La falda si ripiega su se stessa restando sempre a schermo (niente
+      // piu' un pezzo che vola via): sigillo, falda e cartoncino animano
+      // insieme non appena si clicca.
       seal.classList.add('is-open');
       if (envelope) envelope.classList.add('is-open');
 
@@ -66,16 +63,17 @@
         window.CJMusicPlayer.init({ autoplayIntent: true });
       }
 
-      // La dissolvenza parte solo a busta completamente aperta: la falda
-      // (ritardo 400ms + durata 1500ms) finisce a ~1900ms; aggiungiamo
-      // una pausa di ~350ms prima di far sfumare via l'intera schermata.
+      // La dissolvenza parte solo a cartoncino completamente rivelato: lo
+      // slide del cartoncino (ritardo 700ms + durata 1500ms) finisce a
+      // ~2200ms; aggiungiamo una pausa di lettura di 2 secondi prima di
+      // far sfumare via l'intera schermata verso la home.
       setTimeout(function () {
         invitoScreen.classList.add('is-hidden');
         home.classList.add('is-visible');
         home.setAttribute('tabindex', '-1');
         home.focus({ preventScroll: true });
         document.body.classList.add('site-entered');
-      }, 2250);
+      }, 4200);
 
       invitoScreen.setAttribute('aria-hidden', 'true');
     }

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invito Elegante - C & J</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clay: {
+              DEFAULT: '#8D3A31',
+              dark: '#6E2A23',
+              light: '#A3483E',
+            },
+            terracotta: '#C15C4D',
+            gold: '#D4AF37',
+            sage: '#7D8B6F',
+            cream: '#FAF6F0',
+            parchment: '#F3ECE1',
+            kraft: '#E6D7C3'
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            script: ['"Pinyon Script"', 'cursive'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF6F0;
+      background-image: radial-gradient(#8D3A3112 1px, transparent 1px), radial-gradient(#7D8B6F10 1px, #FAF6F0 1px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+    }
+
+    /* Envelope 3D styling */
+    .perspective-container {
+      perspective: 1200px;
+    }
+
+    .envelope-box {
+      box-shadow: 0 25px 50px -12px rgba(100, 40, 30, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+    }
+
+    .envelope-box:hover {
+      transform: translateY(-4px) scale(1.008);
+      box-shadow: 0 32px 60px -12px rgba(100, 40, 30, 0.22);
+    }
+
+    /* Flap styling with clip-path */
+    .flap-top {
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top center;
+      transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.2s;
+    }
+
+    .flap-left {
+      clip-path: polygon(0 0, 0 100%, 55% 50%);
+    }
+
+    .flap-right {
+      clip-path: polygon(100% 0, 100% 100%, 45% 50%);
+    }
+
+    .flap-bottom {
+      clip-path: polygon(0 100%, 100% 100%, 50% 38%);
+    }
+
+    /* Letter inside envelope */
+    .invitation-letter {
+      transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, box-shadow 0.8s ease;
+    }
+
+    /* Wax seal button */
+    .wax-seal {
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+      box-shadow: 0 4px 14px rgba(110, 42, 35, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    }
+
+    .wax-seal:hover {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    /* OPEN STATE ANIMATIONS */
+    .is-opened .flap-top {
+      transform: rotateX(180deg);
+      z-index: 1 !important;
+    }
+
+    .is-opened .wax-seal {
+      transform: translate(-50%, -50%) scale(0.6) rotate(15deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .is-opened .invitation-letter {
+      transform: translateY(-58%);
+      z-index: 30;
+      box-shadow: 0 25px 45px rgba(60, 25, 20, 0.2);
+    }
+
+    @media (min-width: 640px) {
+      .is-opened .invitation-letter {
+        transform: translateY(-62%);
+      }
+    }
+
+    /* Hint subtle pulse */
+    @keyframes gentlePulse {
+      0%, 100% { opacity: 0.85; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-3px); }
+    }
+    .animate-gentle-pulse {
+      animation: gentlePulse 2.6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between items-center text-[#5A382D] cursor-pointer p-4 sm:p-8">
+
+  <!-- Floating Botanical Decorative Corner SVGs inspired by autumnal wreath -->
+  <div class="fixed top-0 left-0 p-4 sm:p-6 opacity-30 pointer-events-none">
+    <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 90 Q 30 40 90 10" stroke="#8D3A31" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M30 65 C 20 50 35 35 45 48 C 55 60 40 75 30 65 Z" fill="#C15C4D" fill-opacity="0.5"/>
+      <path d="M55 40 C 48 25 65 18 70 30 C 75 42 62 50 55 40 Z" fill="#7D8B6F" fill-opacity="0.5"/>
+      <circle cx="28" cy="42" r="3" fill="#8D3A31"/>
+      <circle cx="68" cy="22" r="2.5" fill="#D4AF37"/>
+    </svg>
+  </div>
+  <div class="fixed bottom-0 right-0 p-4 sm:p-6 opacity-30 pointer-events-none rotate-180">
+    <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 90 Q 30 40 90 10" stroke="#8D3A31" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M30 65 C 20 50 35 35 45 48 C 55 60 40 75 30 65 Z" fill="#C15C4D" fill-opacity="0.5"/>
+      <path d="M55 40 C 48 25 65 18 70 30 C 75 42 62 50 55 40 Z" fill="#7D8B6F" fill-opacity="0.5"/>
+      <circle cx="28" cy="42" r="3" fill="#8D3A31"/>
+      <circle cx="68" cy="22" r="2.5" fill="#D4AF37"/>
+    </svg>
+  </div>
+
+  <!-- Top Header Subtitle -->
+  <header class="w-full text-center pt-2 sm:pt-4 z-10">
+    <span class="text-xs uppercase tracking-[0.3em] text-clay/80 font-sans font-medium block">
+      Partecipazione di Nozze
+    </span>
+    <div class="inline-flex items-center justify-center gap-3 mt-1.5 opacity-60">
+      <div class="h-[1px] w-12 bg-clay"></div>
+      <span class="text-xs font-serif italic text-clay">Save the Date</span>
+      <div class="h-[1px] w-12 bg-clay"></div>
+    </div>
+  </header>
+
+  <!-- Interactive Area containing Envelope and Card -->
+  <main id="interactiveCard" class="perspective-container my-auto py-12 w-full max-w-[460px] flex flex-col items-center justify-center relative">
+    
+    <!-- Envelope Wrapper -->
+    <div id="envelope" class="envelope-box relative w-full h-[280px] sm:h-[310px] bg-[#EFE4D6] rounded-xl border border-[#DECFC0] overflow-visible">
+      
+      <!-- Inner Envelope Shadow / Depth -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#DECBB5] to-[#F7EFE6] rounded-xl"></div>
+
+      <!-- LETTER INSERT (Hidden inside, slides up on click) -->
+      <div id="letter" class="invitation-letter absolute left-4 right-4 sm:left-6 sm:right-6 top-4 bottom-4 bg-[#FCFAF7] rounded-lg border border-[#E5D7C7] p-5 sm:p-7 flex flex-col items-center justify-between text-center z-10 pointer-events-none">
+        <!-- Letter Decorative Corner Border -->
+        <div class="w-full border border-clay/20 p-4 h-full rounded flex flex-col items-center justify-between relative bg-[radial-gradient(#F5EDE2_1px,transparent_1px)] [background-size:12px_12px]">
+          
+          <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-clay/70 font-sans">
+            Sei cordialmente invitato
+          </span>
+
+          <!-- Central Monogram Logo -->
+          <div class="w-20 h-20 sm:w-24 sm:h-24 my-1 relative flex items-center justify-center">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDySgl8MJFPPfRkh3tLZGo4ydBww4JfXnpDvOBWwsJ1Bg1NHH3W8mBRE5fALMCJzeGGSEgCRWWpAbuCvMOrE380Z2QCGnWIyLAFQRyJeWdEkBitu1HmXh678c5Vo6g6qe1Co_Wa0fU2xu9V7JfVFsym59FCKEF3o2QI4E7kYIqOBX3a6wfQ19w1SvTzWcCCshPpUWEMQXHX5nBBh6tu5aO5PxRjhviVcLV5X2FVt3VN3fG25LFAPT9gM9FIKyQ4ytLZcKU" alt="C & J Logo" class="w-full h-full object-contain filter drop-shadow-sm">
+          </div>
+
+          <div class="space-y-1">
+            <h2 class="font-serif text-xl sm:text-2xl text-clay font-normal tracking-wide">
+              Camilla &amp; Jacopo
+            </h2>
+            <p class="font-sans text-[11px] sm:text-xs text-[#735A52] tracking-wider font-light">
+              Celebrano il loro matrimonio
+            </p>
+          </div>
+
+          <div class="pt-2 border-t border-clay/15 w-full flex items-center justify-center gap-4 text-[11px] sm:text-xs font-serif italic text-clay/90">
+            <span>Autunno 2025</span>
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-clay/40"></span>
+            <span>Villa Antica</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Envelope Flaps -->
+      <!-- Left Flap -->
+      <div class="flap-left absolute inset-0 bg-[#E8DBCC] rounded-l-xl z-20 pointer-events-none shadow-sm"></div>
+      
+      <!-- Right Flap -->
+      <div class="flap-right absolute inset-0 bg-[#E5D7C7] rounded-r-xl z-20 pointer-events-none shadow-sm"></div>
+
+      <!-- Bottom Flap -->
+      <div class="flap-bottom absolute inset-0 bg-[#E2D2BF] rounded-b-xl z-20 pointer-events-none border-t border-clay/10"></div>
+
+      <!-- Central Seal & Brand Logo in the middle of Envelope before open -->
+      <div id="frontLogoWrapper" class="absolute inset-0 flex items-center justify-center z-25 pointer-events-none transition-all duration-700">
+        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-2 bg-[#FAF6F0]/90 backdrop-blur-sm border border-clay/20 shadow-md flex items-center justify-center">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzmfd3ee4XYCG3EAyaW8gPrj-hLAw79h3MnvejfkUWbLZOpIz-BCcKD1IrdHKp3ngWmaexaWQ8Fq5-vjEpPaAvP7kCjMlXUNx79BFtyds-YoJdNoWMr9nH0Qr_QSWxXUh_XS8jILZ5FhEKLCfEoZxtTWlPr6lezhgkgHdbBZQNE3OqJeTQU9uYG_yEU27kTYCYLQFOLLOD4uQOlAc7XMdsyI6KODebGn-vA7uLNi_mEN_hvqNHWbSP2jOBZbjmq5iWFZs" alt="C & J Logo" class="w-full h-full object-contain">
+        </div>
+      </div>
+
+      <!-- Top Folding Flap -->
+      <div class="flap-top absolute top-0 left-0 right-0 h-[62%] bg-[#EFE3D4] rounded-t-xl z-20 shadow-md border-b border-[#D8C7B3]/40"></div>
+
+      <!-- Elegant Wax Seal button located in center -->
+      <button id="sealButton" aria-label="Apri l'invito" class="wax-seal absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-clay text-[#FAF6F0] flex items-center justify-center border-2 border-[#A3483E] outline-none">
+        <div class="w-11 h-11 sm:w-13 sm:h-13 rounded-full border border-[#FAF6F0]/30 flex flex-col items-center justify-center">
+          <span class="font-serif text-sm sm:text-base font-semibold tracking-tighter leading-none">C&amp;J</span>
+          <span class="text-[8px] tracking-widest uppercase font-sans mt-0.5 opacity-80">Apri</span>
+        </div>
+      </button>
+
+    </div>
+
+    <!-- Status text underneath envelope -->
+    <div id="openStateBadge" class="mt-6 opacity-0 transition-opacity duration-700 text-center">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 border border-clay/20 text-xs font-serif italic text-clay shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+        Invito aperto • Clicca di nuovo per richiudere
+      </span>
+    </div>
+
+  </main>
+
+  <!-- Prompt / Call to action required by user -->
+  <footer class="w-full text-center pb-4 sm:pb-6 z-10">
+    <div id="ctaPrompt" class="animate-gentle-pulse flex flex-col items-center gap-2 cursor-pointer">
+      <div class="flex items-center gap-3">
+        <svg class="w-4 h-4 text-clay" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59"/>
+        </svg>
+        <p class="text-sm sm:text-base font-serif italic tracking-wide text-clay font-medium">
+          Clicca ovunque per aprire il tuo invito
+        </p>
+      </div>
+      <p class="text-[11px] sm:text-xs font-sans text-[#8C6D62] tracking-wider font-light">
+        Un momento speciale da condividere con voi
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const envelope = document.getElementById('envelope');
+    const ctaPrompt = document.getElementById('ctaPrompt');
+    const openStateBadge = document.getElementById('openStateBadge');
+    const frontLogoWrapper = document.getElementById('frontLogoWrapper');
+    let isOpen = false;
+
+    function toggleEnvelope(e) {
+      // Toggle state
+      isOpen = !isOpen;
+
+      if (isOpen) {
+        envelope.classList.add('is-opened');
+        frontLogoWrapper.style.opacity = '0';
+        openStateBadge.classList.remove('opacity-0');
+        openStateBadge.classList.add('opacity-100');
+        ctaPrompt.innerHTML = `
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-clay" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"/>
+            </svg>
+            <p class="text-sm font-serif italic text-clay font-medium">Clicca per richiudere l'invito</p>
+          </div>
+        `;
+      } else {
+        envelope.classList.remove('is-opened');
+        frontLogoWrapper.style.opacity = '1';
+        openStateBadge.classList.add('opacity-0');
+        openStateBadge.classList.remove('opacity-100');
+        ctaPrompt.innerHTML = `
+          <div class="flex items-center gap-3">
+            <svg class="w-4 h-4 text-clay" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59"/>
+            </svg>
+            <p class="text-sm sm:text-base font-serif italic tracking-wide text-clay font-medium">
+              Clicca ovunque per aprire il tuo invito
+            </p>
+          </div>
+          <p class="text-[11px] sm:text-xs font-sans text-[#8C6D62] tracking-wider font-light">
+            Un momento speciale da condividere con voi
+          </p>
+        `;
+      }
+    }
+
+    // Toggle on clicking anywhere on the screen as requested ("Clicca ovunque per aprire il tuo invito")
+    document.body.addEventListener('click', toggleEnvelope);
+  </script>
+</body>
+</html>

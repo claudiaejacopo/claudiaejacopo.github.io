@@ -17,29 +17,39 @@
   <div class="invito-screen" data-invito-screen role="button" tabindex="0"
        aria-label="Clicca per aprire l'invito">
     <div class="leaves-decor" data-leaves="8" aria-hidden="true"></div>
-    <div class="envelope" data-envelope>
+    <div class="invito-header" aria-hidden="true">
+      <svg class="invito-floral" viewBox="0 0 160 32" width="150" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M80 17 C 64 6, 44 6, 27 17" stroke="var(--color-terracotta)" stroke-width="1.1" stroke-linecap="round"/>
+        <path d="M80 17 C 96 6, 116 6, 133 17" stroke="var(--color-terracotta)" stroke-width="1.1" stroke-linecap="round"/>
+        <path d="M46 13 C 41 6, 32 6, 27 12 C 32 17, 41 16, 46 13 Z" fill="var(--color-sage)" opacity="0.75"/>
+        <path d="M114 13 C 119 6, 128 6, 133 12 C 128 17, 119 16, 114 13 Z" fill="var(--color-sage)" opacity="0.75"/>
+        <path d="M58 20 C 54 15, 48 14, 44 18 C 48 22, 55 22, 58 20 Z" fill="var(--color-gold-light)" opacity="0.65"/>
+        <path d="M102 20 C 106 15, 112 14, 116 18 C 112 22, 105 22, 102 20 Z" fill="var(--color-gold-light)" opacity="0.65"/>
+        <circle cx="80" cy="17" r="4.2" fill="var(--color-gold)"/>
+        <circle cx="80" cy="17" r="2" fill="var(--color-bordeaux)"/>
+      </svg>
+      <div class="invito-divider"><span></span><em>Save the Date</em><span></span></div>
+    </div>
+    <div class="envelope-box" data-envelope>
       <div class="envelope-shadow" aria-hidden="true"></div>
-      <div class="envelope-liner" aria-hidden="true"></div>
-      <div class="envelope-body"></div>
-      <div class="envelope-cord" aria-hidden="true">
-        <span class="envelope-cord-strand left"></span>
-        <span class="envelope-cord-strand right"></span>
-        <span class="envelope-cord-knot"></span>
-      </div>
-      <div class="envelope-flap">
-        <div class="envelope-flap-face front"></div>
-      </div>
-      <div class="seal" data-seal>
-        <span class="seal-glow" aria-hidden="true"></span>
-        <div class="seal-disc seal-disc-left">
-          <span class="seal-monogram">C &amp; J</span>
+      <div class="envelope-body" aria-hidden="true"></div>
+      <div class="invitation-letter" aria-hidden="true">
+        <div class="invitation-letter-inner">
+          <span class="invitation-kicker">Sei cordialmente invitato/a</span>
+          <div class="invitation-logo"><img src="logo.png" alt=""></div>
+          <div class="invitation-names">
+            <h2>Claudia &amp; Jacopo</h2>
+            <p>Celebrano il loro matrimonio</p>
+          </div>
+          <div class="invitation-date">14 Ottobre 2027</div>
         </div>
-        <div class="seal-disc seal-disc-right">
-          <span class="seal-monogram">C &amp; J</span>
-        </div>
+      </div>
+      <div class="envelope-flap-top" aria-hidden="true"></div>
+      <div class="wax-seal" data-seal aria-hidden="true">
+        <img src="logo.png" alt="">
       </div>
     </div>
-    <p class="invito-hint">Clicca ovunque per aprire l'invito</p>
+    <p class="invito-hint">Clicca ovunque per aprire il tuo invito</p>
   </div>
 
   <!-- ===================== HOME ===================== -->

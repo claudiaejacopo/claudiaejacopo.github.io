@@ -35,9 +35,25 @@
     audio.volume = 0.6;
 
     const state = readState();
-    if (state.time) {
-      audio.currentTime = state.time;
+
+    // Il tempo salvato va applicato solo quando ci sono dati sufficienti
+    // (readyState >= HAVE_CURRENT_DATA/'loadeddata'): se lo si imposta
+    // troppo presto (subito dopo la creazione, prima che il browser abbia
+    // dati sufficienti) molti browser lo ignorano silenziosamente e la
+    // riproduzione riparte da 0 ad ogni ricarica della pagina, anche se lo
+    // stato salvato era corretto.
+    function restoreTime() {
+      if (!state.time) return;
+      if (audio.readyState >= 2) {
+        audio.currentTime = state.time;
+      } else {
+        audio.addEventListener('loadeddata', function onData() {
+          audio.currentTime = state.time;
+          audio.removeEventListener('loadeddata', onData);
+        });
+      }
     }
+    restoreTime();
 
     const toggleBtn = document.querySelector('[data-music-toggle]');
 
