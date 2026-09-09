@@ -189,6 +189,7 @@
   top: 6%;
   bottom: 6%;
   z-index: 0;
+  overflow: hidden;
   background: var(--color-cream);
   border-radius: 12px;
   border: 1px solid rgba(122, 59, 59, 0.18);
@@ -347,7 +348,7 @@
 @media (max-width: 640px) {
   .envelope-box {
     width: min(90vw, 360px);
-    height: clamp(210px, 55vw, 260px);
+    height: clamp(224px, 58vw, 272px);
   }
 
   .wax-seal {
@@ -359,6 +360,37 @@
     bottom: 5.5%;
     font-size: 0.98rem;
     padding: 9px 18px;
+  }
+
+  /* Contenuto della cartolina piu' compatto: evita che testo/data
+     eccedano l'altezza disponibile su schermi stretti o con font
+     di sistema ingrandito (es. accessibilita' Android). */
+  .invitation-letter-inner {
+    inset: 6px;
+    gap: 4px;
+    padding: 10px 10px;
+  }
+
+  .invitation-kicker {
+    font-size: 0.62rem;
+  }
+
+  .invitation-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .invitation-names h2 {
+    font-size: clamp(1rem, 5.5vw, 1.25rem);
+  }
+
+  .invitation-names p {
+    font-size: 0.68rem;
+  }
+
+  .invitation-date {
+    padding-top: 5px;
+    font-size: 0.8rem;
   }
 }
 
