@@ -186,7 +186,9 @@
 
 /* Cartoncino interno: resta nascosto dietro il corpo della busta
    (z-index piu' basso) finche' non si apre; poi sale sopra e
-   scorre verso l'alto rivelando il contenuto. */
+   scorre verso l'alto rivelando il contenuto. Compare gradualmente,
+   con una dissolvenza sfocata, solo quando e' gia' a meta' della
+   salita, invece di apparire di colpo a piena opacita'. */
 .invitation-letter {
   position: absolute;
   left: 6%;
@@ -199,11 +201,18 @@
   border-radius: 12px;
   border: 1px solid rgba(122, 59, 59, 0.18);
   box-shadow: 0 18px 34px rgba(60, 25, 20, 0.16);
-  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.7s, box-shadow 0.8s ease;
+  opacity: 0;
+  filter: blur(10px);
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.7s,
+    opacity 0.85s ease 0.85s,
+    filter 0.85s ease 0.85s,
+    box-shadow 0.8s ease;
 }
 
 .envelope-box.is-open .invitation-letter {
   transform: translateY(-62%);
+  opacity: 1;
+  filter: blur(0);
   z-index: 15;
 }
 
