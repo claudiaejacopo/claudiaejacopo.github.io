@@ -1,5 +1,5 @@
 /* =========================================================
-   Claudia & Jacopo — Gestione musica di sottofondo
+   Claudia & Jacopo - Gestione musica di sottofondo
    Persistente tra le pagine tramite un tag <audio> ricreato
    ad ogni caricamento, con stato (playing/paused, currentTime)
    salvato in sessionStorage cosi' la riproduzione continua

@@ -1,5 +1,5 @@
 /* =========================================================
-   Claudia & Jacopo — Scroll reveal (fade/slide-up)
+   Claudia & Jacopo - Scroll reveal (fade/slide-up)
 
    Lo stato "nascosto" iniziale e' interamente gestito dal CSS
    (selettore html.js-reveal main section, html.js-reveal main .card),

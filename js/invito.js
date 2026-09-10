@@ -1,5 +1,5 @@
 /* =========================================================
-   Claudia & Jacopo — Apertura del sigillo d'invito
+   Claudia & Jacopo - Apertura del sigillo d'invito
    ========================================================= */
 
 (function () {

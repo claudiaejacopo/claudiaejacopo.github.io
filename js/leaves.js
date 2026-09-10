@@ -1,5 +1,5 @@
 /* =========================================================
-   Claudia & Jacopo — Foglie autunnali cadenti (decorazione)
+   Claudia & Jacopo - Foglie autunnali cadenti (decorazione)
    ========================================================= */
 (function () {
   var LEAF_COLORS = ['#c99a7c', '#d9c193', '#b98f80', '#a9b39a', '#c7a583'];

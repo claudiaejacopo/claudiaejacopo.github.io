@@ -1,16 +1,16 @@
 # claudiaejacopo.github.io
 
-Sito del matrimonio di Claudia & Jacopo — 14 Ottobre 2027.
+Sito del matrimonio di Claudia & Jacopo - 14 Ottobre 2027.
 Sito statico (HTML/CSS/JS puro, nessun build step), pubblicato su GitHub Pages.
 
 ## Struttura
 
-- `index.html` — lettera d'invito animata + homepage (con countdown, musica di sottofondo, riepilogo evento)
-- `dettagli.html` — orari e location (cerimonia, ricevimento, taglio torta) con link Google Maps
-- `rsvp.html` — form di conferma presenza in 2 passaggi (ricerca invitato + conferma/note/preferenze alimentari), invio tramite [Web3Forms](https://web3forms.com/)
-- `lista-nozze.html` — testo, immagini e IBAN copiabile
-- `css/`, `js/` — stili e script condivisi
-- `data/guests.json` — elenco invitati usato dalla ricerca RSVP
+- `index.html` - lettera d'invito animata + homepage (con countdown, musica di sottofondo, riepilogo evento)
+- `dettagli.html` - orari e location (cerimonia, ricevimento, taglio torta) con link Google Maps
+- `rsvp.html` - form di conferma presenza in 2 passaggi (ricerca invitato + conferma/note/preferenze alimentari), invio tramite [Web3Forms](https://web3forms.com/)
+- `lista-nozze.html` - testo, immagini e IBAN copiabile
+- `css/`, `js/` - stili e script condivisi
+- `data/guests.json` - elenco invitati usato dalla ricerca RSVP
 
 ## Da personalizzare prima della pubblicazione definitiva
 

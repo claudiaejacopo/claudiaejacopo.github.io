@@ -1,5 +1,5 @@
 /* =========================================================
-   Claudia & Jacopo — Countdown al matrimonio (14 Ottobre 2027)
+   Claudia & Jacopo - Countdown al matrimonio (14 Ottobre 2027)
    ========================================================= */
 
 (function () {

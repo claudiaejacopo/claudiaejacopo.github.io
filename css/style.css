@@ -1,5 +1,5 @@
 /* =========================================================
-   Claudia & Jacopo — Stile globale
+   Claudia & Jacopo - Stile globale
    Palette autunnale ispirata al logo (terracotta, bordeaux,
    oro/senape, verde salvia, crema).
    ========================================================= */
@@ -432,7 +432,7 @@ footer.site-footer .divider {
 }
 
 /* ---------------------------------------------------------
-   Scroll reveal (fade/slide-up) — vedi js/reveal.js
+   Scroll reveal (fade/slide-up) - vedi js/reveal.js
    Lo stato nascosto e' applicato direttamente via selettore
    (nessuna classe aggiunta da JS in ritardo) e attivo solo se
    la classe html.js-reveal e' presente: viene impostata da uno
@@ -459,7 +459,7 @@ html.js-reveal main .card:nth-child(4) { transition-delay: 0.24s; }
 }
 
 /* ---------------------------------------------------------
-   Foglie autunnali cadenti — vedi js/leaves.js
+   Foglie autunnali cadenti - vedi js/leaves.js
    --------------------------------------------------------- */
 .leaves-decor {
   position: absolute;
