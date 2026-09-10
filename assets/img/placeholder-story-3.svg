@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Segnaposto foto - insieme</title>
+  <desc id="desc">Illustrazione autunnale con sagome della coppia e dicitura sostituisci con una foto, per la sezione La Nostra Storia.</desc>
+  <defs>
+    <linearGradient id="bgs3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbf6ee"/>
+      <stop offset="100%" stop-color="#f2e4cd"/>
+    </linearGradient>
+    <linearGradient id="skys3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8a9575" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#fbf6ee" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bgs3)"/>
+  <rect x="0" y="0" width="900" height="620" fill="url(#skys3)"/>
+  <circle cx="640" cy="190" r="60" fill="#d9b877" fill-opacity="0.4"/>
+  <path d="M0 760 C170 706 330 720 470 768 C630 822 770 812 900 748 L900 1200 L0 1200 Z" fill="#8a9575" fill-opacity="0.82"/>
+  <path d="M0 860 C180 812 340 828 480 868 C640 916 780 908 900 852 L900 1200 L0 1200 Z" fill="#7a3b3b" fill-opacity="0.16"/>
+  <g fill="#7a3b3b">
+    <ellipse cx="390" cy="430" rx="58" ry="70"/>
+    <ellipse cx="510" cy="426" rx="58" ry="70"/>
+    <path d="M312 620 C322 528 360 476 416 476 C474 476 502 524 508 620 Z"/>
+    <path d="M420 620 C428 530 470 474 528 474 C584 474 614 526 622 620 Z"/>
+  </g>
+  <g fill="#b5502d" fill-opacity="0.85">
+    <path d="M170 300 C196 272 236 270 258 302 C232 308 204 326 188 352 C170 332 158 318 170 300 Z"/>
+    <path d="M730 380 C758 350 800 348 822 380 C794 388 764 408 746 438 C730 416 718 400 730 380 Z"/>
+  </g>
+  <text x="450" y="1000" text-anchor="middle" font-family="Georgia, serif" font-size="32" letter-spacing="3" fill="#7a3b3b" fill-opacity="0.78">
+    SOSTITUISCI CON
+  </text>
+  <text x="450" y="1042" text-anchor="middle" font-family="Georgia, serif" font-size="32" letter-spacing="3" fill="#7a3b3b" fill-opacity="0.78">
+    UNA FOTO
+  </text>
+</svg>

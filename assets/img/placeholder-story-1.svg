@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Segnaposto foto - il primo incontro</title>
+  <desc id="desc">Illustrazione autunnale con dicitura sostituisci con una foto, per la sezione La Nostra Storia.</desc>
+  <defs>
+    <linearGradient id="bgs1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbf6ee"/>
+      <stop offset="100%" stop-color="#f6efe4"/>
+    </linearGradient>
+    <linearGradient id="skys1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d9b877" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#fbf6ee" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bgs1)"/>
+  <rect x="0" y="0" width="900" height="620" fill="url(#skys1)"/>
+  <circle cx="700" cy="220" r="66" fill="#d9b877" fill-opacity="0.42"/>
+  <path d="M0 780 C160 720 320 730 460 780 C620 836 760 826 900 760 L900 1200 L0 1200 Z" fill="#8a9575" fill-opacity="0.8"/>
+  <path d="M0 880 C170 830 330 848 470 892 C630 942 770 934 900 872 L900 1200 L0 1200 Z" fill="#7a3b3b" fill-opacity="0.16"/>
+  <g fill="#b5502d" fill-opacity="0.85">
+    <path d="M150 240 C180 202 230 200 256 240 C222 248 190 270 170 306 C150 282 136 264 150 240 Z"/>
+    <path d="M660 470 C692 434 744 432 770 470 C734 478 700 500 680 534 C662 510 648 492 660 470 Z"/>
+  </g>
+  <path d="M270 470 C310 400 396 384 464 434 C532 484 606 474 646 418" fill="none" stroke="#c9a24b" stroke-width="9" stroke-linecap="round" stroke-opacity="0.9"/>
+  <text x="450" y="1000" text-anchor="middle" font-family="Georgia, serif" font-size="32" letter-spacing="3" fill="#7a3b3b" fill-opacity="0.78">
+    SOSTITUISCI CON
+  </text>
+  <text x="450" y="1042" text-anchor="middle" font-family="Georgia, serif" font-size="32" letter-spacing="3" fill="#7a3b3b" fill-opacity="0.78">
+    UNA FOTO
+  </text>
+</svg>

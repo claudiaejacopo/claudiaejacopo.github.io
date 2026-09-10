@@ -13,19 +13,25 @@
   font-size: 1.15rem;
 }
 
-/* Cornice elegante pronta ad accogliere una foto reale della coppia in
-   futuro (es. dentro .dettagli-intro): bordo dorato sottile, angoli
-   morbidi, ombra discreta. Resta inattiva finche' non viene aggiunto un
-   <img class="dettagli-photo"> nel markup. */
+/* Banner fotografico panoramico sotto l'introduzione: bordo dorato
+   sottile, angoli morbidi, ombra discreta, altezza contenuta per non
+   dominare la pagina. */
 .dettagli-photo {
   display: block;
   width: 100%;
-  max-width: 420px;
-  margin: 28px auto 0;
+  max-width: 760px;
+  aspect-ratio: 16 / 7;
+  margin: 32px auto 0;
   border-radius: var(--radius-lg);
   object-fit: cover;
   border: 1px solid rgba(201, 162, 75, 0.4);
   box-shadow: 0 18px 40px rgba(92, 43, 43, 0.16);
+}
+
+@media (max-width: 640px) {
+  .dettagli-photo {
+    aspect-ratio: 3 / 2;
+  }
 }
 
 .timeline-section {

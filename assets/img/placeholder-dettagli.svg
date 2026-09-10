@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" role="img" aria-labelledby="title desc">
+  <title id="title">Segnaposto foto banner - dettagli</title>
+  <desc id="desc">Illustrazione autunnale panoramica con dicitura sostituisci con una foto, per il banner della pagina dettagli.</desc>
+  <defs>
+    <linearGradient id="bgd" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbf6ee"/>
+      <stop offset="100%" stop-color="#f2e4cd"/>
+    </linearGradient>
+    <linearGradient id="skyd" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d9b877" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#fbf6ee" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="700" fill="url(#bgd)"/>
+  <rect x="0" y="0" width="1600" height="420" fill="url(#skyd)"/>
+  <circle cx="1280" cy="150" r="72" fill="#d9b877" fill-opacity="0.4"/>
+  <path d="M0 460 C260 400 520 420 760 470 C1040 528 1320 512 1600 440 L1600 700 L0 700 Z" fill="#8a9575" fill-opacity="0.82"/>
+  <path d="M0 540 C280 494 540 512 800 556 C1080 604 1340 594 1600 528 L1600 700 L0 700 Z" fill="#7a3b3b" fill-opacity="0.16"/>
+  <path d="M560 260 C620 190 730 172 820 226 C910 280 1000 268 1050 208" fill="none" stroke="#c9a24b" stroke-width="10" stroke-linecap="round" stroke-opacity="0.9"/>
+  <g fill="#b5502d" fill-opacity="0.85">
+    <path d="M230 180 C266 138 328 136 360 180 C318 190 278 216 252 258 C228 228 210 206 230 180 Z"/>
+    <path d="M1380 300 C1418 258 1478 256 1512 298 C1470 310 1428 336 1402 378 C1376 348 1358 326 1380 300 Z"/>
+  </g>
+  <text x="800" y="600" text-anchor="middle" font-family="Georgia, serif" font-size="42" letter-spacing="4" fill="#7a3b3b" fill-opacity="0.78">
+    SOSTITUISCI CON UNA FOTO
+  </text>
+</svg>

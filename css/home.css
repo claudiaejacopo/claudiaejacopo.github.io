@@ -26,10 +26,10 @@
   margin: 0 auto 18px;
 }
 
-/* Cornice elegante pronta ad accogliere una foto reale della coppia in
-   futuro: bordo dorato sottile, forma morbida, ombra discreta. Resta
-   inattiva (nessun contenuto visibile) finche' non viene aggiunto un
-   <img class="home-hero-photo"> nel markup. */
+/* Riservato per un eventuale uso futuro: cornice tonda pronta ad
+   accogliere una foto reale della coppia (bordo dorato sottile, ombra
+   discreta). Non referenziata nel markup attuale: la foto della coppia
+   in home vive ora nella sezione .home-cover, più sotto. */
 .home-hero-photo {
   width: clamp(160px, 32vw, 220px);
   height: clamp(160px, 32vw, 220px);
@@ -149,6 +149,35 @@
 @media (max-width: 780px) {
   .home-summary {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Foto della coppia in una card contenuta, coerente in larghezza con le
+   card di riepilogo qui sopra (stesso container, stesso stile "carta
+   elegante" di .card): niente banner a piena larghezza, niente testo
+   sovrapposto, solo l'immagine ben incorniciata. */
+.home-photo {
+  max-width: var(--max-width);
+  margin: 70px auto 0;
+  padding: 0 24px;
+}
+
+.home-photo-card {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.home-photo-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .home-photo-card img {
+    aspect-ratio: 4 / 3;
   }
 }
 

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 800" role="img" aria-labelledby="title desc">
+  <title id="title">Segnaposto foto cover panoramica</title>
+  <desc id="desc">Scena autunnale panoramica pensata come sfondo per la sezione cover della home, con spazio leggibile al centro per il testo in sovraimpressione.</desc>
+  <defs>
+    <linearGradient id="bgc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e7cf9f"/>
+      <stop offset="50%" stop-color="#eddcb6"/>
+      <stop offset="100%" stop-color="#dcbd85"/>
+    </linearGradient>
+    <linearGradient id="skyc" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f6efe4" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#c9a24b" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="800" fill="url(#bgc)"/>
+  <rect x="0" y="0" width="1920" height="420" fill="url(#skyc)"/>
+  <circle cx="1540" cy="180" r="92" fill="#fbf6ee" fill-opacity="0.55"/>
+  <circle cx="1540" cy="180" r="92" fill="none" stroke="#c9a24b" stroke-opacity="0.4" stroke-width="2"/>
+
+  <!-- Colline autunnali stratificate -->
+  <path d="M0 560 C260 500 500 512 760 560 C1060 616 1340 600 1920 500 L1920 800 L0 800 Z" fill="#8a9575" fill-opacity="0.55"/>
+  <path d="M0 620 C280 570 560 588 820 630 C1120 678 1400 660 1920 580 L1920 800 L0 800 Z" fill="#6f7d55" fill-opacity="0.55"/>
+  <path d="M0 690 C300 650 600 664 880 700 C1180 738 1460 726 1920 664 L1920 800 L0 800 Z" fill="#7a3b3b" fill-opacity="0.28"/>
+
+  <!-- Silhouette di due alberi stilizzati ai lati, per non affollare il centro
+       (spazio riservato al testo in sovraimpressione via CSS) -->
+  <g fill="#5c2b2b" fill-opacity="0.45">
+    <path d="M190 560 C150 500 150 430 200 380 C170 340 178 280 230 250 C282 280 290 340 260 380 C310 430 310 500 270 560 Z"/>
+    <rect x="222" y="555" width="16" height="60" fill="#5c2b2b" fill-opacity="0.5"/>
+  </g>
+  <g fill="#5c2b2b" fill-opacity="0.4">
+    <path d="M1660 590 C1628 540 1628 484 1670 442 C1646 410 1652 362 1694 338 C1736 362 1742 410 1718 442 C1760 484 1760 540 1728 590 Z"/>
+    <rect x="1678" y="586" width="14" height="50" fill="#5c2b2b" fill-opacity="0.45"/>
+  </g>
+
+  <!-- Foglie sparse -->
+  <g fill="#b5502d" fill-opacity="0.75">
+    <path d="M330 250 C360 218 404 216 426 250 C398 258 370 276 354 306 C338 286 322 270 330 250 Z"/>
+    <path d="M1140 300 C1170 268 1214 266 1236 300 C1208 308 1180 326 1164 356 C1148 336 1132 320 1140 300 Z"/>
+  </g>
+  <g fill="#c9a24b" fill-opacity="0.7">
+    <path d="M1480 470 C1506 444 1544 442 1564 472 C1538 480 1512 496 1498 522 C1484 504 1472 490 1480 470 Z"/>
+    <path d="M120 420 C146 394 184 392 204 422 C178 430 152 446 138 472 C124 454 112 440 120 420 Z"/>
+  </g>
+</svg>

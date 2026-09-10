@@ -29,6 +29,16 @@
   top: 98px;
 }
 
+.rsvp-sidecard-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(201, 162, 75, 0.4);
+  box-shadow: var(--shadow-soft);
+  margin: 0 0 20px;
+}
+
 .rsvp-sidecard h2,
 .rsvp-card h2 {
   margin-bottom: 12px;

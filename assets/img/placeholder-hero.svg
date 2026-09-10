@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Segnaposto foto sposi - ritratto</title>
+  <desc id="desc">Illustrazione autunnale con sagome della coppia e dicitura sostituisci con una foto, per la foto tonda in home.</desc>
+  <defs>
+    <linearGradient id="bgh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbf6ee"/>
+      <stop offset="100%" stop-color="#f2e4cd"/>
+    </linearGradient>
+    <radialGradient id="glowh" cx="50%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#d9b877" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#fbf6ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="900" fill="url(#bgh)"/>
+  <rect width="900" height="900" fill="url(#glowh)"/>
+  <path d="M0 560 C160 500 320 520 450 570 C580 620 740 610 900 540 L900 900 L0 900 Z" fill="#8a9575" fill-opacity="0.8"/>
+  <path d="M0 640 C170 600 330 620 460 660 C610 706 760 700 900 640 L900 900 L0 900 Z" fill="#7a3b3b" fill-opacity="0.16"/>
+  <g fill="#7a3b3b">
+    <ellipse cx="380" cy="330" rx="70" ry="82"/>
+    <ellipse cx="520" cy="326" rx="70" ry="82"/>
+    <path d="M280 560 C292 448 340 384 410 384 C482 384 518 444 524 560 Z"/>
+    <path d="M416 560 C426 452 480 380 552 380 C620 380 668 448 678 560 Z"/>
+  </g>
+  <path d="M330 270 C362 218 428 206 484 246 C540 288 592 280 624 232" fill="none" stroke="#c9a24b" stroke-width="9" stroke-linecap="round" stroke-opacity="0.9"/>
+  <g fill="#b5502d" fill-opacity="0.85">
+    <path d="M150 150 C176 122 216 120 238 152 C212 158 184 176 168 204 C150 184 138 170 150 150 Z"/>
+    <path d="M740 210 C768 180 810 178 832 208 C804 216 776 234 758 262 C742 240 730 226 740 210 Z"/>
+  </g>
+  <text x="450" y="700" text-anchor="middle" font-family="Georgia, serif" font-size="34" letter-spacing="3" fill="#7a3b3b" fill-opacity="0.78">
+    SOSTITUISCI CON
+  </text>
+  <text x="450" y="742" text-anchor="middle" font-family="Georgia, serif" font-size="34" letter-spacing="3" fill="#7a3b3b" fill-opacity="0.78">
+    UNA FOTO
+  </text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Segnaposto foto - RSVP</title>
+  <desc id="desc">Illustrazione autunnale con dicitura sostituisci con una foto, per la sidebar della pagina RSVP.</desc>
+  <defs>
+    <linearGradient id="bgr" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbf6ee"/>
+      <stop offset="100%" stop-color="#f6efe4"/>
+    </linearGradient>
+    <linearGradient id="skyr" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8a9575" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#fbf6ee" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bgr)"/>
+  <rect x="0" y="0" width="800" height="520" fill="url(#skyr)"/>
+  <circle cx="600" cy="170" r="52" fill="#c9a24b" fill-opacity="0.4"/>
+  <path d="M0 660 C150 610 290 624 410 664 C550 710 670 702 800 648 L800 1000 L0 1000 Z" fill="#8a9575" fill-opacity="0.82"/>
+  <path d="M0 750 C160 706 300 720 420 754 C560 794 680 786 800 736 L800 1000 L0 1000 Z" fill="#7a3b3b" fill-opacity="0.16"/>
+  <path d="M260 420 C240 380 190 380 190 425 C190 465 230 490 260 520 C290 490 330 465 330 425 C330 380 280 380 260 420 Z" fill="#7a3b3b" fill-opacity="0.85"/>
+  <g fill="#b5502d" fill-opacity="0.85">
+    <path d="M140 220 C164 194 202 192 222 222 C196 228 170 246 154 274 C140 254 130 240 140 220 Z"/>
+    <path d="M600 320 C624 294 662 292 682 322 C656 328 630 346 614 374 C600 354 590 340 600 320 Z"/>
+  </g>
+  <text x="400" y="850" text-anchor="middle" font-family="Georgia, serif" font-size="28" letter-spacing="2.6" fill="#7a3b3b" fill-opacity="0.78">
+    SOSTITUISCI CON
+  </text>
+  <text x="400" y="888" text-anchor="middle" font-family="Georgia, serif" font-size="28" letter-spacing="2.6" fill="#7a3b3b" fill-opacity="0.78">
+    UNA FOTO
+  </text>
+</svg>
