@@ -64,8 +64,8 @@
       }
 
       // La dissolvenza parte solo a cartoncino completamente rivelato: lo
-      // slide del cartoncino (ritardo 700ms + durata 1500ms) finisce a
-      // ~2200ms; aggiungiamo una pausa di lettura di 2 secondi prima di
+      // slide del cartoncino (ritardo 200ms + durata 1100ms) finisce a
+      // ~1300ms; aggiungiamo una pausa di lettura di 2.5 secondi prima di
       // far sfumare via l'intera schermata verso la home.
       setTimeout(function () {
         invitoScreen.classList.add('is-hidden');
@@ -73,7 +73,7 @@
         home.setAttribute('tabindex', '-1');
         home.focus({ preventScroll: true });
         document.body.classList.add('site-entered');
-      }, 4200);
+      }, 3800);
 
       invitoScreen.setAttribute('aria-hidden', 'true');
     }
