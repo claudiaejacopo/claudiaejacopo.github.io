@@ -156,7 +156,6 @@
   inset: 0;
   opacity: 0.95;
   mix-blend-mode: multiply;
-  filter: contrast(1.25) brightness(1.03);
   background-image:
     url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.82 0 0 0 0 0.72 0 0 0 0 0.53 0 0 0 0.48 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
     url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.06' numOctaves='3' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.7 0 0 0 0 0.58 0 0 0 0 0.38 0 0 0 0.58 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E"),
@@ -172,7 +171,6 @@
   content: "";
   position: absolute;
   inset: 0;
-  filter: contrast(1.15) brightness(1.02);
   background-image:
     radial-gradient(circle at 15% 30%, rgba(122, 59, 59, 0.08), transparent 12%),
     radial-gradient(circle at 72% 62%, rgba(255, 255, 255, 0.12), transparent 16%),
@@ -300,7 +298,6 @@
   border-radius: inherit;
   opacity: 0.95;
   mix-blend-mode: multiply;
-  filter: contrast(1.25) brightness(1.03);
   background-image:
     url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.82 0 0 0 0 0.72 0 0 0 0 0.53 0 0 0 0.48 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
     url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.06' numOctaves='3' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.7 0 0 0 0 0.58 0 0 0 0 0.38 0 0 0 0.58 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E"),
