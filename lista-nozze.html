@@ -36,6 +36,7 @@
 
   <main>
     <section class="page-hero">
+      <div class="leaves-decor" data-leaves="7" aria-hidden="true"></div>
       <p class="eyebrow">Il vostro regalo più bello</p>
       <h1>Lista Nozze</h1>
       <div class="divider"></div>
@@ -44,13 +45,32 @@
     <section class="registry-overview container">
       <div class="registry-layout">
         <article class="card registry-copy">
-          <span class="registry-kicker">Il nostro sogno: il Giappone</span>
+          <span class="registry-kicker">
+            Il nostro sogno: il Giappone
+          </span>
           <svg class="registry-accent" viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M12 46 L24 24 L32 34 L40 14 L52 46 Z" fill="none" stroke="#b5502d" stroke-width="2" stroke-linejoin="round"/>
-            <line x1="6" y1="46" x2="58" y2="46" stroke="#c9a24b" stroke-width="2"/>
-            <circle cx="24" cy="16" r="4" fill="#7a3b3b" opacity="0.85"/>
-            <circle cx="34" cy="10" r="3" fill="#c9a24b" opacity="0.85"/>
-            <circle cx="16" cy="20" r="2.4" fill="#8a9575" opacity="0.85"/>
+            <!-- Sole nascente -->
+            <circle cx="46" cy="14" r="7" fill="#c9a24b" opacity="0.85"/>
+            <!-- Monte Fuji, con calotta innevata -->
+            <path d="M4 46 L24 16 L32 26 L40 10 L60 46 Z" fill="none" stroke="#7a3b3b" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M34 22 L40 14 L46 23 L42 21 L38 25 Z" fill="#fbf6ee" stroke="#7a3b3b" stroke-width="1.2" stroke-linejoin="round"/>
+            <!-- Base/terreno -->
+            <line x1="2" y1="46" x2="62" y2="46" stroke="#c9a24b" stroke-width="2"/>
+            <!-- Torii in primo piano -->
+            <g stroke="#b5502d" stroke-width="2.4" stroke-linecap="round">
+              <line x1="16" y1="34" x2="16" y2="50"/>
+              <line x1="28" y1="34" x2="28" y2="50"/>
+              <line x1="13" y1="34" x2="31" y2="34"/>
+              <line x1="11" y1="29" x2="33" y2="29"/>
+              <line x1="19" y1="38" x2="25" y2="38"/>
+            </g>
+            <!-- Rametto di sakura -->
+            <path d="M46 40 C50 36 54 35 58 37" fill="none" stroke="#8a9575" stroke-width="1.6" stroke-linecap="round"/>
+            <g fill="#b5502d" opacity="0.85">
+              <circle cx="49" cy="38" r="2.1"/>
+              <circle cx="54" cy="36" r="2.1"/>
+              <circle cx="58" cy="38.5" r="1.8"/>
+            </g>
           </svg>
           <p>
             La vostra presenza sarà già per noi il dono più prezioso. Se desiderate
@@ -70,6 +90,23 @@
             <img src="assets/img/placeholder-1.svg" alt="Illustrazione segnaposto da sostituire con una foto di Claudia e Jacopo">
             <figcaption>Un ricordo da sostituire con una vostra foto speciale.</figcaption>
           </figure>
+          <div class="registry-crane" aria-hidden="true">
+            <svg viewBox="0 0 64 64">
+              <g fill="none" stroke="#b5502d" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <line x1="46" y1="33" x2="46" y2="27.587"/>
+                <polyline points="49.678 36 50.884 60.08 46 60.08 46 36"/>
+                <line x1="49.256" y1="27.587" x2="49.5" y2="32.45"/>
+                <line x1="20.101" y1="32.45" x2="20.101" y2="27.587"/>
+                <polyline points="16.214 36.465 14.971 60.08 20.101 60.08 20.101 36.465"/>
+                <line x1="16.681" y1="27.587" x2="16.425" y2="32.45"/>
+                <rect x="13" y="33" width="40" height="3" rx="1.5" ry="1.5"/>
+                <rect x="31" y="28" width="4" height="5"/>
+                <path d="M57,21.88v4.094a143.181,143.181,0,0,1-48,0V22.307"/>
+                <path d="M62,20.908a137.544,137.544,0,0,1-58,0V15.616c19.14,6.095,38.492,5.935,58,0Z" stroke="#7a3b3b"/>
+                <line x1="8.13" y1="60.08" x2="56.014" y2="60.08"/>
+              </g>
+            </svg>
+          </div>
           <figure class="card registry-photo">
             <img src="assets/img/placeholder-2.svg" alt="Illustrazione segnaposto da sostituire con una foto o un'immagine del Giappone">
             <figcaption>Un angolo dedicato al nostro viaggio dei sogni in Giappone.</figcaption>
@@ -82,11 +119,13 @@
       <article class="card iban-card">
         <div class="iban-heading">
           <p class="eyebrow">Coordinate per il regalo</p>
-          <h2>Un contributo per il nostro viaggio in Giappone</h2>
+          <h2>
+            Un contributo per il nostro viaggio in Giappone
+          </h2>
         </div>
 
         <p class="iban-holder">
-          <strong>Intestato a:</strong> Claudia [Cognome] &amp; Jacopo [Cognome]
+          <strong>Intestato a:</strong> Guerini Jacopo, Merati Claudia
         </p>
 
         <div class="iban-display" data-iban-value tabindex="0" aria-label="IBAN segnaposto">
@@ -127,6 +166,7 @@
   <script src="js/nav.js"></script>
   <script src="js/audio-player.js"></script>
   <script src="js/reveal.js"></script>
+  <script src="js/leaves.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       window.CJMusicPlayer.init();

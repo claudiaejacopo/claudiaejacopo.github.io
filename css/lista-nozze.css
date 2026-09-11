@@ -2,6 +2,13 @@ main {
   padding-bottom: 48px;
 }
 
+/* Contenitore per le foglie di acero (momiji) cadenti, riuso del sistema
+   di animazione gia' presente nel sito (js/leaves.js + .leaves-decor). */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+}
+
 .registry-overview,
 .registry-iban-section {
   margin-bottom: 34px;
@@ -16,6 +23,12 @@ main {
 .registry-copy {
   position: relative;
   overflow: hidden;
+  background-image:
+    linear-gradient(90deg, var(--color-terracotta), var(--color-bordeaux)),
+    linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top left, center;
+  background-size: 100% 4px, auto;
 }
 
 .registry-copy::before,
@@ -25,12 +38,36 @@ main {
   inset: 0 auto auto 0;
   width: 140px;
   height: 140px;
-  background: radial-gradient(circle, rgba(201, 162, 75, 0.18), transparent 70%);
+  background-image: radial-gradient(circle, rgba(201, 162, 75, 0.18), transparent 70%);
   pointer-events: none;
 }
 
-.registry-kicker {
+/* Ramo di ginkgo dorato: piccolo accento a tema autunno giapponese,
+   vicino al kicker "Il nostro sogno: il Giappone". */
+.registry-kicker::after {
+  content: '';
   display: inline-block;
+  width: 22px;
+  height: 18px;
+  margin-left: 2px;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 18'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M2 17 C4 12, 5 8, 6 4' stroke='%238a9575' stroke-width='1.1'/%3E%3Cpath d='M6 4 C4 4, 2.4 2.6, 2 0.6 C4.6 0.4, 6.4 1.6, 7 3.6 C7.6 1.6, 9.4 0.4, 12 0.6 C11.6 2.6, 10 4, 8 4 C10 5.4, 11 7.4, 10.6 9.4 C8.4 9, 6.8 7.4, 6.4 5.4 C6 7.4, 4.4 9, 2.2 9.4 C1.8 7.4, 2.8 5.4, 4.6 4' fill='%23c9a24b' stroke='%23b5502d' stroke-width='0.6' stroke-opacity='0.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+/* Texture "washi" leggermente piu' marcata su questa pagina, rispetto
+   alla grana sottile usata di default su tutte le card del sito. */
+.registry-copy::after,
+.iban-card::after,
+.registry-photo::after {
+  opacity: 0.45;
+}
+
+.registry-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 14px;
   color: var(--color-terracotta);
   letter-spacing: 1.2px;
@@ -66,12 +103,44 @@ main {
 }
 
 .registry-photos {
+  position: relative;
   display: grid;
   gap: 22px;
 }
 
 .registry-photo {
+  position: relative;
+  overflow: hidden;
   padding: 18px;
+}
+
+/* Piccolo dettaglio a nastro (ispirato all'obi), come un angolo
+   ripiegato ed elegante sulle foto segnaposto. */
+.registry-photo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--color-terracotta), var(--color-bordeaux));
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  box-shadow: 0 4px 10px rgba(92, 43, 43, 0.22);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.registry-crane {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+}
+
+.registry-crane svg {
+  width: 44px;
+  height: 44px;
+  opacity: 0.85;
 }
 
 .registry-photo img {
@@ -94,6 +163,13 @@ main {
   overflow: hidden;
   text-align: center;
   padding: 36px 32px;
+  background-image:
+    linear-gradient(90deg, var(--color-terracotta), var(--color-bordeaux)),
+    url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 90'%3E%3Cpath d='M0 90 L60 22 L78 42 L104 8 L132 42 L152 20 L200 90 Z' fill='%23c9a24b' fill-opacity='0.07'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: top left, center bottom, center;
+  background-size: 100% 4px, 320px 145px, auto;
 }
 
 .iban-heading .eyebrow {
@@ -162,6 +238,14 @@ main {
 @media (min-width: 760px) {
   .registry-photos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .registry-crane {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
   }
 
   .iban-actions {

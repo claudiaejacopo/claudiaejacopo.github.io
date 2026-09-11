@@ -57,7 +57,7 @@
               <span>⛪</span>
             </div>
             <div class="timeline-content card">
-              <p class="timeline-time">Ore 11:00</p>
+              <p class="timeline-time">11:00</p>
               <h2>Cerimonia</h2>
               <p class="timeline-venue">Santuario Madonna dei Campi</p>
               <p class="timeline-address">Stezzano (BG)</p>
@@ -81,7 +81,7 @@
               <span>🥂</span>
             </div>
             <div class="timeline-content card">
-              <p class="timeline-time">Dalle 13:00 / 13:30</p>
+              <p class="timeline-time">13:00 - 13:30</p>
               <h2>Ricevimento</h2>
               <p class="timeline-venue">Tenuta Acquaviva</p>
               <p class="timeline-address">Travagliato (BS)</p>
@@ -105,7 +105,7 @@
               <span>🍰</span>
             </div>
             <div class="timeline-content card">
-              <p class="timeline-time">Ore 18:30</p>
+              <p class="timeline-time">18:30</p>
               <h2>Taglio della torta</h2>
               <p class="timeline-venue">Tenuta Acquaviva</p>
               <p class="timeline-address">Travagliato (BS)</p>
@@ -126,6 +126,16 @@
             momento all'altro della festa.
           </p>
         </section>
+
+        <section class="weather-section card" aria-labelledby="weather-title">
+          <h2 id="weather-title">Che tempo far&agrave;?</h2>
+          <div class="divider" aria-hidden="true"></div>
+          <p class="weather-intro">
+            Un piccolo sguardo al cielo del 14 Ottobre 2027, a Stezzano e a
+            Travagliato.
+          </p>
+          <div data-weather-widget></div>
+        </section>
       </div>
     </section>
   </main>
@@ -143,6 +153,7 @@
   <script src="js/nav.js"></script>
   <script src="js/audio-player.js"></script>
   <script src="js/reveal.js"></script>
+  <script src="js/weather.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       window.CJMusicPlayer.init();
