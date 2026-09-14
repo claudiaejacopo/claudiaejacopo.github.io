@@ -7,6 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Alex+Brush&display=swap');
 
 :root {
+  /* Forza il tema chiaro: evita che browser mobile (es. Samsung Internet)
+     applichino una dark mode di sistema che inverte i colori del sito. */
+  color-scheme: light;
+
   /* Colori principali */
   --color-terracotta: #b5502d;
   --color-terracotta-light: #c1653f;

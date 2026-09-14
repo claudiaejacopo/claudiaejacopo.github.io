@@ -66,17 +66,58 @@
       );
     }
 
+    // Se il browser blocca l'autoplay (tipico su mobile dopo un reload, quando
+    // manca un'interazione utente sulla pagina corrente), ci mettiamo in ascolto
+    // della prima interazione (tap/scroll/click) per ritentare subito il play,
+    // cosi' la musica riparte in modo pressoche' trasparente per l'utente.
+    const RESUME_EVENTS = ['pointerdown', 'touchstart', 'click', 'scroll', 'keydown'];
+    let resumeListenersActive = false;
+
+    function removeResumeListeners() {
+      if (!resumeListenersActive) return;
+      resumeListenersActive = false;
+      RESUME_EVENTS.forEach(function (evt) {
+        document.removeEventListener(evt, onFirstInteraction, true);
+      });
+    }
+
+    function onFirstInteraction(event) {
+      removeResumeListeners();
+      // Se l'interazione e' un tap/click sul pulsante musica, lascia che sia
+      // il suo handler dedicato a gestire play/pause, per evitare un doppio
+      // toggle (resume automatico + toggle manuale nello stesso evento).
+      if (toggleBtn && event && event.target && toggleBtn.contains(event.target)) {
+        return;
+      }
+      // Ritenta solo se lo stato salvato indica che la musica doveva suonare
+      // e non e' gia' stata avviata/messa in pausa manualmente nel frattempo.
+      if (readState().playing && audio.paused) {
+        play();
+      }
+    }
+
+    function armResumeOnInteraction() {
+      if (resumeListenersActive) return;
+      resumeListenersActive = true;
+      RESUME_EVENTS.forEach(function (evt) {
+        document.addEventListener(evt, onFirstInteraction, { capture: true, passive: true });
+      });
+    }
+
     function play() {
       audio.play().then(function () {
+        removeResumeListeners();
         writeState({ playing: true, time: audio.currentTime });
         setButtonState(true);
       }).catch(function () {
-        /* autoplay bloccato dal browser: rimane in pausa finche' l'utente non clicca */
+        /* autoplay bloccato dal browser: ritenta al primo tap/scroll dell'utente */
         setButtonState(false);
+        armResumeOnInteraction();
       });
     }
 
     function pause() {
+      removeResumeListeners();
       audio.pause();
       writeState({ playing: false, time: audio.currentTime });
       setButtonState(false);
